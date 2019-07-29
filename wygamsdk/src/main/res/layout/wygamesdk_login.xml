@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="260.0dp"
+    android:layout_width="335dp"
     android:layout_height="wrap_content"
     android:background="@drawable/wygamesdk_login_bg"
     android:gravity="center"
