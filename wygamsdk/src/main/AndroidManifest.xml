@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jiaohe.wygamsdk">
+
+    <application>
+        <activity
+            android:name=".ui.login.WyLoginActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/bsgamesdk_customDialog" />
+    </application>
+
+</manifest>

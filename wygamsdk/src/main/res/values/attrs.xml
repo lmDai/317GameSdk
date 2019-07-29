@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bsgamesdk_main_background" format="reference|color" />
+    <attr name="bsgamesdk_img_user" format="reference" />
+    <attr name="bsgamesdk_img_email" format="reference" />
+    <attr name="bsgamesdk_img_password" format="reference" />
+    <attr name="bsgamesdk_confirm_button_style" format="reference" />
+    <attr name="bsgamesdk_reg_button_style" format="reference" />
+    <attr name="bsgamesdk_editText_style" format="reference" />
+    <attr name="bsgamesdk_close_button_style" format="reference" />
+    <attr name="bsgamesdk_back_button_style" format="reference" />
+    <attr name="bsgamesdk_checkbox_style" format="reference" />
+    <attr name="bsgamesdk_title_text_style" format="reference" />
+    <attr name="bsgamesdk_title_logo_style" format="reference" />
+    <attr name="bsgamesdk_basic_text_style" format="reference" />
+    <attr name="bsgamesdk_info_text_style" format="reference" />
+    <attr name="bsgamesdk_info_name_style" format="reference" />
+    <attr name="bsgamesdk_text_image_style" format="reference" />
+    <attr name="bsgamesdk_text_no_image_style" format="reference" />
+    <attr name="bsgamesdk_basic_checkbox_style" format="reference" />
+    <attr name="bsgamesdk_basic_editText_style" format="reference" />
+    <attr name="bsgamesdk_switch_background" format="reference" />
+    <attr name="bsgamesdk_switch_thumb_normal" format="reference" />
+    <attr name="bsgamesdk_switch_thumb_heightlight" format="reference" />
+    <attr name="bsgamesdk_switch_frame" format="reference" />
+    <attr name="bsgamesdk_switch_mask" format="reference" />
+    <attr name="bsgamesdk_agree_text_style" format="reference" />
+    <attr name="bsgamesdk_switch_img_show" format="reference" />
+    <attr name="bsgamesdk_switch_img_hide" format="reference" />
+    <attr name="bsgamesdk_switch_img_launch" format="reference" />
+    <attr name="bsgamesdk_switch_img_launch_rev" format="reference" />
+    <attr name="bsgamesdk_welcome_change_style" format="reference" />
+    <attr name="bsgamesdk_item_user_text_style" format="reference" />
+    <attr name="bsgamesdk_welcome_head_image_style" format="reference" />
+    <attr name="bsgamesdk_roundImageView_borderRadius" format="dimension" />
+    <attr name="bsgamesdk_roundImageView_type">
+        <enum name="circle" value="0" />
+        <enum name="round" value="1" />
+    </attr>
+    <attr name="bsgamesdk_switchButton_background" format="reference" />
+    <attr name="bsgamesdk_switchButton_thumb_normal" format="reference" />
+    <attr name="bsgamesdk_switchButton_thumb_highlight" format="reference" />
+    <attr name="bsgamesdk_switchButton_frame" format="reference" />
+    <attr name="bsgamesdk_switchButton_mask" format="reference" />
+    <attr name="bsgamesdk_switchImage_img_show" format="reference" />
+    <attr name="bsgamesdk_switchImage_img_hide" format="reference" />
+    <attr name="bsgamesdk_passwordLayout_edit_text" format="string" />
+    <attr name="bsgamesdk_alignTextView_align">
+        <enum name="bsgamesdk_alignTextView_align_center" value="1" />
+        <enum name="bsgamesdk_alignTextView_align_left" value="0" />
+        <enum name="bsgamesdk_alignTextView_align_right" value="2" />
+    </attr>
+    <attr name="bsgamesdk_dc_themeone_back_button_style" format="reference" />
+    <attr name="bsgamesdk_dc_themeone_close_button_style" format="reference" />
+    <attr name="bsgamesdk_dc_themeone_title_text_style" format="reference" />
+    <attr name="bsgamesdk_dc_themeone_title_logo_style" format="reference" />
+    <attr name="bsgamesdk_dc_themeone_basic_text_style" format="reference" />
+    <attr name="bsgamesdk_dc_themeone_confirm_button_style" format="reference" />
+    <attr name="bsgamesdk_dc_themeone_main_background" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_back_button_style" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_close_button_style" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_title_logo_style" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_title_text_style" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_info_text_style" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_confirm_button_style" format="reference" />
+    <attr name="bsgamesdk_dc_themetwo_main_background" format="reference" />
+    <attr name="fadeDuration" format="integer" />
+    <attr name="viewAspectRatio" format="float" />
+    <attr name="placeholderImage" format="reference" />
+    <attr name="placeholderImageScaleType">
+        <enum name="center" value="4" />
+        <enum name="centerCrop" value="6" />
+        <enum name="centerInside" value="5" />
+        <enum name="fitBottomStart" value="8" />
+        <enum name="fitCenter" value="2" />
+        <enum name="fitEnd" value="3" />
+        <enum name="fitStart" value="1" />
+        <enum name="fitXY" value="0" />
+        <enum name="focusCrop" value="7" />
+        <enum name="none" value="-1" />
+    </attr>
+    <attr name="retryImage" format="reference" />
+    <attr name="retryImageScaleType">
+        <enum name="center" value="4" />
+        <enum name="centerCrop" value="6" />
+        <enum name="centerInside" value="5" />
+        <enum name="fitBottomStart" value="8" />
+        <enum name="fitCenter" value="2" />
+        <enum name="fitEnd" value="3" />
+        <enum name="fitStart" value="1" />
+        <enum name="fitXY" value="0" />
+        <enum name="focusCrop" value="7" />
+        <enum name="none" value="-1" />
+    </attr>
+    <attr name="failureImage" format="reference" />
+    <attr name="failureImageScaleType">
+        <enum name="center" value="4" />
+        <enum name="centerCrop" value="6" />
+        <enum name="centerInside" value="5" />
+        <enum name="fitBottomStart" value="8" />
+        <enum name="fitCenter" value="2" />
+        <enum name="fitEnd" value="3" />
+        <enum name="fitStart" value="1" />
+        <enum name="fitXY" value="0" />
+        <enum name="focusCrop" value="7" />
+        <enum name="none" value="-1" />
+    </attr>
+    <attr name="progressBarImage" format="reference" />
+    <attr name="progressBarImageScaleType">
+        <enum name="center" value="4" />
+        <enum name="centerCrop" value="6" />
+        <enum name="centerInside" value="5" />
+        <enum name="fitBottomStart" value="8" />
+        <enum name="fitCenter" value="2" />
+        <enum name="fitEnd" value="3" />
+        <enum name="fitStart" value="1" />
+        <enum name="fitXY" value="0" />
+        <enum name="focusCrop" value="7" />
+        <enum name="none" value="-1" />
+    </attr>
+    <attr name="progressBarAutoRotateInterval" format="integer" />
+    <attr name="actualImageScaleType">
+        <enum name="center" value="4" />
+        <enum name="centerCrop" value="6" />
+        <enum name="centerInside" value="5" />
+        <enum name="fitBottomStart" value="8" />
+        <enum name="fitCenter" value="2" />
+        <enum name="fitEnd" value="3" />
+        <enum name="fitStart" value="1" />
+        <enum name="fitXY" value="0" />
+        <enum name="focusCrop" value="7" />
+        <enum name="none" value="-1" />
+    </attr>
+    <attr name="backgroundImage" format="reference" />
+    <attr name="overlayImage" format="reference" />
+    <attr name="pressedStateOverlayImage" format="reference" />
+    <attr name="roundAsCircle" format="boolean" />
+    <attr name="roundedCornerRadius" format="dimension" />
+    <attr name="roundTopLeft" format="boolean" />
+    <attr name="roundTopRight" format="boolean" />
+    <attr name="roundBottomRight" format="boolean" />
+    <attr name="roundBottomLeft" format="boolean" />
+    <attr name="roundTopStart" format="boolean" />
+    <attr name="roundTopEnd" format="boolean" />
+    <attr name="roundBottomStart" format="boolean" />
+    <attr name="roundBottomEnd" format="boolean" />
+    <attr name="roundWithOverlayColor" format="color" />
+    <attr name="roundingBorderWidth" format="dimension" />
+    <attr name="roundingBorderColor" format="color" />
+    <attr name="roundingBorderPadding" format="dimension" />
+    <attr name="actualImageUri" format="string" />
+    <attr name="actualImageResource" format="reference" />
+</resources>

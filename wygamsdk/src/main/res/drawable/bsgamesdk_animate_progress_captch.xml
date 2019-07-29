@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface01" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface02" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface03" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface04" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface05" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface06" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface07" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface08" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface09" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface10" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface11" />
+    <item android:duration="100" android:drawable="@drawable/bsgamesdk_myface12" />
+</animation-list>
