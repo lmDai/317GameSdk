@@ -130,6 +130,8 @@
     <item type="id" name="bsgamesdk_id_buttonAgreement_custom"/>
     <item type="id" name="bsgamesdk_id_passwordLayout"/>
     <item type="id" name="bsgamesdk_edit_password_login"/>
+    <item type="id" name="bsgamesdk_edit_password_again_reg"/>
+    <item type="id" name="bsgamesdk_reg_username"/>
     <item type="id" name="bsgamesdk_login_pwdDel"/>
     <item type="id" name="bsgamesdk_dc_themeone_anti_firsttext"/>
     <item type="id" name="bsgamesdk_dc_themeone_anti_secondtext"/>
@@ -162,14 +164,21 @@
     <item type="id" name="bsgamesdk_id_toastText"/>
     <item type="id" name="bsgamesdk_id_loginInputLayout"/>
     <item type="id" name="bsgamesdk_id_usernameLayout"/>
+    <item type="id" name="bsgamesdk_id_close"/>
     <item type="id" name="bsgamesdk_edit_username_login"/>
+    <item type="id" name="bsgamesdk_edit_username_drop"/>
+    <item type="id" name="bsgamesdk_edit_username_spinner"/>
     <item type="id" name="bsgamesdk_id_more_user"/>
     <item type="id" name="bsgamesdk_login_usernameDel"/>
     <item type="id" name="bsgamesdk_buttonLogin"/>
     <item type="id" name="bsgamesdk_buttonReg"/>
     <item type="id" name="bsgamesdk_textview_login_toursitLogin"/>
+    <item type="id" name="bsgamesdk_textview_service"/>
     <item type="id" name="bsgamesdk_textview_quickRegister"/>
     <item type="id" name="bsgamesdk_textview_login_forgetPwd"/>
+    <item type="id" name="bsgamesdk_textview_reg_phone"/>
+    <item type="id" name="bsgamesdk_textview_reg_account"/>
+    <item type="id" name="bsgamesdk_textview_reg_code"/>
     <item type="id" name="bsgamesdk_login_main"/>
     <item type="id" name="bsgamesdk_oneClickLoginLayout"/>
     <item type="id" name="bsgamesdk_loginLayout"/>
@@ -204,6 +213,8 @@
     <item type="id" name="bsgamesdk_register_captchaDel"/>
     <item type="id" name="bsgamesdk_edit_nicename_reg"/>
     <item type="id" name="bsgamesdk_edit_password_reg"/>
+    <item type="id" name="bsgamesdk_edit_code_reg"/>
+    <item type="id" name="bsgamesdk_layout_get_code"/>
     <item type="id" name="bsgamesdk_id_checkboxAgreeLayout_register_submit"/>
     <item type="id" name="bsgamesdk_Submit_reg"/>
     <item type="id" name="bsgamesdk_edit_username_reset_pwd"/>

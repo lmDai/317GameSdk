@@ -291,11 +291,11 @@
     </style>
 
     <style name="bsgamesdk_textView_arraw">
+        <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/bsgamesdk_text_title_color</item>
         <item name="android:clickable">true</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:drawableRight">@drawable/bsgamesdk_right_arrow</item>
     </style>
 
     <style name="bsgamesdk_textView_no_arraw">
@@ -320,11 +320,11 @@
 
     <style name="bsgamesdk_editText_basic" parent="@android:style/Widget.EditText">
         <item name="android:textSize">@dimen/bsgamesdk_input_text_size</item>
-        <item name="android:textColor">@color/bsgamesdk_text_color</item>
+        <item name="android:textColor">@color/bsgamesdk_edit_color</item>
         <item name="android:ellipsize">end</item>
+        <item name="android:background">@null</item>
         <item name="android:gravity">center|left</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:background">@drawable/bsgamesdk_bg_input</item>
         <item name="android:paddingLeft">8.0dip</item>
         <item name="android:paddingTop">8.0dip</item>
         <item name="android:paddingBottom">8.0dip</item>

@@ -150,4 +150,11 @@
     <attr name="roundingBorderPadding" format="dimension" />
     <attr name="actualImageUri" format="string" />
     <attr name="actualImageResource" format="reference" />
+    <declare-styleable name="EditableSpinner">
+        <attr name="downBtnImage" format="reference"/>
+        <attr name="downBtnBackground" format="color"/>
+        <attr name="downBtnWidth" format="dimension"/>
+        <attr name="textSize" format="dimension"/>
+        <attr name="textColor" format="color"/>
+    </declare-styleable>
 </resources>

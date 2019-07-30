@@ -13,7 +13,6 @@
         android:fillViewport="true">
 
         <LinearLayout
-            android:id="@id/bsgamesdk_id_loginInputLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -23,6 +22,19 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:id="@id/bsgamesdk_title_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:src="@drawable/wygamesdk_ic_back" />
+                </RelativeLayout>
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -63,12 +75,60 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/wygamesdk_ic_username" />
+                        android:src="@drawable/wygamesdk_ic_phone" />
 
-                    <com.jiaohe.wygamsdk.widget.EditableSpinner
-                        android:id="@id/bsgamesdk_edit_username_spinner"
+                    <EditText
+                        android:id="@id/bsgamesdk_reg_username"
+                        style="?attr/bsgamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="wrap_content"
+                        android:hint="@string/wygamesdk_phone_reg_hit"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/wygamesdk_divide_line" />
+
+                <LinearLayout
+                    android:id="@id/bsgamesdk_id_passwordLayout"
+                    android:layout_width="305dp"
+                    android:layout_height="36.0dp"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wygamesdk_ic_send" />
+
+                    <EditText
+                        android:id="@id/bsgamesdk_edit_code_reg"
+                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/wygamesdk_code_reg_hit"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPersonName"
+                        android:maxLength="32" />
+
+
+                    <TextView
+                        android:id="@id/bsgamesdk_textview_reg_code"
+                        style="?attr/bsgamesdk_text_image_style"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/wygamesdk_bg_get_code"
+                        android:gravity="center"
+                        android:text="@string/wygamesdk_get_code" />
+
                 </LinearLayout>
 
                 <View
@@ -89,11 +149,11 @@
                         android:src="@drawable/wygamesdk_ic_password" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_edit_password_login"
+                        android:id="@id/bsgamesdk_edit_password_reg"
                         style="?attr/bsgamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/wygamesdk_password_login_hi"
+                        android:hint="@string/wygamesdk_password_reg_hit"
                         android:imeOptions="actionDone"
                         android:inputType="textPassword"
                         android:maxLength="32" />
@@ -101,13 +161,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@id/bsgamesdk_buttonLogin"
+                android:id="@id/bsgamesdk_buttonReg"
                 style="?attr/bsgamesdk_confirm_button_style"
                 android:layout_width="305dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/bsgamesdk_login_title" />
+                android:text="@string/bsgamesdk_register_title" />
 
             <RelativeLayout
                 android:layout_width="305dp"
@@ -115,28 +175,20 @@
                 android:layout_marginBottom="20dp">
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_login_toursitLogin"
+                    android:id="@id/bsgamesdk_textview_service"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
-                    android:text="@string/wygamesdk_login_noaccount"
+                    android:text="@string/wygamesdk_service"
                     android:textColor="#ff777777"
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_quickRegister"
-                    style="?attr/bsgamesdk_text_image_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20.0dp"
-                    android:layout_toRightOf="@id/bsgamesdk_textview_login_toursitLogin"
-                    android:text="@string/bsgamesdk_reg_and_login" />
-
-                <TextView
-                    android:id="@id/bsgamesdk_textview_login_forgetPwd"
+                    android:id="@id/bsgamesdk_textview_reg_account"
                     style="?attr/bsgamesdk_text_image_style"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
                     android:layout_alignParentRight="true"
-                    android:text="@string/bsgamesdk_login_forgetPwd" />
+                    android:text="@string/wygamesdk_account_Reg" />
             </RelativeLayout>
         </LinearLayout>
     </com.jiaohe.wygamsdk.widget.APScrollView>

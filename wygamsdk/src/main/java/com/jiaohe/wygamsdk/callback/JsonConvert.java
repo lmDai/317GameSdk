@@ -121,14 +121,12 @@ public class JsonConvert<T> implements Converter<T> {
                 BaseResponse lzyResponse = Convert.fromJson(jsonReader, type);
                 response.close();
                 int code = lzyResponse.errorCode;
-                //这里的0是以下意思
-                //一般来说服务器会和客户端约定一个数表示成功，其余的表示失败，这里根据实际情况修改
                 if (code == BaseResponse.SUCCESS) {
                     //noinspection unchecked
                     return (T) lzyResponse;
                 } else {
                     //直接将服务端的错误信息抛出，onError中可以获取
-                    throw new IllegalStateException("错误代码：" + code + "，错误信息：" + lzyResponse.errorMsg);
+                    throw new IllegalStateException(lzyResponse.errorMsg);
                 }
             }
         }

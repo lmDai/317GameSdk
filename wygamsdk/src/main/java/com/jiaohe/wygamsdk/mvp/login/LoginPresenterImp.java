@@ -33,11 +33,6 @@ public class LoginPresenterImp implements LoginPresenter {
                     public void onSuccess(Response<BaseResponse<UserBean>> response) {
                         loginView.loginSuccess(response.body().errorCode, response.body().errorMsg, response.body().data);
                     }
-
-                    @Override
-                    public void onError(Response<BaseResponse<UserBean>> response) {
-                        loginView.loginFailed(response.body().errorCode, response.body().errorMsg);
-                    }
                 });
     }
 

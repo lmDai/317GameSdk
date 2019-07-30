@@ -1,5 +1,7 @@
 package com.jiaohe.wygamsdk.config;
 
+import android.content.Context;
+
 /**
  * @package: com.jiaohe.wygamsdk.config
  * @user:xhkj
@@ -17,4 +19,7 @@ public class ConfigInfo {
 
     //工会ID
     public static String channelID = "";
+    public static Context mContext;
+    //用户ID
+    public static String userID = "";
 }

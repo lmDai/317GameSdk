@@ -24,7 +24,8 @@
     <color name="bsgamesdk_transparent">#00000000</color>
     <color name="bsgamesdk_main_bg">#ff1f1f23</color>
     <color name="bsgamesdk_text_color">#ffc1c1c1</color>
-    <color name="bsgamesdk_text_title_color">#ff23aee5</color>
+    <color name="bsgamesdk_edit_color">#ff000000</color>
+    <color name="bsgamesdk_text_title_color">#ffFF7903</color>
     <color name="bsgamesdk_text_info_color">#ff7e7e7e</color>
     <color name="bsgamesdk_text_name_color">#ff414141</color>
     <color name="bsgamesdk_ToastTextColorWhite">#ffffffff</color>

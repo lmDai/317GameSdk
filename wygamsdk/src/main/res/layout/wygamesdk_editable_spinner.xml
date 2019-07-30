@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <EditText
+        android:id="@id/bsgamesdk_edit_username_login"
+        style="?attr/bsgamesdk_basic_editText_style"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:completionThreshold="1"
+        android:dropDownHeight="200.0dp"
+        android:hint="@string/wygamesdk_username_login_hit"
+        android:imeOptions="actionNext"
+        android:inputType="textPersonName"
+        android:maxLength="32"
+        android:paddingRight="70.0dp" />
+
+    <ImageButton
+        android:id="@id/bsgamesdk_edit_username_drop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@null"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/wygamesdk_drop_name" />
+</LinearLayout>

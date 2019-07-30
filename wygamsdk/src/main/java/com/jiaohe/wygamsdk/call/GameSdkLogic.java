@@ -50,6 +50,7 @@ public class GameSdkLogic {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
+        ConfigInfo.mContext = context;
         ConfigInfo.gameID = appInfo.metaData.getString("com.jiaohekeji.appid");
         ConfigInfo.channelID = getChannel(context);
         if (!TextUtils.isEmpty(ConfigInfo.gameID)) {

@@ -42,7 +42,6 @@ public class MainActivity extends SdkBaseActivity {
         GameSdkLogic.getInstance().sdkLogin(this, new SdkCallbackListener<String>() {
             @Override
             public void callback(int code, String response) {
-                Log.i("single", code + response + "callback");
                 switch (code) {
                     case SDKStatusCode.SUCCESS:
                         break;
