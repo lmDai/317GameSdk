@@ -52,4 +52,5 @@
     <color name="bsgamesdk_dc_text_title_color">#ff23aee5</color>
     <color name="bsgamesdk_dc_text_info_color">#ff7e7e7e</color>
     <color name="bsgamesdk_dc_main_bg">#ff1f1f23</color>
+    <color name="wygamesdk_color_trumpet">#F0EFF4</color>
 </resources>

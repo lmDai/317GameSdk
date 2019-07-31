@@ -29,19 +29,12 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:src="@drawable/wygamesdk_ic_back" />
+                    <ImageView style="?attr/bsgamesdk_back_button_style" />
                 </RelativeLayout>
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:src="@drawable/wygamesdk_logo" />
-
+                    style="?attr/bsgamesdk_title_logo_style"
+                    android:layout_centerInParent="true" />
                 <RelativeLayout
                     android:id="@id/bsgamesdk_id_close"
                     android:layout_width="wrap_content"
@@ -49,11 +42,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="15dp"
-                        android:src="@drawable/wygamesdk_ic_close" />
+                    <ImageView style="?attr/bsgamesdk_close_button_style" />
                 </RelativeLayout>
             </RelativeLayout>
 

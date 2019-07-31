@@ -17,6 +17,7 @@ import com.jiaohe.wygamsdk.mvp.login.LoginPresenterImp;
 import com.jiaohe.wygamsdk.mvp.login.LoginView;
 import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.tools.UserManage;
+import com.jiaohe.wygamsdk.ui.trumpet.WyTrumpetActivity;
 import com.jiaohe.wygamsdk.widget.EditableSpinner;
 
 /**
@@ -57,6 +58,10 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
     public void initData() {
         loginPresenterImp = new LoginPresenterImp();
         loginPresenterImp.attachView(this);
+        String localPwd = UserManage.getInstance().getLoginPassword(this);
+        String localUserName = UserManage.getInstance().getLoginUserName(this);
+        editPassword.setText(localPwd);
+        mEditableSpinner.setText(localUserName);
         String[] mOrders = {};
         ArrayAdapter<String> mOrderAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, mOrders);
         mEditableSpinner.setAdapter(mOrderAdapter)
@@ -101,13 +106,22 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
     @Override
     public void loginSuccess(int code, String msg, UserBean userBean) {
         UserManage.getInstance().saveUserInfo(this, mEditableSpinner.getSelectedItem(), editPassword.getText().toString());
+        UserManage.getInstance().saveUserInfo(this, userBean.player_id,
+                userBean.username, userBean.phone,
+                userBean.nickname, userBean.headimgurl,
+                userBean.is_validate);
         showToast(msg);
-        Delegate.listener.callback(code, userBean.player_id);
+        Intent intent = new Intent();
+        intent.putExtra("player_id", userBean.player_id);
+        intent.setClass(this, WyTrumpetActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     @Override
     public void loginFailed(int code, String msg) {
         Log.i("single", msg);
+
     }
 
     @Override

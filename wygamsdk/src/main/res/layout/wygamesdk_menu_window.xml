@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@id/bsgamesdk_id_loginInputLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@id/bsgamesdk_id_close"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/wygamesdk_color_trumpet"
+            android:orientation="vertical">
+
+            <include layout="@layout/wygamesdk_meu_head" />
+
+            <com.jiaohe.wygamsdk.widget.MultipleStatusView
+                android:id="@id/bsgamesdk_id_status_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:emptyView="@layout/empty_view"
+                app:errorView="@layout/error_view"
+                app:loadingView="@layout/loading_view"
+                app:noNetworkView="@layout/no_network_view">
+
+                <ListView
+                    android:id="@id/wygamesdk_id_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/transparent"
+                    android:dividerHeight="10dp"
+                    android:listSelector="@android:color/transparent"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:scrollbars="none"
+                    tools:listitem="@layout/wygamesdk_item_trumpet" />
+            </com.jiaohe.wygamsdk.widget.MultipleStatusView>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

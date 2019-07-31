@@ -1,261 +1,285 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="ll_shot_bg"/>
-    <item type="id" name="iv_screen_shot_back"/>
-    <item type="id" name="ll_screen_shot"/>
-    <item type="id" name="iv_share_wx"/>
-    <item type="id" name="iv_share_qq"/>
-    <item type="id" name="iv_share_qzones"/>
-    <item type="id" name="iv_share_moments"/>
-    <item type="id" name="tipsButton"/>
-    <item type="id" name="rl_screen_shot"/>
-    <item type="id" name="iv_screen_shot"/>
-    <item type="id" name="rl_water_mark"/>
-    <item type="id" name="iv_water_right_top"/>
-    <item type="id" name="iv_water_mark_right"/>
-    <item type="id" name="iv_water_mark_left"/>
-    <item type="id" name="tv_role_name"/>
-    <item type="id" name="iv_role_level_bg"/>
-    <item type="id" name="tv_role_level"/>
-    <item type="id" name="tv_role_invite_code"/>
-    <item type="id" name="rl_thanks"/>
-    <item type="id" name="wb_thanks"/>
-    <item type="id" name="iv_thanks_close"/>
-    <item type="id" name="notificationLayout"/>
-    <item type="id" name="appIcon"/>
-    <item type="id" name="progress_text"/>
-    <item type="id" name="title"/>
-    <item type="id" name="time_remaining"/>
-    <item type="id" name="progress_bar_frame"/>
-    <item type="id" name="progress_bar"/>
-    <item type="id" name="description"/>
-    <item type="id" name="alipay_mainView"/>
-    <item type="id" name="alipay_webView"/>
-    <item type="id" name="AlipayTitle"/>
-    <item type="id" name="alipay_btn_refresh"/>
-    <item type="id" name="alipay_dialog_title"/>
-    <item type="id" name="alipay_dialog_divider"/>
-    <item type="id" name="alipay_dialog_message"/>
-    <item type="id" name="alipay_dialog_content_view"/>
-    <item type="id" name="alipay_dialog_button_group"/>
-    <item type="id" name="alipay_left_button"/>
-    <item type="id" name="alipay_dialog_split_v"/>
-    <item type="id" name="alipay_right_button"/>
-    <item type="id" name="bsgamesdk_activate_ScrollView"/>
-    <item type="id" name="bsgamesdk_id_activateInputLayout"/>
-    <item type="id" name="bsgamesdk_id_activateLayout"/>
-    <item type="id" name="bsgamesdk_edit_activate"/>
-    <item type="id" name="icon_activate"/>
-    <item type="id" name="bsgamesdk_activate_del"/>
-    <item type="id" name="bsgamesdk_button_activate"/>
-    <item type="id" name="bsgamesdk_webpage_content_titler_root"/>
-    <item type="id" name="bsgamesdk_id_buttonBack"/>
-    <item type="id" name="bsgamesdk_agreement_titler_title"/>
-    <item type="id" name="bsgamesdk_linearLayoutLoad"/>
-    <item type="id" name="bsgamesdk_ProgressBar02"/>
-    <item type="id" name="bsgamesdk_tvloading"/>
-    <item type="id" name="bsgamesdk_agreement_webView"/>
-    <item type="id" name="bsgamesdk_web_webview_captch"/>
-    <item type="id" name="bsgamesdk_dc_themeone"/>
-    <item type="id" name="bsgamesdk_dc_themetwo"/>
-    <item type="id" name="bsgamesdk_titleLayout"/>
-    <item type="id" name="bsgamesdk_id_gameout_comfirm"/>
-    <item type="id" name="bsgamesdk_id_gameout_cancel"/>
-    <item type="id" name="bsgamesdk_license_title_bar"/>
-    <item type="id" name="bsgamesdk_title_close"/>
-    <item type="id" name="bsgamesdk_title_content"/>
-    <item type="id" name="bsgamesdk_license_bottom"/>
-    <item type="id" name="bsgamesdk_license_content"/>
-    <item type="id" name="bsgamesdk_license_disagree"/>
-    <item type="id" name="bsgamesdk_license_agree"/>
-    <item type="id" name="bsgamesdk_id_noticeLayout"/>
-    <item type="id" name="bsgamesdk_id_notice_content"/>
-    <item type="id" name="bsgamesdk_id_notice_img"/>
-    <item type="id" name="bsgamesdk_id_notice_btn"/>
-    <item type="id" name="bsgamesdk_pay_ll"/>
-    <item type="id" name="bsgamesdk_layoutLoading"/>
-    <item type="id" name="bsgamesdk_ProgressBar01"/>
-    <item type="id" name="bsgamesdk_layoutWeb"/>
-    <item type="id" name="bsgamesdk_webView"/>
-    <item type="id" name="bsgamesdk_errorLinearLayout"/>
-    <item type="id" name="bsgamesdk_id_ErrorIcon"/>
-    <item type="id" name="bsgamesdk_id_ErrorMessage"/>
-    <item type="id" name="bsgamesdk_id_ErrorRetry"/>
-    <item type="id" name="bsgamesdk_id_point_determine"/>
-    <item type="id" name="bsgamesdk_id_prePayLayout"/>
-    <item type="id" name="bsgamesdk_permittedMinorLayout"/>
-    <item type="id" name="bsgamesdk_unpermittedMinorLayout"/>
-    <item type="id" name="bsgamesdk_activity_registerLayout"/>
-    <item type="id" name="bsgamesdk_areaLayout"/>
-    <item type="id" name="bsgamesdk_captchaLayout"/>
-    <item type="id" name="bsgamesdk_registerLayout"/>
-    <item type="id" name="bsgamesdk_touristMainLayout"/>
-    <item type="id" name="bsgamesdk_touristWelLayout"/>
-    <item type="id" name="bsgamesdk_touristBindLayout"/>
-    <item type="id" name="bsgamesdk_touristCaptchaLayout"/>
-    <item type="id" name="bsgamesdk_touristPayLayout"/>
-    <item type="id" name="bsgamesdk_touristAuthLayout"/>
-    <item type="id" name="bsgamesdk_antiIndulgenceLayout"/>
-    <item type="id" name="bsgamesdk_web_webview"/>
-    <item type="id" name="bsgamesdk_id_welcome_container"/>
-    <item type="id" name="bsgamesdk_id_welcome_avatar"/>
-    <item type="id" name="bsgamesdk_id_welcome_name"/>
-    <item type="id" name="bsgamesdk_id_welcome_change"/>
-    <item type="id" name="bsgamesdk_anti_firsttext"/>
-    <item type="id" name="bsgamesdk_anti_secondtext"/>
-    <item type="id" name="bagamesdk_anti_submit"/>
-    <item type="id" name="bsgamesdk_id_reg_area_rl"/>
-    <item type="id" name="bsgamesdk_id_reg_area_name"/>
-    <item type="id" name="bagamesdk_auth_success_comfirm"/>
-    <item type="id" name="auth_successLayout"/>
-    <item type="id" name="auth_submitLayout"/>
-    <item type="id" name="bsgamesdk_edit_authentication_name"/>
-    <item type="id" name="bsgamesdk_authentication_nameDel"/>
-    <item type="id" name="bsgamesdk_edit_authentication_id_number"/>
-    <item type="id" name="bsgamesdk_authentication_id_numberDel"/>
-    <item type="id" name="bsgamesdk_authentication_submit"/>
-    <item type="id" name="bsgamesdk_captcha_img"/>
-    <item type="id" name="bsgamesdk_captcha_edit"/>
-    <item type="id" name="bsgamesdk_captcha_login"/>
-    <item type="id" name="bsgamesdk_id_couponLayout"/>
-    <item type="id" name="bsgamesdk_id_couponReLayout"/>
-    <item type="id" name="bsgamesdk_textview_coupon_title"/>
-    <item type="id" name="bsgamesdk_textview_coupon_title2"/>
-    <item type="id" name="bsgamesdk_textview_coupon_item"/>
-    <item type="id" name="bsgamesdk_textview_coupon_title3"/>
-    <item type="id" name="bsgamesdk_textview_coupon_time"/>
-    <item type="id" name="bsgamesdk_textview_coupon_title4"/>
-    <item type="id" name="bsgamesdk_button_coupon"/>
-    <item type="id" name="bsgamesdk_id_checkboxAgree_custom"/>
-    <item type="id" name="bsgamesdk_id_buttonAgreement_custom"/>
-    <item type="id" name="bsgamesdk_id_passwordLayout"/>
-    <item type="id" name="bsgamesdk_edit_password_login"/>
-    <item type="id" name="bsgamesdk_edit_password_again_reg"/>
-    <item type="id" name="bsgamesdk_reg_username"/>
-    <item type="id" name="bsgamesdk_login_pwdDel"/>
-    <item type="id" name="bsgamesdk_dc_themeone_anti_firsttext"/>
-    <item type="id" name="bsgamesdk_dc_themeone_anti_secondtext"/>
-    <item type="id" name="bagamesdk_dc_themeone_anti_submit"/>
-    <item type="id" name="bsgamesdk_dc_themeone_title_back"/>
-    <item type="id" name="bsgamesdk_dc_themeone_title_close"/>
-    <item type="id" name="bsgamesdk_dc_themeone_title_logo"/>
-    <item type="id" name="bsgamesdk_dc_themeone_title_content"/>
-    <item type="id" name="bsgamesdk_dc_themetwo_anti_firsttext"/>
-    <item type="id" name="bsgamesdk_dc_themetwo_anti_secondtext"/>
-    <item type="id" name="bagamesdk_dc_themetwo_anti_submit"/>
-    <item type="id" name="bsgamesdk_dc_themetwo_title_back"/>
-    <item type="id" name="bsgamesdk_dc_themetwo_title_close"/>
-    <item type="id" name="bsgamesdk_dc_themetwo_title_logo"/>
-    <item type="id" name="bsgamesdk_dc_themetwo_title_content"/>
-    <item type="id" name="bsgamesdk_id_item_userauto_user"/>
-    <item type="id" name="bsgamesdk_id_item_useraotu_del"/>
-    <item type="id" name="bsgamesdk_error_captch"/>
-    <item type="id" name="bsgamesdk_ib_error_back_captch"/>
-    <item type="id" name="bsgamesdk_web_title"/>
-    <item type="id" name="bsgamesdk_ib_error_finish_captch"/>
-    <item type="id" name="bsgamesdk_iv_error_refresh_captch"/>
-    <item type="id" name="bagamesdk_b_error_back_captch"/>
-    <item type="id" name="bsgamesdk_layoutLoading_web"/>
-    <item type="id" name="bsgamesdk_ib_loading_back"/>
-    <item type="id" name="bsgamesdk_ib_loading_finish"/>
-    <item type="id" name="bsgamesdk_iv_web_loading"/>
-    <item type="id" name="bsgamesdk_tv_loading_web"/>
-    <item type="id" name="bsgamesdk_id_toastImg"/>
-    <item type="id" name="bsgamesdk_id_toastText"/>
-    <item type="id" name="bsgamesdk_id_loginInputLayout"/>
-    <item type="id" name="bsgamesdk_id_usernameLayout"/>
-    <item type="id" name="bsgamesdk_id_close"/>
-    <item type="id" name="bsgamesdk_edit_username_login"/>
-    <item type="id" name="bsgamesdk_edit_username_drop"/>
-    <item type="id" name="bsgamesdk_edit_username_spinner"/>
-    <item type="id" name="bsgamesdk_id_more_user"/>
-    <item type="id" name="bsgamesdk_login_usernameDel"/>
-    <item type="id" name="bsgamesdk_buttonLogin"/>
-    <item type="id" name="bsgamesdk_buttonReg"/>
-    <item type="id" name="bsgamesdk_textview_login_toursitLogin"/>
-    <item type="id" name="bsgamesdk_textview_service"/>
-    <item type="id" name="bsgamesdk_textview_quickRegister"/>
-    <item type="id" name="bsgamesdk_textview_login_forgetPwd"/>
-    <item type="id" name="bsgamesdk_textview_reg_phone"/>
-    <item type="id" name="bsgamesdk_textview_reg_account"/>
-    <item type="id" name="bsgamesdk_textview_reg_code"/>
-    <item type="id" name="bsgamesdk_login_main"/>
-    <item type="id" name="bsgamesdk_oneClickLoginLayout"/>
-    <item type="id" name="bsgamesdk_loginLayout"/>
-    <item type="id" name="bsgamesdk_activateLayout"/>
-    <item type="id" name="bsgamesdk_couponLayout"/>
-    <item type="id" name="bsgamesdk_unameRegisterLayout"/>
-    <item type="id" name="bsgamesdk_resetPwdLayout"/>
-    <item type="id" name="bsgamesdk_authenticationLayout"/>
-    <item type="id" name="bsgamesdk_pointLayout"/>
-    <item type="id" name="bsgamesdk_tipPaidLayout"/>
-    <item type="id" name="bsgamesdk_secureBindingLayout"/>
-    <item type="id" name="bsgamesdk_one_click_login_ScrollView"/>
-    <item type="id" name="bsgamesdk_id_oneClickloginLayout"/>
-    <item type="id" name="bsgamesdk_textview_oneClickLogin_Info"/>
-    <item type="id" name="bsgamesdk_button_oneClickLogin"/>
-    <item type="id" name="bsgamesdk_textview_oneClickLogin_switchUser"/>
-    <item type="id" name="bsgamesdk_login_point_determine"/>
-    <item type="id" name="bsgamesdk_register_ScrollView"/>
-    <item type="id" name="bsgamesdk_id_regInputLayout"/>
-    <item type="id" name="bsgamesdk_register_get_captchaLayout"/>
-    <item type="id" name="bsgamesdk_register_submitLayout"/>
-    <item type="id" name="bsgamesdk_id_reg_firstLayout"/>
-    <item type="id" name="bsgamesdk_register_usernameLayout"/>
-    <item type="id" name="bsgamesdk_edit_username_reg"/>
-    <item type="id" name="bsgamesdk_register_usernameDel"/>
-    <item type="id" name="bsgamesdk_id_reg_btn_next"/>
-    <item type="id" name="bsgamesdk_id_other_reg"/>
-    <item type="id" name="bsgamesdk_id_reg_secondLayout"/>
-    <item type="id" name="bsgamesdk_id_txt_tel_reg"/>
-    <item type="id" name="bsgamesdk_edit_captcha"/>
-    <item type="id" name="bsgamesdk_id_register_obtain"/>
-    <item type="id" name="bsgamesdk_register_captchaDel"/>
-    <item type="id" name="bsgamesdk_edit_nicename_reg"/>
-    <item type="id" name="bsgamesdk_edit_password_reg"/>
-    <item type="id" name="bsgamesdk_edit_code_reg"/>
-    <item type="id" name="bsgamesdk_layout_get_code"/>
-    <item type="id" name="bsgamesdk_id_checkboxAgreeLayout_register_submit"/>
-    <item type="id" name="bsgamesdk_Submit_reg"/>
-    <item type="id" name="bsgamesdk_edit_username_reset_pwd"/>
-    <item type="id" name="bsgamesdk_reset_pwd_usernameDel"/>
-    <item type="id" name="bsgamesdk_edit_captcha_reset_pwd"/>
-    <item type="id" name="bsgamesdk_id_reset_pwd_obtain"/>
-    <item type="id" name="bsgamesdk_reset_pwd_captchaDel"/>
-    <item type="id" name="bsgamesdk_edit_password_reset_pwd"/>
-    <item type="id" name="bsgamesdk_determine_reset_pwd"/>
-    <item type="id" name="bagamesdk_binding_mail"/>
-    <item type="id" name="bagamesdk_binding_phone"/>
-    <item type="id" name="bsgamesdk_btn_tip_paid_comfirm"/>
-    <item type="id" name="bsgamesdk_btn_tip_permittedMinor_comfirm"/>
-    <item type="id" name="bsgamesdk_btn_tip_unpermittedMinor_comfirm"/>
-    <item type="id" name="bsgamesdk_loginTitlebar"/>
-    <item type="id" name="bsgamesdk_title_back"/>
-    <item type="id" name="bsgamesdk_title_logo"/>
-    <item type="id" name="bsgamesdk_edit_username_bind"/>
-    <item type="id" name="bsgamesdk_bind_usernameDel"/>
-    <item type="id" name="bsgamesdk_edit_captcha_bind"/>
-    <item type="id" name="bsgamesdk_id_bind_obtain"/>
-    <item type="id" name="bsgamesdk_bind_captchaDel"/>
-    <item type="id" name="bsgamesdk_edit_password_bind"/>
-    <item type="id" name="bsgamesdk_id_checkboxAgreeLayout_tourist_bind"/>
-    <item type="id" name="bsgamesdk_Submit_bind"/>
-    <item type="id" name="bsgamesdk_tourist_pay_name"/>
-    <item type="id" name="bsgamesdk_id_tourist_pay_up"/>
-    <item type="id" name="bsgamesdk_tourist_name"/>
-    <item type="id" name="bsgamesdk_id_tourist_wel_up"/>
-    <item type="id" name="bsgamesdk_id_tourist_switch"/>
-    <item type="id" name="bsgamesdk_id_tourist_enter"/>
-    <item type="id" name="bsgamesdk_register_ScrollView_uname"/>
-    <item type="id" name="bsgamesdk_id_regInputLayout_uname"/>
-    <item type="id" name="bsgamesdk_register_usernameLayout_uname"/>
-    <item type="id" name="bsgamesdk_edit_username_reg_uname"/>
-    <item type="id" name="bsgamesdk_register_usernameDel_uname"/>
-    <item type="id" name="bsgamesdk_register_passwordLayout_uname"/>
-    <item type="id" name="bsgamesdk_edit_password_reg_uname"/>
-    <item type="id" name="bsgamesdk_id_checkboxAgreeLayout_register_uname"/>
-    <item type="id" name="bsgamesdk_Submit_reg_uname"/>
-    <item type="id" name="bsgamesdk_id_username_ll"/>
-    <item type="id" name="bsgamesdk_id_username_list"/>
-    <item type="id" name="action_settings"/>
+    <item name="ll_shot_bg" type="id" />
+    <item name="iv_screen_shot_back" type="id" />
+    <item name="ll_screen_shot" type="id" />
+    <item name="iv_share_wx" type="id" />
+    <item name="iv_share_qq" type="id" />
+    <item name="iv_share_qzones" type="id" />
+    <item name="iv_share_moments" type="id" />
+    <item name="tipsButton" type="id" />
+    <item name="rl_screen_shot" type="id" />
+    <item name="iv_screen_shot" type="id" />
+    <item name="rl_water_mark" type="id" />
+    <item name="iv_water_right_top" type="id" />
+    <item name="iv_water_mark_right" type="id" />
+    <item name="iv_water_mark_left" type="id" />
+    <item name="tv_role_name" type="id" />
+    <item name="iv_role_level_bg" type="id" />
+    <item name="tv_role_level" type="id" />
+    <item name="tv_role_invite_code" type="id" />
+    <item name="rl_thanks" type="id" />
+    <item name="wb_thanks" type="id" />
+    <item name="iv_thanks_close" type="id" />
+    <item name="notificationLayout" type="id" />
+    <item name="appIcon" type="id" />
+    <item name="progress_text" type="id" />
+    <item name="title" type="id" />
+    <item name="time_remaining" type="id" />
+    <item name="progress_bar_frame" type="id" />
+    <item name="progress_bar" type="id" />
+    <item name="description" type="id" />
+    <item name="alipay_mainView" type="id" />
+    <item name="alipay_webView" type="id" />
+    <item name="AlipayTitle" type="id" />
+    <item name="alipay_btn_refresh" type="id" />
+    <item name="alipay_dialog_title" type="id" />
+    <item name="alipay_dialog_divider" type="id" />
+    <item name="alipay_dialog_message" type="id" />
+    <item name="alipay_dialog_content_view" type="id" />
+    <item name="alipay_dialog_button_group" type="id" />
+    <item name="alipay_left_button" type="id" />
+    <item name="alipay_dialog_split_v" type="id" />
+    <item name="alipay_right_button" type="id" />
+    <item name="bsgamesdk_activate_ScrollView" type="id" />
+    <item name="bsgamesdk_id_activateInputLayout" type="id" />
+    <item name="bsgamesdk_id_activateLayout" type="id" />
+    <item name="bsgamesdk_edit_activate" type="id" />
+    <item name="icon_activate" type="id" />
+    <item name="bsgamesdk_activate_del" type="id" />
+    <item name="bsgamesdk_button_activate" type="id" />
+    <item name="bsgamesdk_webpage_content_titler_root" type="id" />
+    <item name="bsgamesdk_id_buttonBack" type="id" />
+    <item name="bsgamesdk_agreement_titler_title" type="id" />
+    <item name="bsgamesdk_linearLayoutLoad" type="id" />
+    <item name="bsgamesdk_ProgressBar02" type="id" />
+    <item name="bsgamesdk_tvloading" type="id" />
+    <item name="bsgamesdk_agreement_webView" type="id" />
+    <item name="bsgamesdk_web_webview_captch" type="id" />
+    <item name="bsgamesdk_dc_themeone" type="id" />
+    <item name="bsgamesdk_dc_themetwo" type="id" />
+    <item name="bsgamesdk_titleLayout" type="id" />
+    <item name="bsgamesdk_id_gameout_comfirm" type="id" />
+    <item name="bsgamesdk_id_gameout_cancel" type="id" />
+    <item name="bsgamesdk_license_title_bar" type="id" />
+    <item name="bsgamesdk_title_close" type="id" />
+    <item name="bsgamesdk_title_content" type="id" />
+    <item name="bsgamesdk_license_bottom" type="id" />
+    <item name="bsgamesdk_license_content" type="id" />
+    <item name="bsgamesdk_license_disagree" type="id" />
+    <item name="bsgamesdk_license_agree" type="id" />
+    <item name="bsgamesdk_id_noticeLayout" type="id" />
+    <item name="bsgamesdk_id_notice_content" type="id" />
+    <item name="bsgamesdk_id_notice_img" type="id" />
+    <item name="bsgamesdk_id_notice_btn" type="id" />
+    <item name="bsgamesdk_pay_ll" type="id" />
+    <item name="bsgamesdk_layoutLoading" type="id" />
+    <item name="bsgamesdk_ProgressBar01" type="id" />
+    <item name="bsgamesdk_layoutWeb" type="id" />
+    <item name="bsgamesdk_webView" type="id" />
+    <item name="bsgamesdk_errorLinearLayout" type="id" />
+    <item name="bsgamesdk_id_ErrorIcon" type="id" />
+    <item name="bsgamesdk_id_ErrorMessage" type="id" />
+    <item name="bsgamesdk_id_ErrorRetry" type="id" />
+    <item name="bsgamesdk_id_point_determine" type="id" />
+    <item name="bsgamesdk_id_prePayLayout" type="id" />
+    <item name="bsgamesdk_permittedMinorLayout" type="id" />
+    <item name="bsgamesdk_unpermittedMinorLayout" type="id" />
+    <item name="bsgamesdk_activity_registerLayout" type="id" />
+    <item name="bsgamesdk_areaLayout" type="id" />
+    <item name="bsgamesdk_captchaLayout" type="id" />
+    <item name="bsgamesdk_registerLayout" type="id" />
+    <item name="bsgamesdk_touristMainLayout" type="id" />
+    <item name="bsgamesdk_touristWelLayout" type="id" />
+    <item name="bsgamesdk_touristBindLayout" type="id" />
+    <item name="bsgamesdk_touristCaptchaLayout" type="id" />
+    <item name="bsgamesdk_touristPayLayout" type="id" />
+    <item name="bsgamesdk_touristAuthLayout" type="id" />
+    <item name="bsgamesdk_antiIndulgenceLayout" type="id" />
+    <item name="bsgamesdk_web_webview" type="id" />
+    <item name="bsgamesdk_id_welcome_container" type="id" />
+    <item name="bsgamesdk_id_welcome_avatar" type="id" />
+    <item name="bsgamesdk_id_welcome_name" type="id" />
+    <item name="bsgamesdk_id_welcome_change" type="id" />
+    <item name="bsgamesdk_anti_firsttext" type="id" />
+    <item name="bsgamesdk_anti_secondtext" type="id" />
+    <item name="bagamesdk_anti_submit" type="id" />
+    <item name="bsgamesdk_id_reg_area_rl" type="id" />
+    <item name="bsgamesdk_id_reg_area_name" type="id" />
+    <item name="bagamesdk_auth_success_comfirm" type="id" />
+    <item name="auth_successLayout" type="id" />
+    <item name="auth_submitLayout" type="id" />
+    <item name="bsgamesdk_edit_authentication_name" type="id" />
+    <item name="bsgamesdk_authentication_nameDel" type="id" />
+    <item name="bsgamesdk_edit_authentication_id_number" type="id" />
+    <item name="bsgamesdk_authentication_id_numberDel" type="id" />
+    <item name="bsgamesdk_authentication_submit" type="id" />
+    <item name="bsgamesdk_captcha_img" type="id" />
+    <item name="bsgamesdk_captcha_edit" type="id" />
+    <item name="bsgamesdk_captcha_login" type="id" />
+    <item name="bsgamesdk_id_couponLayout" type="id" />
+    <item name="bsgamesdk_id_couponReLayout" type="id" />
+    <item name="bsgamesdk_textview_coupon_title" type="id" />
+    <item name="bsgamesdk_textview_coupon_title2" type="id" />
+    <item name="bsgamesdk_textview_coupon_item" type="id" />
+    <item name="bsgamesdk_textview_coupon_title3" type="id" />
+    <item name="bsgamesdk_textview_coupon_time" type="id" />
+    <item name="bsgamesdk_textview_coupon_title4" type="id" />
+    <item name="bsgamesdk_button_coupon" type="id" />
+    <item name="bsgamesdk_id_checkboxAgree_custom" type="id" />
+    <item name="bsgamesdk_id_buttonAgreement_custom" type="id" />
+    <item name="bsgamesdk_id_passwordLayout" type="id" />
+    <item name="bsgamesdk_edit_password_login" type="id" />
+    <item name="bsgamesdk_edit_trumpet_create" type="id" />
+    <item name="bsgamesdk_edit_password_again_reg" type="id" />
+    <item name="bsgamesdk_reg_username" type="id" />
+    <item name="bsgamesdk_login_pwdDel" type="id" />
+    <item name="bsgamesdk_dc_themeone_anti_firsttext" type="id" />
+    <item name="bsgamesdk_dc_themeone_anti_secondtext" type="id" />
+    <item name="bagamesdk_dc_themeone_anti_submit" type="id" />
+    <item name="bsgamesdk_dc_themeone_title_back" type="id" />
+    <item name="bsgamesdk_dc_themeone_title_close" type="id" />
+    <item name="bsgamesdk_dc_themeone_title_logo" type="id" />
+    <item name="bsgamesdk_dc_themeone_title_content" type="id" />
+    <item name="bsgamesdk_dc_themetwo_anti_firsttext" type="id" />
+    <item name="bsgamesdk_dc_themetwo_anti_secondtext" type="id" />
+    <item name="bagamesdk_dc_themetwo_anti_submit" type="id" />
+    <item name="bsgamesdk_dc_themetwo_title_back" type="id" />
+    <item name="bsgamesdk_dc_themetwo_title_close" type="id" />
+    <item name="bsgamesdk_dc_themetwo_title_logo" type="id" />
+    <item name="bsgamesdk_dc_themetwo_title_content" type="id" />
+    <item name="bsgamesdk_id_item_userauto_user" type="id" />
+    <item name="bsgamesdk_id_item_useraotu_del" type="id" />
+    <item name="bsgamesdk_error_captch" type="id" />
+    <item name="bsgamesdk_ib_error_back_captch" type="id" />
+    <item name="bsgamesdk_web_title" type="id" />
+    <item name="bsgamesdk_ib_error_finish_captch" type="id" />
+    <item name="bsgamesdk_iv_error_refresh_captch" type="id" />
+    <item name="bagamesdk_b_error_back_captch" type="id" />
+    <item name="bsgamesdk_layoutLoading_web" type="id" />
+    <item name="bsgamesdk_ib_loading_back" type="id" />
+    <item name="bsgamesdk_ib_loading_finish" type="id" />
+    <item name="bsgamesdk_iv_web_loading" type="id" />
+    <item name="bsgamesdk_tv_loading_web" type="id" />
+    <item name="bsgamesdk_id_toastImg" type="id" />
+    <item name="bsgamesdk_id_toastText" type="id" />
+    <item name="bsgamesdk_id_loginInputLayout" type="id" />
+    <item name="bsgamesdk_id_usernameLayout" type="id" />
+    <item name="bsgamesdk_id_close" type="id" />
+    <item name="bsgamesdk_edit_username_login" type="id" />
+    <item name="bsgamesdk_edit_username_drop" type="id" />
+    <item name="bsgamesdk_edit_username_spinner" type="id" />
+    <item name="bsgamesdk_id_more_user" type="id" />
+    <item name="bsgamesdk_login_usernameDel" type="id" />
+    <item name="bsgamesdk_buttonLogin" type="id" />
+    <item name="bsgamesdk_buttonReg" type="id" />
+    <item name="bsgamesdk_buttonCreate" type="id" />
+    <item name="bsgamesdk_buttonCancel" type="id" />
+    <item name="bsgamesdk_textview_login_toursitLogin" type="id" />
+    <item name="bsgamesdk_textview_service" type="id" />
+    <item name="bsgamesdk_textview_quickRegister" type="id" />
+    <item name="bsgamesdk_textview_login_forgetPwd" type="id" />
+    <item name="bsgamesdk_textview_reg_phone" type="id" />
+    <item name="bsgamesdk_textview_reg_account" type="id" />
+    <item name="bsgamesdk_textview_reg_code" type="id" />
+    <item name="bsgamesdk_login_main" type="id" />
+    <item name="bsgamesdk_oneClickLoginLayout" type="id" />
+    <item name="bsgamesdk_loginLayout" type="id" />
+    <item name="bsgamesdk_activateLayout" type="id" />
+    <item name="bsgamesdk_couponLayout" type="id" />
+    <item name="bsgamesdk_unameRegisterLayout" type="id" />
+    <item name="bsgamesdk_resetPwdLayout" type="id" />
+    <item name="bsgamesdk_authenticationLayout" type="id" />
+    <item name="bsgamesdk_pointLayout" type="id" />
+    <item name="bsgamesdk_tipPaidLayout" type="id" />
+    <item name="bsgamesdk_secureBindingLayout" type="id" />
+    <item name="bsgamesdk_one_click_login_ScrollView" type="id" />
+    <item name="bsgamesdk_id_oneClickloginLayout" type="id" />
+    <item name="bsgamesdk_textview_oneClickLogin_Info" type="id" />
+    <item name="bsgamesdk_button_oneClickLogin" type="id" />
+    <item name="bsgamesdk_textview_oneClickLogin_switchUser" type="id" />
+    <item name="bsgamesdk_login_point_determine" type="id" />
+    <item name="bsgamesdk_register_ScrollView" type="id" />
+    <item name="bsgamesdk_id_regInputLayout" type="id" />
+    <item name="bsgamesdk_register_get_captchaLayout" type="id" />
+    <item name="bsgamesdk_register_submitLayout" type="id" />
+    <item name="bsgamesdk_id_reg_firstLayout" type="id" />
+    <item name="bsgamesdk_register_usernameLayout" type="id" />
+    <item name="bsgamesdk_edit_username_reg" type="id" />
+    <item name="bsgamesdk_register_usernameDel" type="id" />
+    <item name="bsgamesdk_id_reg_btn_next" type="id" />
+    <item name="bsgamesdk_id_other_reg" type="id" />
+    <item name="bsgamesdk_id_reg_secondLayout" type="id" />
+    <item name="bsgamesdk_id_txt_tel_reg" type="id" />
+    <item name="bsgamesdk_edit_captcha" type="id" />
+    <item name="bsgamesdk_id_register_obtain" type="id" />
+    <item name="bsgamesdk_register_captchaDel" type="id" />
+    <item name="bsgamesdk_edit_nicename_reg" type="id" />
+    <item name="bsgamesdk_edit_password_reg" type="id" />
+    <item name="bsgamesdk_edit_code_reg" type="id" />
+    <item name="bsgamesdk_layout_get_code" type="id" />
+    <item name="bsgamesdk_id_checkboxAgreeLayout_register_submit" type="id" />
+    <item name="bsgamesdk_Submit_reg" type="id" />
+    <item name="bsgamesdk_edit_username_reset_pwd" type="id" />
+    <item name="bsgamesdk_reset_pwd_usernameDel" type="id" />
+    <item name="bsgamesdk_edit_captcha_reset_pwd" type="id" />
+    <item name="bsgamesdk_id_reset_pwd_obtain" type="id" />
+    <item name="bsgamesdk_reset_pwd_captchaDel" type="id" />
+    <item name="bsgamesdk_edit_password_reset_pwd" type="id" />
+    <item name="bsgamesdk_determine_reset_pwd" type="id" />
+    <item name="bagamesdk_binding_mail" type="id" />
+    <item name="bagamesdk_binding_phone" type="id" />
+    <item name="bsgamesdk_btn_tip_paid_comfirm" type="id" />
+    <item name="bsgamesdk_btn_tip_permittedMinor_comfirm" type="id" />
+    <item name="bsgamesdk_btn_tip_unpermittedMinor_comfirm" type="id" />
+    <item name="bsgamesdk_loginTitlebar" type="id" />
+    <item name="bsgamesdk_title_back" type="id" />
+    <item name="bsgamesdk_title_logo" type="id" />
+    <item name="bsgamesdk_edit_username_bind" type="id" />
+    <item name="bsgamesdk_bind_usernameDel" type="id" />
+    <item name="bsgamesdk_edit_captcha_bind" type="id" />
+    <item name="bsgamesdk_id_bind_obtain" type="id" />
+    <item name="bsgamesdk_bind_captchaDel" type="id" />
+    <item name="bsgamesdk_edit_password_bind" type="id" />
+    <item name="bsgamesdk_id_checkboxAgreeLayout_tourist_bind" type="id" />
+    <item name="bsgamesdk_Submit_bind" type="id" />
+    <item name="bsgamesdk_tourist_pay_name" type="id" />
+    <item name="bsgamesdk_id_tourist_pay_up" type="id" />
+    <item name="bsgamesdk_tourist_name" type="id" />
+    <item name="bsgamesdk_id_tourist_wel_up" type="id" />
+    <item name="bsgamesdk_id_tourist_switch" type="id" />
+    <item name="bsgamesdk_id_tourist_enter" type="id" />
+    <item name="bsgamesdk_register_ScrollView_uname" type="id" />
+    <item name="bsgamesdk_id_regInputLayout_uname" type="id" />
+    <item name="bsgamesdk_register_usernameLayout_uname" type="id" />
+    <item name="bsgamesdk_edit_username_reg_uname" type="id" />
+    <item name="bsgamesdk_register_usernameDel_uname" type="id" />
+    <item name="bsgamesdk_register_passwordLayout_uname" type="id" />
+    <item name="bsgamesdk_edit_password_reg_uname" type="id" />
+    <item name="bsgamesdk_id_checkboxAgreeLayout_register_uname" type="id" />
+    <item name="bsgamesdk_Submit_reg_uname" type="id" />
+    <item name="bsgamesdk_id_username_ll" type="id" />
+    <item name="bsgamesdk_id_username_list" type="id" />
+    <item name="bsgamesdk_id_username_head" type="id" />
+    <item name="bsgamesdk_id_username_nickname" type="id" />
+    <item name="bsgamesdk_id_trumpet_name" type="id" />
+    <item name="bsgamesdk_id_btn_logout" type="id" />
+    <item name="action_settings" type="id" />
+    <item name="wygamesdk_id_accouut_name" type="id" />
+    <item name="wygamesdk_id_position" type="id" />
+    <item name="wygamesdk_id_listview" type="id" />
+    <item name="wygamesdk_id_item_img" type="id" />
+    <item name="wygamesdk_id_item_title" type="id" />
+    <item name="wygamesdk_id_item_desc" type="id" />
+    <item name="bsgamesdk_id_ib_add" type="id" />
+    <item name="bsgamesdk_id_status_view" type="id" />
+    <item name="empty_view" type="id"/>
+    <item name="error_view" type="id"/>
+    <item name="loading_view" type="id"/>
+    <item name="content_view" type="id"/>
+    <item name="no_network_view" type="id"/>
+
+    <item name="empty_retry_view" type="id"/>
+    <item name="error_retry_view" type="id"/>
+    <item name="no_network_retry_view" type="id"/>
 </resources>

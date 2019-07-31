@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="326dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/wygamesdk_login_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.jiaohe.wygamsdk.widget.APScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="100.0"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingTop="30dp">
+
+            <LinearLayout
+                android:layout_width="266dp"
+                android:layout_height="46dp"
+                android:background="@drawable/wygamesdk_login_input_bg"
+                android:paddingLeft="10dp">
+
+                <EditText
+                    android:id="@id/bsgamesdk_edit_trumpet_create"
+                    style="?attr/bsgamesdk_basic_editText_style"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/wygamesdk_create_trumpet_hint"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:maxLength="6" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="266dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp">
+
+                <Button
+                    android:id="@id/bsgamesdk_buttonCancel"
+                    android:layout_width="110dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentLeft="true"
+                    android:background="@drawable/wygamesdk_bg_cancel_trumpet"
+                    android:text="@string/bsgamesdk_exit_btn_cancel"
+                    android:textColor="@color/bsgamesdk_white"
+                    android:textSize="16sp" />
+
+                <Button
+                    android:id="@id/bsgamesdk_buttonCreate"
+                    android:layout_width="110dp"
+                    android:layout_height="38dp"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/wygamesdk_bg_confirm_trumpet"
+                    android:text="@string/bsgamesdk_exit_btn_comfirm"
+                    android:textColor="@color/bsgamesdk_white"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+        </LinearLayout>
+    </com.jiaohe.wygamsdk.widget.APScrollView>
+</LinearLayout>

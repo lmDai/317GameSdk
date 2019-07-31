@@ -88,6 +88,7 @@
     <string name="bsgamesdk_username_login_hit">账号/手机号/邮箱</string>
     <string name="wygamesdk_username_login_hit">请输入账号或手机号</string>
     <string name="wygamesdk_password_login_hi">请输入密码</string>
+    <string name="wygamesdk_create_trumpet_hint">昵称长度不超过6个字符</string>
 
     <string name="wygamesdk_username_reg_hit">请输入账号(6-20位数字或字母)</string>
     <string name="wygamesdk_password_reg_hit">请输入密码(6-20位数字或字母)</string>
@@ -151,6 +152,9 @@
 
 快快进入游戏，享受游戏的乐趣吧"</string>
     <string name="bsgamesdk_user_license">用户条款确认</string>
+    <string name="empty_view_hint">暂无数据</string>
+    <string name="error_view_hint">加载失败</string>
+    <string name="no_network_view_hint">网络异常</string>
     <string name="bsgamesdk_user_license_agree">同意</string>
     <string name="bsgamesdk_user_license_disagree">不同意</string>
     <string name="bsgamesdk_text_tip_permittedMinor">您的账号达到未成年人支付额度限制条件，将对您的支付进行限制。</string>

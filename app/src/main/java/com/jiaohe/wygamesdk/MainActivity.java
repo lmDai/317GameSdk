@@ -8,6 +8,7 @@ import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.call.GameSdkLogic;
 import com.jiaohe.wygamsdk.callback.SdkCallbackListener;
 import com.jiaohe.wygamsdk.config.SDKStatusCode;
+import com.jiaohe.wygamsdk.widget.floatview.FloatPresentImpl;
 
 public class MainActivity extends SdkBaseActivity {
     private Button btnLogin;
@@ -44,6 +45,7 @@ public class MainActivity extends SdkBaseActivity {
             public void callback(int code, String response) {
                 switch (code) {
                     case SDKStatusCode.SUCCESS:
+                        FloatPresentImpl.getInstance().showFloatBtn(MainActivity.this);
                         break;
                     case SDKStatusCode.FAILURE:
                         break;

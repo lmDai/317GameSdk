@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.jiaohe.wygamsdk.widget.APScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="30dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@drawable/gamesdk_bg_trumpet">
+
+                <ImageView
+                    android:id="@id/bsgamesdk_id_username_head"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginTop="60dp"
+                    android:src="@drawable/wygamesdk_logo" />
+
+                <TextView
+                    android:id="@id/bsgamesdk_id_username_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_toRightOf="@id/bsgamesdk_id_username_head"
+                    tools:text="15025300356"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@id/bsgamesdk_id_btn_logout"
+                    android:layout_width="66dp"
+                    android:layout_height="22dp"
+                    android:layout_below="@id/bsgamesdk_id_username_nickname"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/bsgamesdk_id_username_head"
+                    android:background="@drawable/wygamesdk_bg_logout"
+                    android:gravity="center"
+                    android:text="注销"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="-40dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/game_shape_solid_white_radius5"
+                android:gravity="center"
+                android:minHeight="100dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txt_info"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="创建小号登录游戏"
+                        android:textColor="#ff000000"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="创建后不能删除或修改"
+                        android:textColor="#ff9fa5ab"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+
+                <ImageButton
+                    android:id="@id/bsgamesdk_id_ib_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/wygamesdk_ic_add_trump" />
+            </LinearLayout>
+
+            <com.jiaohe.wygamsdk.widget.AutoListView
+                android:id="@id/wygamesdk_id_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:divider="@android:color/transparent"
+                android:dividerHeight="15dp"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none"
+                tools:listitem="@layout/wygamesdk_item_trumpet" />
+        </LinearLayout>
+    </com.jiaohe.wygamsdk.widget.APScrollView>
+</LinearLayout>

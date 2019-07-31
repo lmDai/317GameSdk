@@ -142,9 +142,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:backgroundDimEnabled">true</item>
         <item name="bsgamesdk_main_background">@drawable/bsgamesdk_bg</item>
-        <item name="bsgamesdk_img_user">@drawable/bsgamesdk_icon_user</item>
-        <item name="bsgamesdk_img_email">@drawable/bsgamesdk_icon_email</item>
-        <item name="bsgamesdk_img_password">@drawable/bsgamesdk_icon_password</item>
+        <item name="bsgamesdk_img_user">@drawable/wygamesdk_ic_username</item>
+        <item name="bsgamesdk_img_phone">@drawable/wygamesdk_ic_phone</item>
+        <item name="bsgamesdk_img_password">@drawable/wygamesdk_ic_password</item>
         <item name="bsgamesdk_confirm_button_style">@style/bsgamesdk_btn_confirm</item>
         <item name="bsgamesdk_reg_button_style">@style/bsgamesdk_btn_reg</item>
         <item name="bsgamesdk_close_button_style">@style/bsgamesdk_btn_close</item>
@@ -216,15 +216,17 @@
     </style>
 
     <style name="bsgamesdk_btn_close">
-        <item name="android:background">@drawable/bsgamesdk_icon_close</item>
+        <item name="android:background">@drawable/wygamesdk_ic_close</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">15dp</item>
     </style>
 
     <style name="bsgamesdk_btn_back">
-        <item name="android:background">@drawable/bsgamesdk_btn_back</item>
+        <item name="android:background">@drawable/wygamesdk_ic_back</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">15dp</item>
     </style>
 
     <style name="bsgamesdk_btn_text_image">
@@ -315,7 +317,7 @@
     <style name="bsgamesdk_imageView_title">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:src">@drawable/bsgamesdk_logo</item>
+        <item name="android:src">@drawable/wygamesdk_logo</item>
     </style>
 
     <style name="bsgamesdk_editText_basic" parent="@android:style/Widget.EditText">
@@ -487,9 +489,27 @@
     </style>
 
     <style name="translucentm" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-        <item name="android:windowBackground">@color/bsgame_floatsdk_translucent_background1</item>
+        <item name="android:windowBackground">@color/wygamesdk_color_trumpet</item>
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/noAnimationm</item>
+    </style>
+
+    <style name="translucent" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/noAnimationm</item>
+    </style>
+
+    <style name="MultipleStatusView" />
+
+    <style name="MultipleStatusView.Content">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:textColor">#a9b7b7</item>
+        <item name="android:textSize">16sp</item>
     </style>
 </resources>

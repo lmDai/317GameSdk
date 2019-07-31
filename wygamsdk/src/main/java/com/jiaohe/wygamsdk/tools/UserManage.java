@@ -42,6 +42,16 @@ public class UserManage {
         editor.commit();
     }
 
+    public String getLoginUserName(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("LOGIN_INFO", Context.MODE_PRIVATE);
+        return sp.getString(USERNAME, "");
+    }
+
+    public String getLoginPassword(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("LOGIN_INFO", Context.MODE_PRIVATE);
+        return sp.getString(PASSWORD, "");
+    }
+
     /**
      * 修改密码后置空
      *
@@ -75,5 +85,15 @@ public class UserManage {
         userInfo.headimgurl = sp.getString(HEADIMGURL, "");
         userInfo.is_validate = sp.getInt(IS_VALIDATE, 0);
         return userInfo;
+    }
+    public void saveTrumpetName(Context context, String trumpetName) {
+        SharedPreferences sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(ACCOUUT_NAME, trumpetName);
+        editor.commit();
+    }
+    public String getTrumpetName(Context context) {
+        SharedPreferences sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        return sp.getString(ACCOUUT_NAME, "");
     }
 }

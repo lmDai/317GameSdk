@@ -1,8 +1,7 @@
 package com.jiaohe.wygamsdk.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
-import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +39,7 @@ public class EditableSpinner extends LinearLayout implements AdapterView.OnItemC
         mImgBtnDown = findViewById(R.id.bsgamesdk_edit_username_drop);
         mEtInput = findViewById(R.id.bsgamesdk_edit_username_login);
         mListPopupWindow = new ListPopupWindow(context);
-        LinearLayout.LayoutParams lp = (LayoutParams) mImgBtnDown.getLayoutParams();
+        LayoutParams lp = (LayoutParams) mImgBtnDown.getLayoutParams();
         mImgBtnDown.setLayoutParams(lp);
 
         mImgBtnDown.setOnClickListener(new OnClickListener() {
@@ -49,6 +48,12 @@ public class EditableSpinner extends LinearLayout implements AdapterView.OnItemC
                 mListPopupWindow.show();
             }
         });
+    }
+
+    public void setText(String text) {
+        if (!TextUtils.isEmpty(text)) {
+            mEtInput.setText(text);
+        }
     }
 
     public EditableSpinner setAdapter(ArrayAdapter<String> adapter) {

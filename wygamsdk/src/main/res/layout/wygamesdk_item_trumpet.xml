@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="#FFFFFFFF"
+        android:gravity="center"
+        android:minHeight="56dp">
+
+
+        <TextView
+            android:id="@id/wygamesdk_id_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/wygamesdk_bg_num"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#ff535eef"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@id/wygamesdk_id_accouut_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:text="斗破苍穹真好斗破苍穹真d"
+            android:textColor="#ff000000"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="15dp"
+            android:drawableRight="@drawable/wygamesdk_ic_next"
+            android:drawablePadding="6dp"
+            android:text="进入游戏"
+            android:textColor="#ffff8303"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>
