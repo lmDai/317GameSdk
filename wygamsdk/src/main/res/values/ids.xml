@@ -264,6 +264,8 @@
     <item name="bsgamesdk_id_username_nickname" type="id" />
     <item name="bsgamesdk_id_trumpet_name" type="id" />
     <item name="bsgamesdk_id_btn_logout" type="id" />
+    <item name="bsgamesdk_id_menu_wallet" type="id" />
+    <item name="bsgamesdk_id_menu_setting" type="id" />
     <item name="action_settings" type="id" />
     <item name="wygamesdk_id_accouut_name" type="id" />
     <item name="wygamesdk_id_position" type="id" />
@@ -273,13 +275,13 @@
     <item name="wygamesdk_id_item_desc" type="id" />
     <item name="bsgamesdk_id_ib_add" type="id" />
     <item name="bsgamesdk_id_status_view" type="id" />
-    <item name="empty_view" type="id"/>
-    <item name="error_view" type="id"/>
-    <item name="loading_view" type="id"/>
-    <item name="content_view" type="id"/>
-    <item name="no_network_view" type="id"/>
+    <item name="empty_view" type="id" />
+    <item name="error_view" type="id" />
+    <item name="loading_view" type="id" />
+    <item name="content_view" type="id" />
+    <item name="no_network_view" type="id" />
 
-    <item name="empty_retry_view" type="id"/>
-    <item name="error_retry_view" type="id"/>
-    <item name="no_network_retry_view" type="id"/>
+    <item name="empty_retry_view" type="id" />
+    <item name="error_retry_view" type="id" />
+    <item name="no_network_retry_view" type="id" />
 </resources>

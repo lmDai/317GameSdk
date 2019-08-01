@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.jiaohe.wygamsdk.callback.SdkCallbackListener;
@@ -11,6 +12,7 @@ import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.config.ConstData;
 import com.jiaohe.wygamsdk.config.SDKStatusCode;
 import com.jiaohe.wygamsdk.ui.login.WyLoginActivity;
+import com.jiaohe.wygamsdk.ui.pay.WyWebPayActivity;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -109,4 +111,31 @@ public class GameSdkLogic {
         }
 
     }
+
+    //支付:
+    //需要将SDK支付信息传递给具体的方式中
+    public void wyGamePay(Context context, String thirdId, String roleId, String roleName, String serverId, String serverName, String gameName, String desc, String remark, String payable, String payment, String commodity, final SdkCallbackListener<String> callback) {
+        if (checkInit) {
+            Intent intent = new Intent(context, WyWebPayActivity.class);
+            Bundle extras = new Bundle();
+            extras.putString("thirdId", thirdId);
+            extras.putString("roleId", roleId);
+            extras.putString("roleName", roleName);
+            extras.putString("serverId", serverId);
+            extras.putString("serverName", serverName);
+            extras.putString("gameName", gameName);
+            extras.putString("desc", desc);
+            extras.putString("remark", remark);
+            extras.putString("payable", payable);
+            extras.putString("payment", payment);
+            extras.putString("commodity", commodity);
+            intent.putExtras(extras);
+            context.startActivity(intent);
+            Delegate.listener = callback;
+        } else {
+            callback.callback(SDKStatusCode.FAILURE, ConstData.INIT_FAILURE);
+            return;
+        }
+    }
+
 }

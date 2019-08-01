@@ -31,4 +31,5 @@ dependencies {
 //    implementation files('libs/okrx-1.0.2.jar')
     implementation files('libs/okserver-2.0.5.jar')
     implementation files('libs/gson-2.2.2.jar')
+    implementation files('libs/alipaySdk-20180601.jar')
 }

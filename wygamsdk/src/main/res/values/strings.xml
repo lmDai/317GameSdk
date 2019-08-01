@@ -33,7 +33,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="bsgamesdk_determine">确 定</string>
     <string name="bsgamesdk_closetitle">关闭</string>
-    <string name="bsgamesdk_login">login</string>
+    <string name="bsgamesdk_login">登  录</string>
     <string name="bsgamesdk_logo">logo</string>
     <string name="bsgamesdk_submit">提交</string>
     <string name="bsgamesdk_reg_login">注 册</string>

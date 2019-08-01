@@ -1,10 +1,13 @@
 package com.jiaohe.wygamsdk.ui.menu;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
@@ -29,7 +32,9 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
     private ImageView imgHead;
     private TextView txtNickName, txtTrumpetName;
     private LinearLayout llClose;
+    private RelativeLayout rlWallet, rlSetting;
     private MultipleStatusView multipleStatusView;
+    private MenuBean menuBean;
 
     @Override
     public int getLayoutId() {
@@ -44,11 +49,15 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
         txtTrumpetName = findViewById(R.id.bsgamesdk_id_trumpet_name);
         llClose = findViewById(R.id.bsgamesdk_id_close);
         multipleStatusView = findViewById(R.id.bsgamesdk_id_status_view);
+        rlWallet = findViewById(R.id.bsgamesdk_id_menu_wallet);
+        rlSetting = findViewById(R.id.bsgamesdk_id_menu_setting);
     }
 
     @Override
     public void initListener() {
         setOnClick(llClose);
+        setOnClick(rlWallet);
+        setOnClick(rlSetting);
     }
 
     @Override
@@ -74,14 +83,33 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
         int id = view.getId();
         if (id == R.id.bsgamesdk_id_close) {//关闭当前页面
             finish();
+        } else if (id == R.id.bsgamesdk_id_menu_wallet) {//钱包
+            if (menuBean != null && menuBean.wallet != null) {
+                Intent intent = new Intent();
+                intent.putExtra("url", menuBean.wallet.link);
+                intent.setClass(WyMenuWindowActivity.this, WyWebActivity.class);
+                startActivity(intent);
+            }
+        } else if (id == R.id.bsgamesdk_id_menu_setting) {//设置
+
         }
     }
 
     @Override
-    public void getMenuSuccess(MenuBean menuBean) {
+    public void getMenuSuccess(final MenuBean menuBean) {
+        this.menuBean = menuBean;
         multipleStatusView.showContent();
         MenuListAdapter adapter = new MenuListAdapter(menuBean.list, this);
         menuListView.setAdapter(adapter);
+        menuListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.putExtra("url", menuBean.list.get(position).link);
+                intent.setClass(WyMenuWindowActivity.this, WyWebActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

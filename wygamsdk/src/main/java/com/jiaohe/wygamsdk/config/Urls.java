@@ -22,4 +22,8 @@ public class Urls {
     public static final String URL_TRUMPET_CREATE = SERVER + "sdk/player/create-children-account";
     //浮标模块
     public static final String URL_BUOY_INDEX = SERVER + "sdk/buoy/index";
+    //支付获取订单号
+    public static final String URL_PAY_ORDER = SERVER + "sdk/pay";
+    //支付
+    public static final String URL_PAY_GAME = "https://app.317youxi.com/sdkpay/order";
 }

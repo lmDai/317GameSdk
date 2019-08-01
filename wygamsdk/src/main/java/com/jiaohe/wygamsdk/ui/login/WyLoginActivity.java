@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
-import com.jiaohe.wygamsdk.call.Delegate;
+import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.mvp.login.LoginPresenterImp;
 import com.jiaohe.wygamsdk.mvp.login.LoginView;
 import com.jiaohe.wygamsdk.mvp.login.UserBean;
@@ -105,6 +105,7 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
 
     @Override
     public void loginSuccess(int code, String msg, UserBean userBean) {
+        ConfigInfo.userID = userBean.player_id;
         UserManage.getInstance().saveUserInfo(this, mEditableSpinner.getSelectedItem(), editPassword.getText().toString());
         UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                 userBean.username, userBean.phone,
