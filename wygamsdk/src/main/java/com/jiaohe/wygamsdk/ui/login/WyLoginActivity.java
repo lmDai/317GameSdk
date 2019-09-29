@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
+import com.jiaohe.wygamsdk.call.Delegate;
+import com.jiaohe.wygamsdk.call.WYGameSdkError;
 import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.mvp.login.LoginPresenterImp;
 import com.jiaohe.wygamsdk.mvp.login.LoginView;
@@ -122,7 +124,7 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
     @Override
     public void loginFailed(int code, String msg) {
         Log.i("single", msg);
-
+        Delegate.callbackListener.onFailed(new WYGameSdkError(code, msg));
     }
 
     @Override

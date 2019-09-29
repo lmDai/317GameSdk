@@ -25,27 +25,14 @@ import java.util.zip.ZipFile;
  * @date:2019/7/26
  * @description:供接入使用SDK开发人员调用的核心类
  **/
-public class GameSdkLogic {
+public class GameSdkLogic implements IWYGameSdk {
     private boolean checkInit;
 
-    private GameSdkLogic() {
-    }
+    private static GameSdkLogic gameSdkLogic;
+    private Context mContext;
 
-    private volatile static GameSdkLogic sdkLogic;
-
-    public static GameSdkLogic getInstance() {
-        if (sdkLogic == null) {
-            synchronized (GameSdkLogic.class) {
-                if (sdkLogic == null) sdkLogic = new GameSdkLogic();
-            }
-        }
-        return sdkLogic;
-    }
-
-    //游戏初始化:
-    //这里没有商业接口,固定是初始化成功,实际开发需要根据后台去判断成功/失败
-    //只有当初始化的时候才可以进行后续操作
-    public void sdkInit(Context context, final SdkCallbackListener<String> callback) {
+    private GameSdkLogic(Context context, final InitCallbackListener listener) {
+        this.mContext = context;
         ApplicationInfo appInfo = null;
         try {
             appInfo = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
@@ -56,12 +43,28 @@ public class GameSdkLogic {
         ConfigInfo.gameID = appInfo.metaData.getString("com.jiaohekeji.appid");
         ConfigInfo.channelID = getChannel(context);
         if (!TextUtils.isEmpty(ConfigInfo.gameID)) {
-            callback.callback(SDKStatusCode.SUCCESS, ConstData.INIT_SUCCESS);
+            listener.onSuccess();
             checkInit = true;
         } else {
-            callback.callback(SDKStatusCode.FAILURE, ConstData.INIT_FAILURE + "游戏ID为空");
+            listener.onFailed();
             checkInit = false;
         }
+    }
+
+    public static GameSdkLogic getInstance() {
+        return gameSdkLogic;
+    }
+
+    private volatile static GameSdkLogic sdkLogic;
+
+    //游戏初始化:
+//这里没有商业接口,固定是初始化成功,实际开发需要根据后台去判断成功/失败
+//只有当初始化的时候才可以进行后续操作
+    public static GameSdkLogic sdkInit(Context context, final InitCallbackListener initCallbackListener) {
+        if (gameSdkLogic == null) {
+            gameSdkLogic = new GameSdkLogic(context, initCallbackListener);
+        }
+        return gameSdkLogic;
     }
 
     public String getChannel(Context context) {
@@ -138,4 +141,50 @@ public class GameSdkLogic {
         }
     }
 
+    @Override
+    public void register(CallbackListener callbackListener) {
+
+    }
+
+    @Override
+    public void login(CallbackListener callbackListener) {
+        if (checkInit) {
+            Intent intent = new Intent(mContext, WyLoginActivity.class);
+            mContext.startActivity(intent);
+            Delegate.callbackListener = callbackListener;
+        } else {
+            callbackListener.onError(new WYGameSdkError(SDKStatusCode.FAILURE, ConstData.INIT_FAILURE));
+            return;
+        }
+    }
+
+    @Override
+    public void logout(CallbackListener callbackListener) {
+
+    }
+
+    @Override
+    public void isLogin(CallbackListener callbackListener) {
+
+    }
+
+    @Override
+    public void getUserInfo(CallbackListener callbackListener) {
+
+    }
+
+    @Override
+    public void isRealNameAuth(CallbackListener callbackListener) {
+
+    }
+
+    @Override
+    public void exit(ExitCallbackListener exitCallbackListener) {
+
+    }
+
+    @Override
+    public void setAccountListener(AccountCallBackListener accountListener) {
+
+    }
 }

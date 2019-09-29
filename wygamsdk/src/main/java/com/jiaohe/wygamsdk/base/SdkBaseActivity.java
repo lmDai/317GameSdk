@@ -1,21 +1,18 @@
 package com.jiaohe.wygamsdk.base;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
+import android.content.Context;
 import android.os.Bundle;
-import android.util.SparseArray;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.tools.ActivityUtils;
+
 /**
  * @package: com.jiaohe.wygamsdk.base
  * @user:xhkj
@@ -44,23 +41,8 @@ public abstract class SdkBaseActivity extends Activity implements View.OnClickLi
     }
 
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //设置横竖屏
-        if (ConfigInfo.allowPORTRAIT) {
-            //强制为竖屏
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        } else {
-            //强制为横屏
-            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        }
-        if (ConfigInfo.touchOUTSIDE) {
-            //允许点击窗口外部区域关闭窗口
-            this.setFinishOnTouchOutside(true);
-        } else {
-            //不允许点击窗口外部区域关闭窗口
-            this.setFinishOnTouchOutside(false);
-        }
         //取消标题
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //取消状态栏
@@ -72,6 +54,7 @@ public abstract class SdkBaseActivity extends Activity implements View.OnClickLi
         initData();
         ActivityUtils.getInstance().attach(this);
     }
+
     @Override
     public void onBackPressed() {
         finish();
@@ -89,5 +72,44 @@ public abstract class SdkBaseActivity extends Activity implements View.OnClickLi
     protected void onDestroy() {
         super.onDestroy();
         ActivityUtils.getInstance().detach(this);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if (isShouldHideInput(v, ev)) {
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+            return super.dispatchTouchEvent(ev);
+        }
+        // 必不可少，否则所有的组件都不会有TouchEvent了
+        if (getWindow().superDispatchTouchEvent(ev)) {
+            return true;
+        }
+        return onTouchEvent(ev);
+    }
+
+    public boolean isShouldHideInput(View v, MotionEvent event) {
+        if (v != null && (v instanceof EditText)) {
+            int[] leftTop = {0, 0};
+            //获取输入框当前的location位置
+            v.getLocationInWindow(leftTop);
+            int left = leftTop[0];
+            int top = leftTop[1];
+            int bottom = top + v.getHeight();
+            int right = left + 100000;
+            if (event.getX() > left && event.getX() < right
+                    && event.getY() > top && event.getY() < bottom) {
+                // 点击的是输入框区域，保留点击EditText的事件
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return false;
     }
 }

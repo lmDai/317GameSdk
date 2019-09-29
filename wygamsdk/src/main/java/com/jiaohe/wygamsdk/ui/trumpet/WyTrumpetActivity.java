@@ -2,6 +2,7 @@ package com.jiaohe.wygamsdk.ui.trumpet;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.call.Delegate;
-import com.jiaohe.wygamsdk.config.SDKStatusCode;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetBean;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetPresenterImp;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetView;
@@ -116,7 +116,11 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserManage.getInstance().saveTrumpetName(WyTrumpetActivity.this, trumpetList.get(position).accouut_name);
-                Delegate.listener.callback(SDKStatusCode.SUCCESS, trumpetList.get(position).channel_accouut_id);
+                Bundle bundle = new Bundle();
+                bundle.putString("channel_accouut_id", trumpetList.get(position).channel_accouut_id);
+                bundle.putString("player_id", trumpetList.get(position).player_id);
+                bundle.putString("accouut_name", trumpetList.get(position).accouut_name);
+                Delegate.callbackListener.onSuccess(bundle);
                 finish();
             }
         });

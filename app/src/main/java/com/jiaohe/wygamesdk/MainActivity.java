@@ -1,19 +1,23 @@
 package com.jiaohe.wygamesdk;
 
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
+import com.jiaohe.wygamsdk.call.CallbackListener;
 import com.jiaohe.wygamsdk.call.GameSdkLogic;
+import com.jiaohe.wygamsdk.call.InitCallbackListener;
+import com.jiaohe.wygamsdk.call.WYGameSdkError;
 import com.jiaohe.wygamsdk.callback.SdkCallbackListener;
 import com.jiaohe.wygamsdk.config.ConstData;
 import com.jiaohe.wygamsdk.config.SDKStatusCode;
-import com.jiaohe.wygamsdk.widget.floatview.FloatPresentImpl;
 
 public class MainActivity extends SdkBaseActivity {
     private Button btnLogin, btnPay;
+    private GameSdkLogic gameSdkLogic;
 
     @Override
     public int getLayoutId() {
@@ -34,30 +38,41 @@ public class MainActivity extends SdkBaseActivity {
 
     @Override
     public void initData() {
-        GameSdkLogic.getInstance().sdkInit(this, new SdkCallbackListener<String>() {
+        GameSdkLogic.sdkInit(this, new InitCallbackListener() {
             @Override
-            public void callback(int code, String response) {
-                Log.i("single", code + response + "callback");
+            public void onSuccess() {
+                Log.i("single", "onSuccess");
+            }
+
+            @Override
+            public void onFailed() {
+                Log.i("single", "onFailed");
             }
         });
+        gameSdkLogic = GameSdkLogic.getInstance();
     }
 
     @Override
     public void processClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_login) {
-            GameSdkLogic.getInstance().sdkLogin(this, new SdkCallbackListener<String>() {
+            gameSdkLogic.login(new CallbackListener() {
                 @Override
-                public void callback(int code, String response) {
-                    switch (code) {
-                        case SDKStatusCode.SUCCESS:
-                            FloatPresentImpl.getInstance().showFloatBtn(MainActivity.this);
-                            break;
-                        case SDKStatusCode.FAILURE:
-                            break;
-                        case SDKStatusCode.OTHER:
-                            break;
-                    }
+                public void onSuccess(Bundle bundle) {//登录成功
+                    String channel_accouut_id = bundle.getString("channel_accouut_id");
+                    String player_id = bundle.getString("player_id");
+                    String accouut_name = bundle.getString("accouut_name");
+                    Toast.makeText(MainActivity.this, channel_accouut_id + player_id + accouut_name, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {//登录失败
+
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {//登录失败
+
                 }
             });
         } else if (id == R.id.btn_pay) {

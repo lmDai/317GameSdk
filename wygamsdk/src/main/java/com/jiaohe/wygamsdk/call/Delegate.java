@@ -10,4 +10,5 @@ import com.jiaohe.wygamsdk.callback.SdkCallbackListener;
  **/
 public final class Delegate {
     public static SdkCallbackListener listener;
+    public static CallbackListener callbackListener;
 }
