@@ -10,13 +10,12 @@ import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
-import com.jiaohe.wygamsdk.call.Delegate;
-import com.jiaohe.wygamsdk.config.SDKStatusCode;
 import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.mvp.register.AccountRegPresenterImp;
 import com.jiaohe.wygamsdk.mvp.register.AccountRegView;
 import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.ui.auth.UserAgreementActivity;
+import com.jiaohe.wygamsdk.ui.trumpet.WyTrumpetActivity;
 
 /**
  * @package: com.jiaohe.wygamsdk.ui.login
@@ -102,16 +101,15 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
 
     @Override
     public void regSuccess(int code, String msg, UserBean userBean) {
-        Delegate.listener.callback(SDKStatusCode.SUCCESS, userBean.player_id);
         UserManage.getInstance().saveUserInfo(this, editRegName.getText().toString(), editRegPwd.getText().toString());
         UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                 userBean.username, userBean.phone,
                 userBean.nickname, userBean.headimgurl,
                 userBean.is_validate);
-        //            Intent intent = new Intent();
-//            intent.putExtra("player_id", userBean.player_id);
-//            intent.setClass(this, SdkTrumpetListActivity.class);
-//            startActivity(intent);
+        Intent intent = new Intent();
+        intent.putExtra("player_id", userBean.player_id);
+        intent.setClass(this, WyTrumpetActivity.class);
+        startActivity(intent);
     }
 
     @Override

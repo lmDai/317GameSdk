@@ -12,11 +12,13 @@ import android.widget.TextView;
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.call.Delegate;
+import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetBean;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetPresenterImp;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetView;
 import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.ui.adapter.TrumpetListAdapter;
+import com.jiaohe.wygamsdk.ui.login.WyBindPhoneActivity;
 import com.jiaohe.wygamsdk.ui.login.WyLoginActivity;
 import com.jiaohe.wygamsdk.widget.AutoListView;
 import com.lzy.okgo.OkGo;
@@ -36,6 +38,7 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
     private TextView txtNickName, txtLogout;
     private AutoListView trumpetListView;
     private ImageButton imgBtnAdd;
+    private UserBean userBean;
 
     @Override
     public int getLayoutId() {
@@ -61,6 +64,11 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
     public void initData() {
         trumpetPresenterImp = new TrumpetPresenterImp();
         trumpetPresenterImp.attachView(this);
+        userBean = UserManage.getInstance().getSdkUserInfo(this);
+        if (userBean.phone == null || userBean.phone.equals("")) {
+            Intent intent = new Intent(this, WyBindPhoneActivity.class);
+            startActivity(intent);
+        }
         OkGo.<Bitmap>get(UserManage.getInstance().getSdkUserInfo(this).headimgurl)
                 .tag(this)
                 .execute(new BitmapCallback() {

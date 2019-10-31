@@ -106,6 +106,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
                 .params("remark", extras.getString("remark"))
                 .params("userId", ConfigInfo.userID)
                 .params("channelId", ConfigInfo.channelID)
+                .params("children_id", UserManage.getInstance().getChildrenId(this))
                 .isMultipart(true)
                 .execute(new DialogCallback<BaseResponse<OrderBean>>(this, "数据加载中...") {
                     @Override

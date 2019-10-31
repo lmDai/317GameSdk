@@ -38,4 +38,8 @@ public class Urls {
     public static final String URL_PLAYER_SUBROLE = SERVER + "sdk/player/subrole";
     //用户协议
     public static final String URL_USER_AGREE_MENT = SERVER + "sdk/player/agreement";
+    //绑定手机号验证码
+    public static final String URL_GET_BIND_CODE = SERVER + "sdk/player/send-code";
+    //绑定手机号
+    public static final String URL_BIND_PHONE = SERVER + "sdk/player/phone";
 }

@@ -1,19 +1,19 @@
 package com.jiaohe.wygamesdk;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.call.CallbackListener;
 import com.jiaohe.wygamsdk.call.GameSdkLogic;
 import com.jiaohe.wygamsdk.call.InitCallbackListener;
 import com.jiaohe.wygamsdk.call.WYGameSdkError;
 import com.jiaohe.wygamsdk.mvp.login.UserBean;
-import com.jiaohe.wygamsdk.widget.floatview.FloatPresentImpl;
+import com.jiaohe.wygamsdk.widget.floatview.WySdkXF;
 
 public class MainActivity extends Activity implements View.OnClickListener {
     private Button btnLogin, btnPay, btnRealName, btnLoginOut, btnIsLogin, btnUserInfo, btnCommitRole;
@@ -26,6 +26,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         setTheme(R.style.NoAnimation);
         initViews();
         initData();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
     }
 
     public void initViews() {
@@ -71,7 +76,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                     String player_id = bundle.getString("player_id");
                     String accouut_name = bundle.getString("accouut_name");
                     Toast.makeText(MainActivity.this, channel_accouut_id + player_id + accouut_name, Toast.LENGTH_SHORT).show();
-                    FloatPresentImpl.getInstance().showFloatBtn(MainActivity.this);
+                    WySdkXF.showFloatView(MainActivity.this);
                 }
 
                 @Override
@@ -138,7 +143,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 @Override
                 public void onSuccess(Bundle bundle) {
                     Toast.makeText(MainActivity.this, "登出成功", Toast.LENGTH_SHORT).show();
-                    FloatPresentImpl.getInstance().destoryFloat();
+                    WySdkXF.onDestroy();
                 }
 
                 @Override
@@ -212,5 +217,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 }
             });
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("single", "onDestroy");
     }
 }

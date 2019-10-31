@@ -23,18 +23,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <RelativeLayout
-                    android:id="@id/wygamesdk_title_back"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true">
+                    android:text="绑定手机"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="#fffafbfe"
+                    android:textSize="16sp" />
 
-                    <ImageView style="?attr/wygamesdk_back_button_style" />
-                </RelativeLayout>
-
-                <ImageView
-                    style="?attr/wygamesdk_title_logo_style"
-                    android:layout_centerInParent="true" />
                 <RelativeLayout
                     android:id="@id/wygamesdk_id_close"
                     android:layout_width="wrap_content"
@@ -64,73 +61,59 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="@drawable/wygamesdk_ic_username" />
+                        android:src="@drawable/wygamesdk_ic_phone" />
 
                     <EditText
                         android:id="@id/wygamesdk_reg_username"
                         style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/wygamesdk_username_reg_hit"
+                        android:hint="@string/wygamesdk_phone_reg_hit"
+                        android:imeOptions="actionNext"
+                        android:inputType="phone"
+                        android:maxLength="11" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/wygamesdk_divide_line" />
+
+                <LinearLayout
+                    android:id="@id/wygamesdk_id_passwordLayout"
+                    android:layout_width="305dp"
+                    android:layout_height="46dp"
+                    android:paddingLeft="10dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:src="@drawable/wygamesdk_ic_send" />
+
+                    <EditText
+                        android:id="@id/wygamesdk_edit_code_reg"
+                        style="?attr/wygamesdk_basic_editText_style"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:hint="@string/wygamesdk_code_reg_hit"
                         android:imeOptions="actionNext"
                         android:inputType="textPersonName"
                         android:maxLength="32" />
-                </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/wygamesdk_divide_line" />
 
-                <LinearLayout
-                    android:id="@id/wygamesdk_id_passwordLayout"
-                    android:layout_width="305dp"
-                    android:layout_height="46dp"
-                    android:paddingLeft="10dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@id/wygamesdk_textview_reg_code"
+                        style="?attr/wygamesdk_text_image_style"
+                        android:layout_width="80dp"
+                        android:layout_height="25dp"
+                        android:layout_alignParentRight="true"
                         android:layout_gravity="center"
-                        android:src="@drawable/wygamesdk_ic_password" />
-
-                    <EditText
-                        android:id="@id/wygamesdk_edit_password_reg"
-                        style="?attr/wygamesdk_basic_editText_style"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/wygamesdk_password_reg_hit"
-                        android:imeOptions="actionNext"
-                        android:inputType="textPassword"
-                        android:maxLength="32" />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/wygamesdk_divide_line" />
-
-                <LinearLayout
-                    android:id="@id/wygamesdk_id_passwordLayout"
-                    android:layout_width="305dp"
-                    android:layout_height="46dp"
-                    android:paddingLeft="10dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/wygamesdk_ic_password" />
-
-                    <EditText
-                        android:id="@id/wygamesdk_edit_password_again_reg"
-                        style="?attr/wygamesdk_basic_editText_style"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/wygamesdk_password_reg_again_hit"
-                        android:imeOptions="actionDone"
-                        android:inputType="textPassword"
-                        android:maxLength="32" />
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/wygamesdk_bg_get_code"
+                        android:gravity="center"
+                        android:text="@string/wygamesdk_get_code" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -141,7 +124,7 @@
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/wygamesdk_register_title" />
+                android:text="@string/wygamesdk_exit_btn_comfirm" />
 
             <RelativeLayout
                 android:layout_width="305dp"
@@ -152,17 +135,10 @@
                     android:id="@id/wygamesdk_textview_service"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
-                    android:text="@string/wygamesdk_service"
-                    android:textColor="#ff777777"
+                    android:text="绑定手机可保证安全，不用担心忘记密码"
+                    android:textColor="#fffafbfe"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:id="@id/wygamesdk_textview_reg_phone"
-                    style="?attr/wygamesdk_text_image_style"
-                    android:layout_width="wrap_content"
-                    android:layout_height="20.0dp"
-                    android:layout_alignParentRight="true"
-                    android:text="@string/wygamesdk_phone_Reg" />
             </RelativeLayout>
         </LinearLayout>
     </com.jiaohe.wygamsdk.widget.APScrollView>

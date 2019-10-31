@@ -21,7 +21,7 @@
 
             <LinearLayout
                 android:layout_width="266dp"
-                android:layout_height="46dp"
+                android:layout_height="40dp"
                 android:background="@drawable/wygamesdk_login_input_bg"
                 android:paddingLeft="10dp">
 

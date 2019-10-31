@@ -34,6 +34,11 @@
             android:launchMode="singleTop"
             android:theme="@style/translucentm" />
         <activity
+            android:name="com.jiaohe.wygamsdk.ui.login.WyBindPhoneActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/wygamesdk_customDialog" />
+        <activity
             android:name="com.jiaohe.wygamsdk.ui.trumpet.WyCreateTrumpetActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"

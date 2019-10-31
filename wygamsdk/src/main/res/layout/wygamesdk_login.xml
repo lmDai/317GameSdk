@@ -49,7 +49,7 @@
                 <LinearLayout
                     android:id="@id/wygamesdk_id_usernameLayout"
                     android:layout_width="305dp"
-                    android:layout_height="36.0dp"
+                    android:layout_height="46dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp">
 
@@ -73,7 +73,7 @@
                 <LinearLayout
                     android:id="@id/wygamesdk_id_passwordLayout"
                     android:layout_width="305dp"
-                    android:layout_height="36.0dp"
+                    android:layout_height="46dp"
                     android:paddingLeft="10dp">
 
                     <ImageView

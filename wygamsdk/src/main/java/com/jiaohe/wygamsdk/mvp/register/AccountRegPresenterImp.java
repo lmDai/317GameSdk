@@ -29,7 +29,7 @@ public class AccountRegPresenterImp implements AccountRegPresenter {
                 .params("repassword", EncodeUtils.md5(repwd))
                 .params("gameId", ConfigInfo.gameID)
                 .params("channelId", ConfigInfo.channelID)
-                .isMultipart(true)         //强制使用 multipart/form-data 表单上传（只是演示，不需要的话不要设置。默认就是false）
+                .isMultipart(true)
                 .execute(new DialogCallback<BaseResponse<UserBean>>(context, "正在注册...") {
                     @Override
                     public void onSuccess(Response<BaseResponse<UserBean>> response) {
