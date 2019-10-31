@@ -21,11 +21,15 @@ import com.alipay.sdk.app.PayTask;
 import com.alipay.sdk.util.H5PayResultModel;
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
+import com.jiaohe.wygamsdk.call.Delegate;
+import com.jiaohe.wygamsdk.call.WYGameSdkError;
 import com.jiaohe.wygamsdk.callback.DialogCallback;
 import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.config.Urls;
 import com.jiaohe.wygamsdk.mvp.BaseResponse;
 import com.jiaohe.wygamsdk.mvp.pay.OrderBean;
+import com.jiaohe.wygamsdk.mvp.pay.PayResultBean;
+import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.tools.WebViewUtil;
 import com.jiaohe.wygamsdk.widget.MultipleStatusView;
 import com.lzy.okgo.OkGo;
@@ -41,6 +45,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
     private WebView wyWebView;
     private TextView txtWebTitle;
     private ImageButton ibWebBack, ibWenClose;
+    private String orderId;
 
     @Override
     public int getLayoutId() {
@@ -74,7 +79,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
 
     @Override
     public void initData() {
-        Bundle extras = null;
+        Bundle extras;
         try {
             extras = getIntent().getExtras();
         } catch (Exception e) {
@@ -101,7 +106,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
                 .params("remark", extras.getString("remark"))
                 .params("userId", ConfigInfo.userID)
                 .params("channelId", ConfigInfo.channelID)
-                .isMultipart(true)         //强制使用 multipart/form-data 表单上传（只是演示，不需要的话不要设置。默认就是false）
+                .isMultipart(true)
                 .execute(new DialogCallback<BaseResponse<OrderBean>>(this, "数据加载中...") {
                     @Override
                     public void onStart(Request<BaseResponse<OrderBean>, ? extends Request> request) {
@@ -110,6 +115,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
 
                     @Override
                     public void onSuccess(Response<BaseResponse<OrderBean>> response) {
+                        WyWebPayActivity.this.orderId = response.body().data.id;
                         wyWebView.loadUrl(Urls.URL_PAY_GAME + "?orderId=" + response.body().data.id);
                     }
 
@@ -122,8 +128,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
     }
 
     @Override
-    public boolean
-    onKeyDown(int keyCode, KeyEvent event) {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK && wyWebView.canGoBack()) {
             wyWebView.goBack();//返回上个页面
             return true;
@@ -147,6 +152,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
     protected void onDestroy() {
         super.onDestroy();
         WebViewUtil.destory(wyWebView);
+        getPayResult();
     }
 
     private class MyWebViewClient extends WebViewClient {
@@ -217,5 +223,41 @@ public class WyWebPayActivity extends SdkBaseActivity {
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         ComponentName componentName = intent.resolveActivity(context.getPackageManager());
         return componentName != null;
+    }
+
+    private void getPayResult() {
+        OkGo.<BaseResponse<PayResultBean>>post(Urls.URL_GET_PAY_RESULT)//
+                .tag(this)
+                .params("children_id", UserManage.getInstance().getChildrenId(this))
+                .params("orderId", orderId)
+                .params("gameId", ConfigInfo.gameID)
+                .params("userId", ConfigInfo.userID)
+                .params("channelId", ConfigInfo.channelID)
+                .params("client", ConfigInfo.CLIENT)
+                .isMultipart(true)
+                .execute(new DialogCallback<BaseResponse<PayResultBean>>(this, "数据加载中...") {
+                    @Override
+                    public void onStart(Request<BaseResponse<PayResultBean>, ? extends Request> request) {
+                        multipleStatusView.showLoading();
+                    }
+
+                    @Override
+                    public void onSuccess(Response<BaseResponse<PayResultBean>> response) {
+                        if (response.body().errorCode == BaseResponse.SUCCESS && response.body().data.pay_status == 1) {
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("errorCode", response.body().errorCode);
+                            bundle.putString("errorMsg", response.body().errorMsg);
+                            Delegate.callbackListener.onSuccess(bundle);
+                        } else {
+                            Delegate.callbackListener.onFailed(new WYGameSdkError(response.body().errorCode, response.body().errorMsg));
+                        }
+                    }
+
+                    @Override
+                    public void onError(Response<BaseResponse<PayResultBean>> response) {
+                        super.onError(response);
+                        Delegate.callbackListener.onError(new WYGameSdkError(response.code(), response.getException().getMessage()));
+                    }
+                });
     }
 }

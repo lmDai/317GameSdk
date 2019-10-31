@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_main"
+    android:orientation="horizontal"
+    android:padding="30dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/bsgamesdk_login" />
+        android:layout_marginRight="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_pay"
-        android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/bsgamesdk_login" />
+
+        <Button
+            android:id="@+id/btn_logOut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="登出" />
+
+        <Button
+            android:id="@+id/btn_is_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="是否登录 " />
+
+        <Button
+            android:id="@+id/btn_user_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="获取用户信息" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="支付"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_marginLeft="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_realname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="实名认证" />
+
+        <Button
+            android:id="@+id/btn_pay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="支付测试" />
+        <Button
+            android:id="@+id/btn_commit_role"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="提交角色信息"/>
+
+    </LinearLayout>
+
+</LinearLayout>

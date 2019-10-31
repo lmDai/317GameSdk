@@ -19,6 +19,16 @@
             android:launchMode="singleTop"
             android:theme="@style/bsgamesdk_customDialog" />
         <activity
+            android:name="com.jiaohe.wygamsdk.ui.login.WyForgetPasswordActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/bsgamesdk_customDialog" />
+        <activity
+            android:name="com.jiaohe.wygamsdk.ui.auth.WyRealNameAuthActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/bsgamesdk_customDialog" />
+        <activity
             android:name="com.jiaohe.wygamsdk.ui.trumpet.WyTrumpetActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
@@ -30,6 +40,11 @@
             android:theme="@style/bsgamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.menu.WyMenuWindowActivity"
+            android:configChanges="keyboardHidden|navigation|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/translucent" />
+        <activity
+            android:name="com.jiaohe.wygamsdk.ui.auth.UserAgreementActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
             android:theme="@style/translucent" />

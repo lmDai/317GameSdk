@@ -1,5 +1,8 @@
 package com.jiaohe.wygamsdk.call;
 
+import android.content.Context;
+import android.os.Bundle;
+
 /**
  * @package: com.jiaohe.wygamsdk.call
  * @user:xhkj
@@ -25,5 +28,5 @@ public interface IWYGameSdk {
 
     void setAccountListener(AccountCallBackListener accountListener);//账号信息监听
 
-//    void createRole();//创建角色
+    void subGameInfoMethod(String roleId, String roleName, String roleLevel, String serverId, String serverName, String gameName, CallbackListener callbackListener);//创建角色
 }

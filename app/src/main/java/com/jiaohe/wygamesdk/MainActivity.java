@@ -1,5 +1,6 @@
 package com.jiaohe.wygamesdk;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -11,32 +12,39 @@ import com.jiaohe.wygamsdk.call.CallbackListener;
 import com.jiaohe.wygamsdk.call.GameSdkLogic;
 import com.jiaohe.wygamsdk.call.InitCallbackListener;
 import com.jiaohe.wygamsdk.call.WYGameSdkError;
-import com.jiaohe.wygamsdk.callback.SdkCallbackListener;
-import com.jiaohe.wygamsdk.config.ConstData;
-import com.jiaohe.wygamsdk.config.SDKStatusCode;
+import com.jiaohe.wygamsdk.mvp.login.UserBean;
+import com.jiaohe.wygamsdk.widget.floatview.FloatPresentImpl;
 
-public class MainActivity extends SdkBaseActivity {
-    private Button btnLogin, btnPay;
-    private GameSdkLogic gameSdkLogic;
+public class MainActivity extends Activity implements View.OnClickListener {
+    private Button btnLogin, btnPay, btnRealName, btnLoginOut, btnIsLogin, btnUserInfo, btnCommitRole;
+    public GameSdkLogic gameSdkLogic;
 
     @Override
-    public int getLayoutId() {
-        return R.layout.activity_main;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        setTheme(R.style.NoAnimation);
+        initViews();
+        initData();
     }
 
-    @Override
     public void initViews() {
         btnLogin = findViewById(R.id.btn_login);
         btnPay = findViewById(R.id.btn_pay);
+        btnRealName = findViewById(R.id.btn_realname);
+        btnLoginOut = findViewById(R.id.btn_logOut);
+        btnIsLogin = findViewById(R.id.btn_is_login);
+        btnUserInfo = findViewById(R.id.btn_user_info);
+        btnCommitRole = findViewById(R.id.btn_commit_role);
+        btnLogin.setOnClickListener(this);
+        btnPay.setOnClickListener(this);
+        btnRealName.setOnClickListener(this);
+        btnLoginOut.setOnClickListener(this);
+        btnIsLogin.setOnClickListener(this);
+        btnUserInfo.setOnClickListener(this);
+        btnCommitRole.setOnClickListener(this);
     }
 
-    @Override
-    public void initListener() {
-        setOnClick(btnLogin);
-        setOnClick(btnPay);
-    }
-
-    @Override
     public void initData() {
         GameSdkLogic.sdkInit(this, new InitCallbackListener() {
             @Override
@@ -53,16 +61,17 @@ public class MainActivity extends SdkBaseActivity {
     }
 
     @Override
-    public void processClick(View view) {
+    public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.btn_login) {
-            gameSdkLogic.login(new CallbackListener() {
+            GameSdkLogic.getInstance().login(new CallbackListener() {
                 @Override
                 public void onSuccess(Bundle bundle) {//登录成功
                     String channel_accouut_id = bundle.getString("channel_accouut_id");
                     String player_id = bundle.getString("player_id");
                     String accouut_name = bundle.getString("accouut_name");
                     Toast.makeText(MainActivity.this, channel_accouut_id + player_id + accouut_name, Toast.LENGTH_SHORT).show();
+                    FloatPresentImpl.getInstance().showFloatBtn(MainActivity.this);
                 }
 
                 @Override
@@ -88,26 +97,120 @@ public class MainActivity extends SdkBaseActivity {
             String payable = "2";//应付金额
             String payment = "1";//实付金额
             String commodity = "30.5金币";//商品名称
-            GameSdkLogic.getInstance().wyGamePay(this, thirdId, roleId, roleName, serverId, serverName, gameName, desc, remark, payable, payment, commodity, new SdkCallbackListener<String>() {
+            GameSdkLogic.getInstance().wyGamePay(this, thirdId, roleId, roleName, serverId, serverName, gameName, desc, remark, payable, payment, commodity, new CallbackListener() {
                 @Override
-                public void callback(int code, String response) {
-                    switch (code) {
-                        //支付成功：
-                        case SDKStatusCode.PAY_SUCCESS:
-                            Toast.makeText(MainActivity.this, ConstData.PAY_SUCCESS, Toast.LENGTH_SHORT).show();
-                            break;
-                        //支付失败：
-                        case SDKStatusCode.PAY_FAILURE:
-                            Toast.makeText(MainActivity.this, ConstData.PAY_FAILURE, Toast.LENGTH_SHORT).show();
-                            break;
-                        //支付取消：
-                        case SDKStatusCode.PAY_OTHER:
-                            Toast.makeText(MainActivity.this, ConstData.PAY_FAILURE, Toast.LENGTH_SHORT).show();
-                            break;
-                    }
+                public void onSuccess(Bundle bundle) {
+                    String errorMsg = bundle.getString("errorMsg");
+                    int errorCode = bundle.getInt("errorCode");
+                    Toast.makeText(MainActivity.this, errorMsg + errorCode, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else if (view.getId() == R.id.btn_realname) {
+            GameSdkLogic.getInstance().isRealNameAuth(new CallbackListener() {
+                @Override
+                public void onSuccess(Bundle bundle) {
+                    boolean is_validate = bundle.getBoolean("is_validate");
+                    Toast.makeText(MainActivity.this, "是否实名认证：" + is_validate, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else if (view.getId() == R.id.btn_logOut) {
+            GameSdkLogic.getInstance().logout(new CallbackListener() {
+                @Override
+                public void onSuccess(Bundle bundle) {
+                    Toast.makeText(MainActivity.this, "登出成功", Toast.LENGTH_SHORT).show();
+                    FloatPresentImpl.getInstance().destoryFloat();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else if (view.getId() == R.id.btn_is_login) {
+            GameSdkLogic.getInstance().isLogin(new CallbackListener() {
+                @Override
+                public void onSuccess(Bundle bundle) {
+                    Toast.makeText(MainActivity.this, "是否登录" + bundle.getBoolean("isLogin"), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else if (view.getId() == R.id.btn_user_info) {
+            GameSdkLogic.getInstance().getUserInfo(new CallbackListener() {
+                @Override
+                public void onSuccess(Bundle bundle) {
+                    UserBean userBean = (UserBean) bundle.getSerializable("userInfo");
+                    Toast.makeText(MainActivity.this, userBean.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        } else if (view.getId() == R.id.btn_commit_role) {
+            String roleId = "1010";//角色ID（唯一标识）
+            String roleName = "骑小猪看流星";//角色名称
+            String roleLevel = "11";//角色等级
+            String serverId = "123";//服务器ID（唯一标识）
+            String serverName = "齐云楼";//服务器名
+            String gameName = "梦幻西游";//游戏名称
+            GameSdkLogic.getInstance().subGameInfoMethod(roleId, roleName, roleLevel, serverId, serverName, gameName, new CallbackListener() {
+                @Override
+                public void onSuccess(Bundle bundle) {
+                    String errorMsg = bundle.getString("errorMsg");
+                    int errorCode = bundle.getInt("errorCode");
+                    Toast.makeText(MainActivity.this, errorMsg + errorCode, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onFailed(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                public void onError(WYGameSdkError wyGameSdkError) {
+                    Toast.makeText(MainActivity.this, wyGameSdkError.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
         }
     }
-
 }

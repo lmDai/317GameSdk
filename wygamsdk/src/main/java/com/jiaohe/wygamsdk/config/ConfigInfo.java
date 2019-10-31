@@ -17,4 +17,5 @@ public class ConfigInfo {
     public static Context mContext;
     //用户ID
     public static String userID = "";
+    public static String CLIENT="Android";
 }

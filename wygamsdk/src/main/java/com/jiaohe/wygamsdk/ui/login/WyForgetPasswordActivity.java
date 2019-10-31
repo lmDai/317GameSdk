@@ -11,34 +11,28 @@ import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
-import com.jiaohe.wygamsdk.call.Delegate;
-import com.jiaohe.wygamsdk.config.ConfigInfo;
-import com.jiaohe.wygamsdk.config.SDKStatusCode;
 import com.jiaohe.wygamsdk.mvp.BaseResponse;
-import com.jiaohe.wygamsdk.mvp.login.UserBean;
-import com.jiaohe.wygamsdk.mvp.register.PhoneRegPresenterImp;
-import com.jiaohe.wygamsdk.mvp.register.PhoneRegView;
+import com.jiaohe.wygamsdk.mvp.login.ForgetPasswordImp;
+import com.jiaohe.wygamsdk.mvp.login.ForgetPasswordView;
 import com.jiaohe.wygamsdk.tools.EncodeUtils;
-import com.jiaohe.wygamsdk.tools.UserManage;
-import com.jiaohe.wygamsdk.ui.auth.UserAgreementActivity;
 
 /**
  * @package: com.jiaohe.wygamsdk.ui.login
  * @user:xhkj
  * @date:2019/7/30
- * @description:手机号注册
+ * @description:忘记密码
  **/
-public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneRegView {
+public class WyForgetPasswordActivity extends SdkBaseActivity implements ForgetPasswordView {
     private RelativeLayout rlBack, rlClose;
     private Button btnReg;
-    private TextView txtRegAccount, txtService, txtGetCode;
+    private TextView txtRegAccount, txtGetCode;
     private EditText editRegName, editRegPwd, editRegCode;
-    private PhoneRegPresenterImp phoneRegPresenterImp;
+    private ForgetPasswordImp forgetPasswordPresenter;
     private CountTimer countTimer;
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_phone_resigster;
+        return R.layout.wygamesdk_forget_password;
     }
 
     @Override
@@ -46,7 +40,6 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         rlBack = findViewById(R.id.bsgamesdk_title_back);
         rlClose = findViewById(R.id.bsgamesdk_id_close);
         btnReg = findViewById(R.id.bsgamesdk_buttonReg);
-        txtService = findViewById(R.id.bsgamesdk_textview_service);
         txtGetCode = findViewById(R.id.bsgamesdk_textview_reg_code);
         txtRegAccount = findViewById(R.id.bsgamesdk_textview_reg_account);
         editRegName = findViewById(R.id.bsgamesdk_reg_username);
@@ -88,15 +81,14 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         setOnClick(rlBack);
         setOnClick(rlClose);
         setOnClick(btnReg);
-        setOnClick(txtService);
         setOnClick(txtGetCode);
         setOnClick(txtRegAccount);
     }
 
     @Override
     public void initData() {
-        phoneRegPresenterImp = new PhoneRegPresenterImp();
-        phoneRegPresenterImp.attachView(this);
+        forgetPasswordPresenter = new ForgetPasswordImp();
+        forgetPasswordPresenter.attachView(this);
     }
 
     @Override
@@ -106,7 +98,7 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         String mPassWord = editRegPwd.getText().toString().trim();
         String mCode = editRegCode.getText().toString().trim();
         if (i == R.id.bsgamesdk_title_back) {//返回
-            startActivity(new Intent(this, WyAccountRegisterActivity.class));
+            startActivity(new Intent(this, WyLoginActivity.class));
             onBackPressed();
         } else if (i == R.id.bsgamesdk_id_close) {//关闭
             onBackPressed();
@@ -124,12 +116,12 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
                 showToast("请输入密码");
                 return;
             }
-            phoneRegPresenterImp.registByPhone(mUserName, mCode, mPassWord, this);
+            forgetPasswordPresenter.playerForget(mUserName, mCode, mPassWord, this);
         } else if (i == R.id.bsgamesdk_textview_service) {//用户协议
-            startActivity(new Intent(this, UserAgreementActivity.class));
+
         } else if (i == R.id.bsgamesdk_textview_reg_code) {//获取验证码
             if (EncodeUtils.isMobileNO(mUserName)) {
-                phoneRegPresenterImp.getCode(mUserName, this);
+                forgetPasswordPresenter.sendforget(mUserName, this);
             } else {
                 showToast("请输入正确的手机号");
             }
@@ -139,26 +131,6 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         }
     }
 
-    @Override
-    public void regSuccess(int code, String msg, UserBean userBean) {
-        showToast(msg);
-        if (code == BaseResponse.SUCCESS) {
-            ConfigInfo.userID = userBean.player_id;//设置玩家ID常量
-            Delegate.listener.callback(SDKStatusCode.SUCCESS, userBean.player_id);
-            UserManage.getInstance().saveUserInfo(this, editRegName.getText().toString(), editRegPwd.getText().toString());
-            UserManage.getInstance().saveUserInfo(this, userBean.player_id,
-                    userBean.username, userBean.phone,
-                    userBean.nickname, userBean.headimgurl,
-                    userBean.is_validate);
-//            Intent intent = new Intent();
-//            intent.putExtra("player_id", userBean.player_id);
-//            intent.setClass(this, SdkTrumpetListActivity.class);
-//            startActivity(intent);
-            this.finish();
-        } else {
-            Delegate.listener.callback(SDKStatusCode.FAILURE, "");
-        }
-    }
 
     @Override
     public void getCodeSuccess(int code, String msg) {
@@ -166,6 +138,18 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         if (code == BaseResponse.SUCCESS) {
             countTimer = new CountTimer(60000, 1000);
             countTimer.start();
+        }
+    }
+
+    @Override
+    public void findPasswordSuccess(int code, String msg) {
+        showToast(msg);
+        if (code == BaseResponse.SUCCESS) {
+            startActivity(new Intent(this, WyLoginActivity.class));
+            onBackPressed();
+        } else {
+            editRegCode.setText("");
+            editRegPwd.setText("");
         }
     }
 
@@ -180,6 +164,6 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         super.onDestroy();
         if (countTimer != null)
             countTimer.cancel();
-        phoneRegPresenterImp.detachView();
+        forgetPasswordPresenter.detachView();
     }
 }

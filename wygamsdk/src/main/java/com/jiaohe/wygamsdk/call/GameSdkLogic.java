@@ -7,12 +7,18 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 
-import com.jiaohe.wygamsdk.callback.SdkCallbackListener;
+import com.jiaohe.wygamsdk.callback.DialogCallback;
 import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.config.ConstData;
 import com.jiaohe.wygamsdk.config.SDKStatusCode;
+import com.jiaohe.wygamsdk.config.Urls;
+import com.jiaohe.wygamsdk.mvp.BaseResponse;
+import com.jiaohe.wygamsdk.tools.UserManage;
+import com.jiaohe.wygamsdk.ui.auth.WyRealNameAuthActivity;
 import com.jiaohe.wygamsdk.ui.login.WyLoginActivity;
 import com.jiaohe.wygamsdk.ui.pay.WyWebPayActivity;
+import com.lzy.okgo.OkGo;
+import com.lzy.okgo.model.Response;
 
 import java.io.IOException;
 import java.util.Enumeration;
@@ -55,11 +61,7 @@ public class GameSdkLogic implements IWYGameSdk {
         return gameSdkLogic;
     }
 
-    private volatile static GameSdkLogic sdkLogic;
-
     //游戏初始化:
-//这里没有商业接口,固定是初始化成功,实际开发需要根据后台去判断成功/失败
-//只有当初始化的时候才可以进行后续操作
     public static GameSdkLogic sdkInit(Context context, final InitCallbackListener initCallbackListener) {
         if (gameSdkLogic == null) {
             gameSdkLogic = new GameSdkLogic(context, initCallbackListener);
@@ -103,21 +105,9 @@ public class GameSdkLogic implements IWYGameSdk {
         return channel;
     }
 
-    public void sdkLogin(Context context, final SdkCallbackListener<String> callback) {
-        if (checkInit) {
-            Intent intent = new Intent(context, WyLoginActivity.class);
-            context.startActivity(intent);
-            Delegate.listener = callback;
-        } else {
-            callback.callback(SDKStatusCode.FAILURE, ConstData.INIT_FAILURE);
-            return;
-        }
-
-    }
-
     //支付:
     //需要将SDK支付信息传递给具体的方式中
-    public void wyGamePay(Context context, String thirdId, String roleId, String roleName, String serverId, String serverName, String gameName, String desc, String remark, String payable, String payment, String commodity, final SdkCallbackListener<String> callback) {
+    public void wyGamePay(Context context, String thirdId, String roleId, String roleName, String serverId, String serverName, String gameName, String desc, String remark, String payable, String payment, String commodity, final CallbackListener callback) {
         if (checkInit) {
             Intent intent = new Intent(context, WyWebPayActivity.class);
             Bundle extras = new Bundle();
@@ -134,9 +124,9 @@ public class GameSdkLogic implements IWYGameSdk {
             extras.putString("commodity", commodity);
             intent.putExtras(extras);
             context.startActivity(intent);
-            Delegate.listener = callback;
+            Delegate.callbackListener = callback;
         } else {
-            callback.callback(SDKStatusCode.FAILURE, ConstData.INIT_FAILURE);
+            callback.onFailed(new WYGameSdkError(SDKStatusCode.FAILURE, ConstData.INIT_FAILURE));
             return;
         }
     }
@@ -160,22 +150,52 @@ public class GameSdkLogic implements IWYGameSdk {
 
     @Override
     public void logout(CallbackListener callbackListener) {
-
+        boolean isLoginOut = UserManage.getInstance().loginOut(mContext);
+        if (isLoginOut) {
+            callbackListener.onSuccess(null);
+        } else {
+            callbackListener.onFailed(new WYGameSdkError(ConstData.LOGIN_OUT, ConstData.LOGINT_OUT_INFO));
+        }
     }
 
     @Override
     public void isLogin(CallbackListener callbackListener) {
-
+        if (TextUtils.isEmpty(UserManage.getInstance().getPlayerId(mContext))) {
+            callbackListener.onFailed(new WYGameSdkError(ConstData.NOT_LOGIN, ConstData.NOT_LOGIN_INFO));
+        } else {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("isLogin", !TextUtils.isEmpty(UserManage.getInstance().getPlayerId(mContext)));
+            callbackListener.onSuccess(bundle);
+        }
     }
 
     @Override
     public void getUserInfo(CallbackListener callbackListener) {
-
+        if (TextUtils.isEmpty(UserManage.getInstance().getPlayerId(mContext))) {
+            callbackListener.onFailed(new WYGameSdkError(ConstData.NOT_LOGIN, ConstData.NOT_LOGIN_INFO));
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("userInfo", UserManage.getInstance().getSdkUserInfo(mContext));
+        callbackListener.onSuccess(bundle);
     }
 
     @Override
     public void isRealNameAuth(CallbackListener callbackListener) {
-
+        if (TextUtils.isEmpty(UserManage.getInstance().getPlayerId(mContext))) {
+            callbackListener.onFailed(new WYGameSdkError(ConstData.NOT_LOGIN, ConstData.NOT_LOGIN_INFO));
+            return;
+        }
+        if (UserManage.getInstance().getSdkUserInfo(mContext).is_validate == 1) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean("is_validate", UserManage.getInstance().getSdkUserInfo(mContext).is_validate == 1);
+            callbackListener.onSuccess(bundle);
+            return;
+        }
+        //实名认证
+        Intent intent = new Intent(mContext, WyRealNameAuthActivity.class);
+        mContext.startActivity(intent);
+        Delegate.callbackListener = callbackListener;
     }
 
     @Override
@@ -187,4 +207,41 @@ public class GameSdkLogic implements IWYGameSdk {
     public void setAccountListener(AccountCallBackListener accountListener) {
 
     }
+
+    @Override
+    public void subGameInfoMethod(String roleId, String roleName, String roleLevel, String serverId, String serverName, String gameName, final CallbackListener callbackListener) {
+
+        OkGo.<BaseResponse>post(Urls.URL_PLAYER_SUBROLE)//
+                .tag(this)
+                .params("roleId", roleId)
+                .params("roleName", roleName)
+                .params("roleLevel", roleLevel)
+                .params("serverId", serverId)
+                .params("serverName", serverName)
+                .params("gameName", gameName)
+                .params("gameId", ConfigInfo.gameID)
+                .params("channelId", ConfigInfo.channelID)
+                .params("userId", ConfigInfo.userID)
+                .isMultipart(true)         //强制使用 multipart/form-data 表单上传（只是演示，不需要的话不要设置。默认就是false）
+                .execute(new DialogCallback<BaseResponse>(mContext, "加载中...") {
+                    @Override
+                    public void onSuccess(Response<BaseResponse> response) {
+                        if (response.body().errorCode == BaseResponse.SUCCESS) {
+                            Bundle bundle = new Bundle();
+                            bundle.putInt("errorCode", response.body().errorCode);
+                            bundle.putString("errorMsg", response.body().errorMsg);
+                            callbackListener.onSuccess(bundle);
+                        } else {
+                            callbackListener.onFailed(new WYGameSdkError(response.body().errorCode, response.body().errorMsg));
+                        }
+                    }
+
+                    @Override
+                    public void onError(Response<BaseResponse> response) {
+                        super.onError(response);
+                        callbackListener.onError(new WYGameSdkError(response.code(), response.getException().getMessage()));
+                    }
+                });
+    }
+
 }

@@ -275,6 +275,8 @@
     <item name="wygamesdk_id_item_desc" type="id" />
     <item name="bsgamesdk_id_ib_add" type="id" />
     <item name="bsgamesdk_id_status_view" type="id" />
+    <item name="bsgamesdk_id_agree_content" type="id" />
+    <item name="bsgamesdk_id_agree_title" type="id" />
     <item name="empty_view" type="id" />
     <item name="error_view" type="id" />
     <item name="loading_view" type="id" />

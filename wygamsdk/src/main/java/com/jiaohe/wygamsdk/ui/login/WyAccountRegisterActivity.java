@@ -16,6 +16,7 @@ import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.mvp.register.AccountRegPresenterImp;
 import com.jiaohe.wygamsdk.mvp.register.AccountRegView;
 import com.jiaohe.wygamsdk.tools.UserManage;
+import com.jiaohe.wygamsdk.ui.auth.UserAgreementActivity;
 
 /**
  * @package: com.jiaohe.wygamsdk.ui.login
@@ -92,7 +93,7 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
             }
             accountRegPresenterImp.regist(mUserName, mPassWord, mSecPassWord, this);
         } else if (i == R.id.bsgamesdk_textview_service) {//用户协议
-
+            startActivity(new Intent(this, UserAgreementActivity.class));
         } else if (i == R.id.bsgamesdk_textview_reg_phone) {//手机号注册
             startActivity(new Intent(this, WyPhoneRegisterActivity.class));
             finish();

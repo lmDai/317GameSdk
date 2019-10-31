@@ -20,6 +20,8 @@ public class UserManage {
     public static final String IS_VALIDATE = "is_validate";
     public static final String PASSWORD = "passWord";
     public static final String ACCOUUT_NAME = "accouut_name ";
+    public static final String SP_NAME = "user";
+    public static final String CHILDREN_ID = "children_id";
 
     private UserManage() {
     }
@@ -64,7 +66,7 @@ public class UserManage {
     }
 
     public void saveUserInfo(Context context, String player_id, String username, String phone, String nickname, String headimgurl, int is_validate) {
-        SharedPreferences sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(PLAYER_ID, player_id);
         editor.putString(USERNAME, username);
@@ -75,8 +77,14 @@ public class UserManage {
         editor.commit();
     }
 
+    public String getPlayerId(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        String playerId = sp.getString(PLAYER_ID, "");
+        return playerId;
+    }
+
     public UserBean getSdkUserInfo(Context context) {
-        SharedPreferences sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         UserBean userInfo = new UserBean();
         userInfo.player_id = sp.getString(PLAYER_ID, "");
         userInfo.username = sp.getString(USERNAME, "");
@@ -86,14 +94,41 @@ public class UserManage {
         userInfo.is_validate = sp.getInt(IS_VALIDATE, 0);
         return userInfo;
     }
+
+    public void saveChildrenId(Context context, String childrenId) {
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString(CHILDREN_ID, childrenId);
+        editor.commit();
+    }
+
     public void saveTrumpetName(Context context, String trumpetName) {
-        SharedPreferences sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(ACCOUUT_NAME, trumpetName);
         editor.commit();
     }
+
     public String getTrumpetName(Context context) {
-        SharedPreferences sp = context.getSharedPreferences("user", Context.MODE_PRIVATE);
+        SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
         return sp.getString(ACCOUUT_NAME, "");
+    }
+
+    /**
+     * 登出
+     *
+     * @param mContext
+     * @return
+     */
+    public boolean loginOut(Context mContext) {
+        SharedPreferences preferences = mContext.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear();
+        return editor.commit();
+    }
+
+    public String getChildrenId(Context mContext) {
+        SharedPreferences sp = mContext.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);
+        return sp.getString(CHILDREN_ID, "");
     }
 }

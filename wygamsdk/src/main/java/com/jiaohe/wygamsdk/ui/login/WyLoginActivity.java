@@ -94,7 +94,8 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
             startActivity(new Intent(this, WyAccountRegisterActivity.class));
             onBackPressed();
         } else if (i == R.id.bsgamesdk_textview_login_forgetPwd) {//忘记密码
-            showToast("bsgamesdk_textview_login_forgetPwd");
+            startActivity(new Intent(this, WyForgetPasswordActivity.class));
+            onBackPressed();
         } else if (i == R.id.bsgamesdk_id_close) {
             onBackPressed();
         }

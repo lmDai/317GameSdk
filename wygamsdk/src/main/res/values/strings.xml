@@ -173,4 +173,6 @@
     <string name="bsgamesdk_anti_bottom">我知道了</string>
     <string name="bsgamesdk_anti_center">请合理安排游戏时间，享受健康生活。具体规则详见官网公告</string>
     <string name="bsgamesdk_anti_top">【健康系统】您今日的累计游戏时间即将达到2小时，根据健康系统规则，<font color="#ff23aee5">5分钟后您今日将无法继续游戏</font></string>
+    <string name="bsgamesdk_auth_name">请输入真实姓名</string>
+    <string name="bsgamesdk_auth_id">请输入您的身份证号</string>
 </resources>

@@ -41,7 +41,7 @@ public class PhoneRegPresenterImp implements PhoneRegPresenter {
                 .execute(new DialogCallback<BaseResponse>(context, "验证码发送中...") {
                     @Override
                     public void onSuccess(Response<BaseResponse> response) {
-                        phoneRegView.getCodeSuccess(response.body().code, response.body().msg);
+                        phoneRegView.getCodeSuccess(response.body().errorCode, response.body().errorMsg);
                     }
                 });
     }
@@ -59,7 +59,7 @@ public class PhoneRegPresenterImp implements PhoneRegPresenter {
                 .execute(new DialogCallback<BaseResponse<UserBean>>(context, "正在注册...") {
                     @Override
                     public void onSuccess(Response<BaseResponse<UserBean>> response) {
-                        phoneRegView.regSuccess(response.body().code, response.body().msg, response.body().data);
+                        phoneRegView.regSuccess(response.body().errorCode, response.body().errorMsg, response.body().data);
                     }
                 });
     }

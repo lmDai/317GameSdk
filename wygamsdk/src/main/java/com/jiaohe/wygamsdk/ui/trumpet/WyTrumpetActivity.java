@@ -116,6 +116,7 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 UserManage.getInstance().saveTrumpetName(WyTrumpetActivity.this, trumpetList.get(position).accouut_name);
+                UserManage.getInstance().saveChildrenId(WyTrumpetActivity.this, trumpetList.get(position).channel_accouut_id);
                 Bundle bundle = new Bundle();
                 bundle.putString("channel_accouut_id", trumpetList.get(position).channel_accouut_id);
                 bundle.putString("player_id", trumpetList.get(position).player_id);
