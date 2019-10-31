@@ -44,11 +44,11 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
 
     @Override
     public void initViews() {
-        imgHead = findViewById(R.id.bsgamesdk_id_username_head);
-        txtNickName = findViewById(R.id.bsgamesdk_id_username_nickname);
+        imgHead = findViewById(R.id.wygamesdk_id_username_head);
+        txtNickName = findViewById(R.id.wygamesdk_id_username_nickname);
         trumpetListView = findViewById(R.id.wygamesdk_id_listview);
-        txtLogout = findViewById(R.id.bsgamesdk_id_btn_logout);
-        imgBtnAdd = findViewById(R.id.bsgamesdk_id_ib_add);
+        txtLogout = findViewById(R.id.wygamesdk_id_btn_logout);
+        imgBtnAdd = findViewById(R.id.wygamesdk_id_ib_add);
     }
 
     @Override
@@ -77,10 +77,10 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.bsgamesdk_id_btn_logout) {//注销
+        if (id == R.id.wygamesdk_id_btn_logout) {//注销
             startActivity(new Intent(this, WyLoginActivity.class));
             finish();
-        } else if (id == R.id.bsgamesdk_id_ib_add) {//添加小号
+        } else if (id == R.id.wygamesdk_id_ib_add) {//添加小号
             Intent intent = new Intent();
             intent.putExtra("player_id", player_id);
             intent.setClass(this, WyCreateTrumpetActivity.class);

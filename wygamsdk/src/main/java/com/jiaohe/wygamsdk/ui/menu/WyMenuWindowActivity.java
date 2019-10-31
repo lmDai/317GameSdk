@@ -32,7 +32,7 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
     private ImageView imgHead;
     private TextView txtNickName, txtTrumpetName;
     private LinearLayout llClose;
-    private RelativeLayout rlWallet, rlSetting;
+    private RelativeLayout rlWallet;
     private MultipleStatusView multipleStatusView;
     private MenuBean menuBean;
 
@@ -43,21 +43,19 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
 
     @Override
     public void initViews() {
-        imgHead = findViewById(R.id.bsgamesdk_id_username_head);
-        txtNickName = findViewById(R.id.bsgamesdk_id_username_nickname);
+        imgHead = findViewById(R.id.wygamesdk_id_username_head);
+        txtNickName = findViewById(R.id.wygamesdk_id_username_nickname);
         menuListView = findViewById(R.id.wygamesdk_id_listview);
-        txtTrumpetName = findViewById(R.id.bsgamesdk_id_trumpet_name);
-        llClose = findViewById(R.id.bsgamesdk_id_close);
-        multipleStatusView = findViewById(R.id.bsgamesdk_id_status_view);
-        rlWallet = findViewById(R.id.bsgamesdk_id_menu_wallet);
-        rlSetting = findViewById(R.id.bsgamesdk_id_menu_setting);
+        txtTrumpetName = findViewById(R.id.wygamesdk_id_trumpet_name);
+        llClose = findViewById(R.id.wygamesdk_id_close);
+        multipleStatusView = findViewById(R.id.wygamesdk_id_status_view);
+        rlWallet = findViewById(R.id.wygamesdk_id_menu_wallet);
     }
 
     @Override
     public void initListener() {
         setOnClick(llClose);
         setOnClick(rlWallet);
-        setOnClick(rlSetting);
     }
 
     @Override
@@ -81,17 +79,15 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.bsgamesdk_id_close) {//关闭当前页面
+        if (id == R.id.wygamesdk_id_close) {//关闭当前页面
             finish();
-        } else if (id == R.id.bsgamesdk_id_menu_wallet) {//钱包
+        } else if (id == R.id.wygamesdk_id_menu_wallet) {//钱包
             if (menuBean != null && menuBean.wallet != null) {
                 Intent intent = new Intent();
                 intent.putExtra("url", menuBean.wallet.link);
                 intent.setClass(WyMenuWindowActivity.this, WyWebActivity.class);
                 startActivity(intent);
             }
-        } else if (id == R.id.bsgamesdk_id_menu_setting) {//设置
-
         }
     }
 

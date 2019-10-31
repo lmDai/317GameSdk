@@ -7,27 +7,27 @@
             android:name="com.jiaohe.wygamsdk.ui.login.WyLoginActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/bsgamesdk_customDialog" />
+            android:theme="@style/wygamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.login.WyAccountRegisterActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/bsgamesdk_customDialog" />
+            android:theme="@style/wygamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.login.WyPhoneRegisterActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/bsgamesdk_customDialog" />
+            android:theme="@style/wygamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.login.WyForgetPasswordActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/bsgamesdk_customDialog" />
+            android:theme="@style/wygamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.auth.WyRealNameAuthActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/bsgamesdk_customDialog" />
+            android:theme="@style/wygamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.trumpet.WyTrumpetActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
@@ -37,7 +37,7 @@
             android:name="com.jiaohe.wygamsdk.ui.trumpet.WyCreateTrumpetActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
-            android:theme="@style/bsgamesdk_customDialog" />
+            android:theme="@style/wygamesdk_customDialog" />
         <activity
             android:name="com.jiaohe.wygamsdk.ui.menu.WyMenuWindowActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
@@ -58,7 +58,7 @@
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
-            android:theme="@style/bsgamesdk_customPaymentTranslucentTheme" />
+            android:theme="@style/wygamesdk_customPaymentTranslucentTheme" />
         <activity
             android:name="com.alipay.sdk.app.H5PayActivity"
             android:configChanges="keyboardHidden|navigation|orientation|screenSize"

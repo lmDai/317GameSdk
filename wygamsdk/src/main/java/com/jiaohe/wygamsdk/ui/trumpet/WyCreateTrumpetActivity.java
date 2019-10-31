@@ -28,9 +28,9 @@ public class WyCreateTrumpetActivity extends SdkBaseActivity implements TrumpetC
 
     @Override
     public void initViews() {
-        editCreateTrumpet = findViewById(R.id.bsgamesdk_edit_trumpet_create);
-        btnCreateTrumpet = findViewById(R.id.bsgamesdk_buttonCancel);
-        btnCancelTrumpet = findViewById(R.id.bsgamesdk_buttonCreate);
+        editCreateTrumpet = findViewById(R.id.wygamesdk_edit_trumpet_create);
+        btnCreateTrumpet = findViewById(R.id.wygamesdk_buttonCancel);
+        btnCancelTrumpet = findViewById(R.id.wygamesdk_buttonCreate);
     }
 
     @Override
@@ -49,9 +49,9 @@ public class WyCreateTrumpetActivity extends SdkBaseActivity implements TrumpetC
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.bsgamesdk_buttonCancel) {//取消
+        if (id == R.id.wygamesdk_buttonCancel) {//取消
             finish();
-        } else if (id == R.id.bsgamesdk_buttonCreate) {//确定
+        } else if (id == R.id.wygamesdk_buttonCreate) {//确定
             String trumpetName = editCreateTrumpet.getText().toString();
             if (TextUtils.isEmpty(trumpetName)) {
                 showToast("请输入小号名称");

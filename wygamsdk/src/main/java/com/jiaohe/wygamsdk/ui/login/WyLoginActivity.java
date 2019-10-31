@@ -40,12 +40,12 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
 
     @Override
     public void initViews() {
-        btnLogin = findViewById(R.id.bsgamesdk_buttonLogin);
-        editPassword = findViewById(R.id.bsgamesdk_edit_password_login);
-        txtQuikRegister = findViewById(R.id.bsgamesdk_textview_quickRegister);
-        txtForgetPwd = findViewById(R.id.bsgamesdk_textview_login_forgetPwd);
-        mEditableSpinner = findViewById(R.id.bsgamesdk_edit_username_spinner);
-        rlClose = findViewById(R.id.bsgamesdk_id_close);
+        btnLogin = findViewById(R.id.wygamesdk_buttonLogin);
+        editPassword = findViewById(R.id.wygamesdk_edit_password_login);
+        txtQuikRegister = findViewById(R.id.wygamesdk_textview_quickRegister);
+        txtForgetPwd = findViewById(R.id.wygamesdk_textview_login_forgetPwd);
+        mEditableSpinner = findViewById(R.id.wygamesdk_edit_username_spinner);
+        rlClose = findViewById(R.id.wygamesdk_id_close);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
     @Override
     public void processClick(View view) {
         int i = view.getId();
-        if (i == R.id.bsgamesdk_buttonLogin) {//登录
+        if (i == R.id.wygamesdk_buttonLogin) {//登录
             String username = mEditableSpinner.getSelectedItem().toString();//用户名
             String password = editPassword.getText().toString();//密码
             if (TextUtils.isEmpty(username)) {
@@ -90,13 +90,13 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
                 return;
             }
             loginPresenterImp.login(username, password, this);
-        } else if (i == R.id.bsgamesdk_textview_quickRegister) {//立即注册
+        } else if (i == R.id.wygamesdk_textview_quickRegister) {//立即注册
             startActivity(new Intent(this, WyAccountRegisterActivity.class));
             onBackPressed();
-        } else if (i == R.id.bsgamesdk_textview_login_forgetPwd) {//忘记密码
+        } else if (i == R.id.wygamesdk_textview_login_forgetPwd) {//忘记密码
             startActivity(new Intent(this, WyForgetPasswordActivity.class));
             onBackPressed();
-        } else if (i == R.id.bsgamesdk_id_close) {
+        } else if (i == R.id.wygamesdk_id_close) {
             onBackPressed();
         }
     }

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@id/bsgamesdk_id_close"
+        android:id="@id/wygamesdk_id_close"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -17,18 +17,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@color/bsgamesdk_white">
+        android:background="@color/wygamesdk_white">
 
         <ImageButton
-            android:id="@id/bsgamesdk_ib_loading_back"
+            android:id="@id/wygamesdk_ib_loading_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:contentDescription="@string/bsgamesdk_logo"
+            android:contentDescription="@string/wygamesdk_logo"
             android:padding="15dp"
-            android:src="@drawable/bsgamesdk_btn_back" />
+            android:src="@drawable/wygamesdk_btn_back" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,40 +39,40 @@
 
 
             <TextView
-                android:id="@id/bsgamesdk_web_title"
-                style="?attr/bsgamesdk_title_text_style"
+                android:id="@id/wygamesdk_web_title"
+                style="?attr/wygamesdk_title_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/bsgamesdk_TextColorBlack"
+                android:textColor="@color/wygamesdk_TextColorBlack"
                 android:textSize="18sp"
                 android:layout_marginLeft="10.0dip" />
         </LinearLayout>
 
         <ImageButton
-            android:id="@id/bsgamesdk_ib_loading_finish"
+            android:id="@id/wygamesdk_ib_loading_finish"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:contentDescription="@string/bsgamesdk_logo"
+            android:contentDescription="@string/wygamesdk_logo"
             android:padding="15dp"
-            android:src="@drawable/bsgamesdk_captch_finish" />
+            android:src="@drawable/wygamesdk_captch_finish" />
     </RelativeLayout>
 
     <com.jiaohe.wygamsdk.widget.MultipleStatusView
-        android:id="@id/bsgamesdk_id_status_view"
+        android:id="@id/wygamesdk_id_status_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         app:emptyView="@layout/empty_view"
         app:errorView="@layout/error_view"
-        app:loadingView="@layout/wybsgamesdk_layout_captch_webview_loading"
+        app:loadingView="@layout/wygamesdk_layout_captch_webview_loading"
         app:noNetworkView="@layout/no_network_view">
 
 
         <WebView
-            android:id="@id/bsgamesdk_web_webview"
+            android:id="@id/wygamesdk_web_webview"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_centerInParent="true"

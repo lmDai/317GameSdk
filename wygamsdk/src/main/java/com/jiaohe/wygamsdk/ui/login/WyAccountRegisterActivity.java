@@ -38,14 +38,14 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
 
     @Override
     public void initViews() {
-        rlBack = findViewById(R.id.bsgamesdk_title_back);
-        rlClose = findViewById(R.id.bsgamesdk_id_close);
-        editRegName = findViewById(R.id.bsgamesdk_reg_username);
-        editRegPwd = findViewById(R.id.bsgamesdk_edit_password_reg);
-        editRegConfimPwd = findViewById(R.id.bsgamesdk_edit_password_again_reg);
-        btnReg = findViewById(R.id.bsgamesdk_buttonReg);
-        txtService = findViewById(R.id.bsgamesdk_textview_service);
-        txtRegPhone = findViewById(R.id.bsgamesdk_textview_reg_phone);
+        rlBack = findViewById(R.id.wygamesdk_title_back);
+        rlClose = findViewById(R.id.wygamesdk_id_close);
+        editRegName = findViewById(R.id.wygamesdk_reg_username);
+        editRegPwd = findViewById(R.id.wygamesdk_edit_password_reg);
+        editRegConfimPwd = findViewById(R.id.wygamesdk_edit_password_again_reg);
+        btnReg = findViewById(R.id.wygamesdk_buttonReg);
+        txtService = findViewById(R.id.wygamesdk_textview_service);
+        txtRegPhone = findViewById(R.id.wygamesdk_textview_reg_phone);
     }
 
     @Override
@@ -66,12 +66,12 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
     @Override
     public void processClick(View view) {
         int i = view.getId();
-        if (i == R.id.bsgamesdk_title_back) {//返回
+        if (i == R.id.wygamesdk_title_back) {//返回
             startActivity(new Intent(this, WyLoginActivity.class));
             onBackPressed();
-        } else if (i == R.id.bsgamesdk_id_close) {//关闭
+        } else if (i == R.id.wygamesdk_id_close) {//关闭
             onBackPressed();
-        } else if (i == R.id.bsgamesdk_buttonReg) {//注册
+        } else if (i == R.id.wygamesdk_buttonReg) {//注册
             String mUserName = editRegName.getText().toString().trim();
             String mPassWord = editRegPwd.getText().toString().trim();
             String mSecPassWord = editRegConfimPwd.getText().toString().trim();
@@ -92,9 +92,9 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
                 return;
             }
             accountRegPresenterImp.regist(mUserName, mPassWord, mSecPassWord, this);
-        } else if (i == R.id.bsgamesdk_textview_service) {//用户协议
+        } else if (i == R.id.wygamesdk_textview_service) {//用户协议
             startActivity(new Intent(this, UserAgreementActivity.class));
-        } else if (i == R.id.bsgamesdk_textview_reg_phone) {//手机号注册
+        } else if (i == R.id.wygamesdk_textview_reg_phone) {//手机号注册
             startActivity(new Intent(this, WyPhoneRegisterActivity.class));
             finish();
         }

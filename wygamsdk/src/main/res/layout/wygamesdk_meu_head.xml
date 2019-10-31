@@ -6,15 +6,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@color/bsgamesdk_white"
+        android:background="@color/wygamesdk_white"
         android:gravity="center">
 
         <ImageView
-            android:id="@id/bsgamesdk_id_username_head"
+            android:id="@id/wygamesdk_id_username_head"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/bsgamesdk_logo" />
+            android:src="@drawable/wygamesdk_name_logo" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -24,7 +24,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@id/bsgamesdk_id_username_nickname"
+                android:id="@id/wygamesdk_id_username_nickname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="巫妖手游082318…"
@@ -32,7 +32,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/bsgamesdk_id_trumpet_name"
+                android:id="@+id/wygamesdk_id_trumpet_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -42,7 +42,7 @@
         </LinearLayout>
 
         <RelativeLayout
-            android:id="@id/bsgamesdk_id_menu_wallet"
+            android:id="@id/wygamesdk_id_menu_wallet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
@@ -51,19 +51,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:src="@drawable/wygamesdk_ic_book" />
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@id/bsgamesdk_id_menu_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:src="@drawable/wygamesdk_ic_setting" />
         </RelativeLayout>
 
     </LinearLayout>

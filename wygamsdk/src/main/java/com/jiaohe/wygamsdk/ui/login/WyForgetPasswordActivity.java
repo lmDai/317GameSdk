@@ -37,14 +37,14 @@ public class WyForgetPasswordActivity extends SdkBaseActivity implements ForgetP
 
     @Override
     public void initViews() {
-        rlBack = findViewById(R.id.bsgamesdk_title_back);
-        rlClose = findViewById(R.id.bsgamesdk_id_close);
-        btnReg = findViewById(R.id.bsgamesdk_buttonReg);
-        txtGetCode = findViewById(R.id.bsgamesdk_textview_reg_code);
-        txtRegAccount = findViewById(R.id.bsgamesdk_textview_reg_account);
-        editRegName = findViewById(R.id.bsgamesdk_reg_username);
-        editRegCode = findViewById(R.id.bsgamesdk_edit_code_reg);
-        editRegPwd = findViewById(R.id.bsgamesdk_edit_password_reg);
+        rlBack = findViewById(R.id.wygamesdk_title_back);
+        rlClose = findViewById(R.id.wygamesdk_id_close);
+        btnReg = findViewById(R.id.wygamesdk_buttonReg);
+        txtGetCode = findViewById(R.id.wygamesdk_textview_reg_code);
+        txtRegAccount = findViewById(R.id.wygamesdk_textview_reg_account);
+        editRegName = findViewById(R.id.wygamesdk_reg_username);
+        editRegCode = findViewById(R.id.wygamesdk_edit_code_reg);
+        editRegPwd = findViewById(R.id.wygamesdk_edit_password_reg);
     }
 
     class CountTimer extends CountDownTimer {
@@ -97,12 +97,12 @@ public class WyForgetPasswordActivity extends SdkBaseActivity implements ForgetP
         String mUserName = editRegName.getText().toString().trim();
         String mPassWord = editRegPwd.getText().toString().trim();
         String mCode = editRegCode.getText().toString().trim();
-        if (i == R.id.bsgamesdk_title_back) {//返回
+        if (i == R.id.wygamesdk_title_back) {//返回
             startActivity(new Intent(this, WyLoginActivity.class));
             onBackPressed();
-        } else if (i == R.id.bsgamesdk_id_close) {//关闭
+        } else if (i == R.id.wygamesdk_id_close) {//关闭
             onBackPressed();
-        } else if (i == R.id.bsgamesdk_buttonReg) {//注册
+        } else if (i == R.id.wygamesdk_buttonReg) {//注册
 
             if (TextUtils.isEmpty(mUserName)) {
                 showToast("请输入手机号");
@@ -117,15 +117,15 @@ public class WyForgetPasswordActivity extends SdkBaseActivity implements ForgetP
                 return;
             }
             forgetPasswordPresenter.playerForget(mUserName, mCode, mPassWord, this);
-        } else if (i == R.id.bsgamesdk_textview_service) {//用户协议
+        } else if (i == R.id.wygamesdk_textview_service) {//用户协议
 
-        } else if (i == R.id.bsgamesdk_textview_reg_code) {//获取验证码
+        } else if (i == R.id.wygamesdk_textview_reg_code) {//获取验证码
             if (EncodeUtils.isMobileNO(mUserName)) {
                 forgetPasswordPresenter.sendforget(mUserName, this);
             } else {
                 showToast("请输入正确的手机号");
             }
-        } else if (i == R.id.bsgamesdk_textview_reg_account) {//账号注册
+        } else if (i == R.id.wygamesdk_textview_reg_account) {//账号注册
             startActivity(new Intent(this, WyAccountRegisterActivity.class));
             finish();
         }

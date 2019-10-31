@@ -19,35 +19,35 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/gamesdk_bg_trumpet">
+                android:background="@drawable/wygamesdk_bg_trumpet">
 
                 <ImageView
-                    android:id="@id/bsgamesdk_id_username_head"
+                    android:id="@id/wygamesdk_id_username_head"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="60dp"
-                    android:src="@drawable/wygamesdk_logo" />
+                    android:src="@drawable/wygamesdk_name_logo" />
 
                 <TextView
-                    android:id="@id/bsgamesdk_id_username_nickname"
+                    android:id="@id/wygamesdk_id_username_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="60dp"
-                    android:layout_toRightOf="@id/bsgamesdk_id_username_head"
+                    android:layout_toRightOf="@id/wygamesdk_id_username_head"
                     tools:text="15025300356"
                     android:textColor="#FFFFFF"
                     android:textSize="18sp" />
 
                 <TextView
-                    android:id="@id/bsgamesdk_id_btn_logout"
+                    android:id="@id/wygamesdk_id_btn_logout"
                     android:layout_width="66dp"
                     android:layout_height="22dp"
-                    android:layout_below="@id/bsgamesdk_id_username_nickname"
+                    android:layout_below="@id/wygamesdk_id_username_nickname"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:layout_toRightOf="@id/bsgamesdk_id_username_head"
+                    android:layout_toRightOf="@id/wygamesdk_id_username_head"
                     android:background="@drawable/wygamesdk_bg_logout"
                     android:gravity="center"
                     android:text="注销"
@@ -61,7 +61,7 @@
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="-40dp"
                 android:layout_marginRight="25dp"
-                android:background="@drawable/game_shape_solid_white_radius5"
+                android:background="@drawable/wygamesdk_shape_solid_white_radius5"
                 android:gravity="center"
                 android:minHeight="100dp">
 
@@ -73,7 +73,6 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/txt_info"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="创建小号登录游戏"
@@ -91,7 +90,7 @@
 
 
                 <ImageButton
-                    android:id="@id/bsgamesdk_id_ib_add"
+                    android:id="@id/wygamesdk_id_ib_add"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="20dp"

@@ -28,9 +28,9 @@ public class UserAgreementActivity extends SdkBaseActivity implements AgreeView 
 
     @Override
     public void initViews() {
-        txtAgreeContent = findViewById(R.id.bsgamesdk_id_agree_content);
-        txtAgreeTitle = findViewById(R.id.bsgamesdk_id_agree_title);
-        ibWebBack = findViewById(R.id.bsgamesdk_ib_loading_back);
+        txtAgreeContent = findViewById(R.id.wygamesdk_id_agree_content);
+        txtAgreeTitle = findViewById(R.id.wygamesdk_id_agree_title);
+        ibWebBack = findViewById(R.id.wygamesdk_ib_loading_back);
     }
 
     @Override
@@ -48,7 +48,7 @@ public class UserAgreementActivity extends SdkBaseActivity implements AgreeView 
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.bsgamesdk_ib_loading_back) {
+        if (id == R.id.wygamesdk_ib_loading_back) {
             finish();
         }
     }

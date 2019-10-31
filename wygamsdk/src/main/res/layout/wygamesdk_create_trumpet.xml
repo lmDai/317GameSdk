@@ -26,8 +26,8 @@
                 android:paddingLeft="10dp">
 
                 <EditText
-                    android:id="@id/bsgamesdk_edit_trumpet_create"
-                    style="?attr/bsgamesdk_basic_editText_style"
+                    android:id="@id/wygamesdk_edit_trumpet_create"
+                    style="?attr/wygamesdk_basic_editText_style"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/wygamesdk_create_trumpet_hint"
@@ -43,23 +43,23 @@
                 android:layout_marginBottom="30dp">
 
                 <Button
-                    android:id="@id/bsgamesdk_buttonCancel"
+                    android:id="@id/wygamesdk_buttonCancel"
                     android:layout_width="110dp"
                     android:layout_height="38dp"
                     android:layout_alignParentLeft="true"
                     android:background="@drawable/wygamesdk_bg_cancel_trumpet"
-                    android:text="@string/bsgamesdk_exit_btn_cancel"
-                    android:textColor="@color/bsgamesdk_white"
+                    android:text="@string/wygamesdk_exit_btn_cancel"
+                    android:textColor="@color/wygamesdk_white"
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@id/bsgamesdk_buttonCreate"
+                    android:id="@id/wygamesdk_buttonCreate"
                     android:layout_width="110dp"
                     android:layout_height="38dp"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/wygamesdk_bg_confirm_trumpet"
-                    android:text="@string/bsgamesdk_exit_btn_comfirm"
-                    android:textColor="@color/bsgamesdk_white"
+                    android:text="@string/wygamesdk_exit_btn_comfirm"
+                    android:textColor="@color/wygamesdk_white"
                     android:textSize="16sp" />
             </RelativeLayout>
 

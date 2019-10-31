@@ -5,8 +5,8 @@
     android:orientation="horizontal">
 
     <EditText
-        android:id="@id/bsgamesdk_edit_username_login"
-        style="?attr/bsgamesdk_basic_editText_style"
+        android:id="@id/wygamesdk_edit_username_login"
+        style="?attr/wygamesdk_basic_editText_style"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -19,7 +19,7 @@
         android:paddingRight="70.0dp" />
 
     <ImageButton
-        android:id="@id/bsgamesdk_edit_username_drop"
+        android:id="@id/wygamesdk_edit_username_drop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

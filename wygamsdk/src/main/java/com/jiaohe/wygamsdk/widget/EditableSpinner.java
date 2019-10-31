@@ -36,8 +36,8 @@ public class EditableSpinner extends LinearLayout implements AdapterView.OnItemC
         super(context, attrs);
         LayoutInflater.from(context).inflate(R.layout.wygamesdk_editable_spinner, this);
 
-        mImgBtnDown = findViewById(R.id.bsgamesdk_edit_username_drop);
-        mEtInput = findViewById(R.id.bsgamesdk_edit_username_login);
+        mImgBtnDown = findViewById(R.id.wygamesdk_edit_username_drop);
+        mEtInput = findViewById(R.id.wygamesdk_edit_username_login);
         mListPopupWindow = new ListPopupWindow(context);
         LayoutParams lp = (LayoutParams) mImgBtnDown.getLayoutParams();
         mImgBtnDown.setLayoutParams(lp);

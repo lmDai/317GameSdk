@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@id/bsgamesdk_id_loginInputLayout"
+        android:id="@id/wygamesdk_id_loginInputLayout"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -24,7 +24,7 @@
             <include layout="@layout/wygamesdk_meu_head" />
 
             <com.jiaohe.wygamsdk.widget.MultipleStatusView
-                android:id="@id/bsgamesdk_id_status_view"
+                android:id="@id/wygamesdk_id_status_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:emptyView="@layout/empty_view"
@@ -47,7 +47,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@id/bsgamesdk_id_close"
+            android:id="@id/wygamesdk_id_close"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"

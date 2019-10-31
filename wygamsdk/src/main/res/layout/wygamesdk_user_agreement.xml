@@ -9,18 +9,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:background="@color/bsgamesdk_white">
+        android:background="@color/wygamesdk_white">
 
         <ImageButton
-            android:id="@id/bsgamesdk_ib_loading_back"
+            android:id="@id/wygamesdk_ib_loading_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:background="@null"
-            android:contentDescription="@string/bsgamesdk_logo"
+            android:contentDescription="@string/wygamesdk_logo"
             android:padding="15dp"
-            android:src="@drawable/bsgamesdk_btn_back" />
+            android:src="@drawable/wygamesdk_btn_back" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -31,13 +31,13 @@
 
 
             <TextView
-                android:id="@id/bsgamesdk_web_title"
-                style="?attr/bsgamesdk_title_text_style"
+                android:id="@id/wygamesdk_web_title"
+                style="?attr/wygamesdk_title_text_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10.0dip"
                 android:text="317游戏用户协议"
-                android:textColor="@color/bsgamesdk_TextColorBlack"
+                android:textColor="@color/wygamesdk_TextColorBlack"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/bsgamesdk_white">
+        android:background="@color/wygamesdk_white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
                 android:src="@drawable/ic_jh_logo" />
 
             <TextView
-                android:id="@id/bsgamesdk_id_agree_title"
+                android:id="@id/wygamesdk_id_agree_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -70,7 +70,7 @@
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@id/bsgamesdk_id_agree_content"
+                android:id="@id/wygamesdk_id_agree_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"

@@ -13,7 +13,7 @@
         android:fillViewport="true">
 
         <LinearLayout
-            android:id="@id/bsgamesdk_id_loginInputLayout"
+            android:id="@id/wygamesdk_id_loginInputLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -25,17 +25,17 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    style="?attr/bsgamesdk_title_logo_style"
+                    style="?attr/wygamesdk_title_logo_style"
                     android:layout_centerInParent="true" />
 
                 <RelativeLayout
-                    android:id="@id/bsgamesdk_id_close"
+                    android:id="@id/wygamesdk_id_close"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true">
 
-                    <ImageView style="?attr/bsgamesdk_close_button_style" />
+                    <ImageView style="?attr/wygamesdk_close_button_style" />
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -47,7 +47,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_usernameLayout"
+                    android:id="@id/wygamesdk_id_usernameLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp"
@@ -57,10 +57,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="?attr/bsgamesdk_img_user" />
+                        android:src="?attr/wygamesdk_img_user" />
 
                     <com.jiaohe.wygamsdk.widget.EditableSpinner
-                        android:id="@id/bsgamesdk_edit_username_spinner"
+                        android:id="@id/wygamesdk_edit_username_spinner"
                         android:layout_width="fill_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>
@@ -71,7 +71,7 @@
                     android:background="@drawable/wygamesdk_divide_line" />
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_passwordLayout"
+                    android:id="@id/wygamesdk_id_passwordLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp">
@@ -80,11 +80,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:src="?attr/bsgamesdk_img_password" />
+                        android:src="?attr/wygamesdk_img_password" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_edit_password_login"
-                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:id="@id/wygamesdk_edit_password_login"
+                        style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/wygamesdk_password_login_hi"
@@ -95,13 +95,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@id/bsgamesdk_buttonLogin"
-                style="?attr/bsgamesdk_confirm_button_style"
+                android:id="@id/wygamesdk_buttonLogin"
+                style="?attr/wygamesdk_confirm_button_style"
                 android:layout_width="305dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/bsgamesdk_login_title" />
+                android:text="@string/wygamesdk_login_title" />
 
             <RelativeLayout
                 android:layout_width="305dp"
@@ -109,7 +109,7 @@
                 android:layout_marginBottom="20dp">
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_login_toursitLogin"
+                    android:id="@id/wygamesdk_textview_login_toursitLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
                     android:text="@string/wygamesdk_login_noaccount"
@@ -117,20 +117,20 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_quickRegister"
-                    style="?attr/bsgamesdk_text_image_style"
+                    android:id="@id/wygamesdk_textview_quickRegister"
+                    style="?attr/wygamesdk_text_image_style"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
-                    android:layout_toRightOf="@id/bsgamesdk_textview_login_toursitLogin"
-                    android:text="@string/bsgamesdk_reg_and_login" />
+                    android:layout_toRightOf="@id/wygamesdk_textview_login_toursitLogin"
+                    android:text="@string/wygamesdk_reg_and_login" />
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_login_forgetPwd"
-                    style="?attr/bsgamesdk_text_image_style"
+                    android:id="@id/wygamesdk_textview_login_forgetPwd"
+                    style="?attr/wygamesdk_text_image_style"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
                     android:layout_alignParentRight="true"
-                    android:text="@string/bsgamesdk_login_forgetPwd" />
+                    android:text="@string/wygamesdk_login_forgetPwd" />
             </RelativeLayout>
         </LinearLayout>
     </com.jiaohe.wygamsdk.widget.APScrollView>

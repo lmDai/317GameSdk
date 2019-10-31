@@ -40,10 +40,10 @@ public class WyRealNameAuthActivity extends SdkBaseActivity implements RealNameA
 
     @Override
     public void initViews() {
-        editName = findViewById(R.id.bsgamesdk_edit_authentication_name);
-        editIdNumber = findViewById(R.id.bsgamesdk_edit_authentication_id_number);
-        btnCancel = findViewById(R.id.bsgamesdk_buttonCancel);
-        btnConfirm = findViewById(R.id.bsgamesdk_buttonCreate);
+        editName = findViewById(R.id.wygamesdk_edit_authentication_name);
+        editIdNumber = findViewById(R.id.wygamesdk_edit_authentication_id_number);
+        btnCancel = findViewById(R.id.wygamesdk_buttonCancel);
+        btnConfirm = findViewById(R.id.wygamesdk_buttonCreate);
     }
 
     @Override
@@ -61,10 +61,10 @@ public class WyRealNameAuthActivity extends SdkBaseActivity implements RealNameA
 
     @Override
     public void processClick(View view) {
-        if (view.getId() == R.id.bsgamesdk_buttonCancel) {//取消
+        if (view.getId() == R.id.wygamesdk_buttonCancel) {//取消
             finish();
             Delegate.callbackListener.onError(new WYGameSdkError(ConstData.CANCEL_AUTH, ConstData.CANEL_AUTH_INFO));
-        } else if (view.getId() == R.id.bsgamesdk_buttonCreate) {//确定
+        } else if (view.getId() == R.id.wygamesdk_buttonCreate) {//确定
             String realName = editName.getText().toString();
             String certificate = editIdNumber.getText().toString();
             if (TextUtils.isEmpty(player_id)) {

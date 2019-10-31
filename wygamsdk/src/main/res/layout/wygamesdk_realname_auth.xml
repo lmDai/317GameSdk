@@ -24,12 +24,11 @@
                 android:layout_height="wrap_content">
 
                 <ImageView
-                    style="?attr/bsgamesdk_title_logo_style"
+                    style="?attr/wygamesdk_title_logo_style"
                     android:layout_centerInParent="true" />
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/txt_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -47,7 +46,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_usernameLayout"
+                    android:id="@id/wygamesdk_id_usernameLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp"
@@ -60,11 +59,11 @@
                         android:src="@drawable/wygamesdk_ic_username" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_edit_authentication_name"
-                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:id="@id/wygamesdk_edit_authentication_name"
+                        style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/bsgamesdk_auth_name"
+                        android:hint="@string/wygamesdk_auth_name"
                         android:imeOptions="actionNext"
                         android:inputType="textPersonName" />
                 </LinearLayout>
@@ -75,7 +74,7 @@
                     android:background="@drawable/wygamesdk_divide_line" />
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_passwordLayout"
+                    android:id="@id/wygamesdk_id_passwordLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp">
@@ -87,18 +86,17 @@
                         android:src="@drawable/wygamesdk_ic_password" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_edit_authentication_id_number"
-                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:id="@id/wygamesdk_edit_authentication_id_number"
+                        style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/bsgamesdk_auth_id"
+                        android:hint="@string/wygamesdk_auth_id"
                         android:imeOptions="actionDone"
                         android:inputType="text" />
                 </LinearLayout>
             </LinearLayout>
 
             <TextView
-                android:id="@+id/txt_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
@@ -115,23 +113,23 @@
                 android:layout_marginBottom="20dp">
 
                 <Button
-                    android:id="@id/bsgamesdk_buttonCancel"
+                    android:id="@id/wygamesdk_buttonCancel"
                     android:layout_width="110dp"
                     android:layout_height="38dp"
                     android:layout_alignParentLeft="true"
                     android:background="@drawable/wygamesdk_bg_cancel"
-                    android:text="@string/bsgamesdk_exit_btn_cancel"
-                    android:textColor="@color/bsgamesdk_white"
+                    android:text="@string/wygamesdk_exit_btn_cancel"
+                    android:textColor="@color/wygamesdk_white"
                     android:textSize="16sp" />
 
                 <Button
-                    android:id="@id/bsgamesdk_buttonCreate"
+                    android:id="@id/wygamesdk_buttonCreate"
                     android:layout_width="110dp"
                     android:layout_height="38dp"
                     android:layout_alignParentRight="true"
                     android:background="@drawable/wygamesdk_bg_confirm"
-                    android:text="@string/bsgamesdk_exit_btn_comfirm"
-                    android:textColor="@color/bsgamesdk_white"
+                    android:text="@string/wygamesdk_exit_btn_comfirm"
+                    android:textColor="@color/wygamesdk_white"
                     android:textSize="16sp" />
             </RelativeLayout>
         </LinearLayout>

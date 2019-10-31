@@ -24,25 +24,25 @@
                 android:layout_height="wrap_content">
 
                 <RelativeLayout
-                    android:id="@id/bsgamesdk_title_back"
+                    android:id="@id/wygamesdk_title_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true">
 
-                    <ImageView style="?attr/bsgamesdk_back_button_style" />
+                    <ImageView style="?attr/wygamesdk_back_button_style" />
                 </RelativeLayout>
 
                 <ImageView
-                    style="?attr/bsgamesdk_title_logo_style"
+                    style="?attr/wygamesdk_title_logo_style"
                     android:layout_centerInParent="true" />
                 <RelativeLayout
-                    android:id="@id/bsgamesdk_id_close"
+                    android:id="@id/wygamesdk_id_close"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true">
 
-                    <ImageView style="?attr/bsgamesdk_close_button_style" />
+                    <ImageView style="?attr/wygamesdk_close_button_style" />
                 </RelativeLayout>
             </RelativeLayout>
 
@@ -54,7 +54,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_usernameLayout"
+                    android:id="@id/wygamesdk_id_usernameLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp"
@@ -67,8 +67,8 @@
                         android:src="@drawable/wygamesdk_ic_username" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_reg_username"
-                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:id="@id/wygamesdk_reg_username"
+                        style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/wygamesdk_username_reg_hit"
@@ -83,7 +83,7 @@
                     android:background="@drawable/wygamesdk_divide_line" />
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_passwordLayout"
+                    android:id="@id/wygamesdk_id_passwordLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp">
@@ -95,8 +95,8 @@
                         android:src="@drawable/wygamesdk_ic_password" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_edit_password_reg"
-                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:id="@id/wygamesdk_edit_password_reg"
+                        style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/wygamesdk_password_reg_hit"
@@ -111,7 +111,7 @@
                     android:background="@drawable/wygamesdk_divide_line" />
 
                 <LinearLayout
-                    android:id="@id/bsgamesdk_id_passwordLayout"
+                    android:id="@id/wygamesdk_id_passwordLayout"
                     android:layout_width="305dp"
                     android:layout_height="36.0dp"
                     android:paddingLeft="10dp">
@@ -123,8 +123,8 @@
                         android:src="@drawable/wygamesdk_ic_password" />
 
                     <EditText
-                        android:id="@id/bsgamesdk_edit_password_again_reg"
-                        style="?attr/bsgamesdk_basic_editText_style"
+                        android:id="@id/wygamesdk_edit_password_again_reg"
+                        style="?attr/wygamesdk_basic_editText_style"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/wygamesdk_password_reg_again_hit"
@@ -135,13 +135,13 @@
             </LinearLayout>
 
             <Button
-                android:id="@id/bsgamesdk_buttonReg"
-                style="?attr/bsgamesdk_confirm_button_style"
+                android:id="@id/wygamesdk_buttonReg"
+                style="?attr/wygamesdk_confirm_button_style"
                 android:layout_width="305dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="@string/bsgamesdk_register_title" />
+                android:text="@string/wygamesdk_register_title" />
 
             <RelativeLayout
                 android:layout_width="305dp"
@@ -149,7 +149,7 @@
                 android:layout_marginBottom="20dp">
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_service"
+                    android:id="@id/wygamesdk_textview_service"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
                     android:text="@string/wygamesdk_service"
@@ -157,8 +157,8 @@
                     android:textSize="12sp" />
 
                 <TextView
-                    android:id="@id/bsgamesdk_textview_reg_phone"
-                    style="?attr/bsgamesdk_text_image_style"
+                    android:id="@id/wygamesdk_textview_reg_phone"
+                    style="?attr/wygamesdk_text_image_style"
                     android:layout_width="wrap_content"
                     android:layout_height="20.0dp"
                     android:layout_alignParentRight="true"
