@@ -222,6 +222,7 @@ public class GameSdkLogic implements IWYGameSdk {
                 .params("gameId", ConfigInfo.gameID)
                 .params("channelId", ConfigInfo.channelID)
                 .params("userId", ConfigInfo.userID)
+                .params("children_id", UserManage.getInstance().getChildrenId(mContext))
                 .isMultipart(true)         //强制使用 multipart/form-data 表单上传（只是演示，不需要的话不要设置。默认就是false）
                 .execute(new DialogCallback<BaseResponse>(mContext, "加载中...") {
                     @Override

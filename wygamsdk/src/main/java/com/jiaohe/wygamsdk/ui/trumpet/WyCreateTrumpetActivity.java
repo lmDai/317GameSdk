@@ -11,6 +11,7 @@ import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetBean;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetCreatePresenterImp;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetCreateView;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
  * 创建小号
@@ -23,14 +24,14 @@ public class WyCreateTrumpetActivity extends SdkBaseActivity implements TrumpetC
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_create_trumpet;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_create_trumpet");
     }
 
     @Override
     public void initViews() {
-        editCreateTrumpet = findViewById(R.id.wygamesdk_edit_trumpet_create);
-        btnCreateTrumpet = findViewById(R.id.wygamesdk_buttonCancel);
-        btnCancelTrumpet = findViewById(R.id.wygamesdk_buttonCreate);
+        editCreateTrumpet = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_edit_trumpet_create"));
+        btnCreateTrumpet = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCancel"));
+        btnCancelTrumpet = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCreate"));
     }
 
     @Override
@@ -49,9 +50,9 @@ public class WyCreateTrumpetActivity extends SdkBaseActivity implements TrumpetC
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.wygamesdk_buttonCancel) {//取消
+        if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCancel")) {//取消
             finish();
-        } else if (id == R.id.wygamesdk_buttonCreate) {//确定
+        } else if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCreate")) {//确定
             String trumpetName = editCreateTrumpet.getText().toString();
             if (TextUtils.isEmpty(trumpetName)) {
                 showToast("请输入小号名称");

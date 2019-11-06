@@ -18,6 +18,7 @@ import com.jiaohe.wygamsdk.mvp.menu.MenuView;
 import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.ui.adapter.MenuListAdapter;
 import com.jiaohe.wygamsdk.widget.MultipleStatusView;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.BitmapCallback;
 import com.lzy.okgo.model.Response;
@@ -38,18 +39,18 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_menu_window;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_menu_window");
     }
 
     @Override
     public void initViews() {
-        imgHead = findViewById(R.id.wygamesdk_id_username_head);
-        txtNickName = findViewById(R.id.wygamesdk_id_username_nickname);
-        menuListView = findViewById(R.id.wygamesdk_id_listview);
-        txtTrumpetName = findViewById(R.id.wygamesdk_id_trumpet_name);
-        llClose = findViewById(R.id.wygamesdk_id_close);
-        multipleStatusView = findViewById(R.id.wygamesdk_id_status_view);
-        rlWallet = findViewById(R.id.wygamesdk_id_menu_wallet);
+        imgHead = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_username_head"));
+        txtNickName = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_username_nickname"));
+        menuListView = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_listview"));
+        txtTrumpetName = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_trumpet_name"));
+        llClose = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_close"));
+        multipleStatusView = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_status_view"));
+        rlWallet = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_menu_wallet"));
     }
 
     @Override
@@ -79,9 +80,9 @@ public class WyMenuWindowActivity extends SdkBaseActivity implements MenuView {
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.wygamesdk_id_close) {//关闭当前页面
+        if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_id_close")) {//关闭当前页面
             finish();
-        } else if (id == R.id.wygamesdk_id_menu_wallet) {//钱包
+        } else if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_id_menu_wallet")) {//钱包
             if (menuBean != null && menuBean.wallet != null) {
                 Intent intent = new Intent();
                 intent.putExtra("url", menuBean.wallet.link);

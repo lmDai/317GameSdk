@@ -22,6 +22,7 @@ public class UserManage {
     public static final String ACCOUUT_NAME = "accouut_name ";
     public static final String SP_NAME = "user";
     public static final String CHILDREN_ID = "children_id";
+    public static final String TOKEN = "token";
 
     private UserManage() {
     }
@@ -65,7 +66,8 @@ public class UserManage {
         editor.remove(PASSWORD).commit();
     }
 
-    public void saveUserInfo(Context context, String player_id, String username, String phone, String nickname, String headimgurl, int is_validate) {
+    public void saveUserInfo(Context context, String player_id, String username, String phone, String nickname,
+                             String headimgurl, int is_validate, String token) {
         SharedPreferences sp = context.getSharedPreferences(SP_NAME, Context.MODE_PRIVATE);//Context.MODE_PRIVATE表示SharePrefences的数据只有自己应用程序能访问。
         SharedPreferences.Editor editor = sp.edit();
         editor.putString(PLAYER_ID, player_id);
@@ -74,6 +76,7 @@ public class UserManage {
         editor.putString(NICKNAME, nickname);
         editor.putString(HEADIMGURL, headimgurl);
         editor.putInt(IS_VALIDATE, is_validate);
+        editor.putString(TOKEN, token);
         editor.commit();
     }
 
@@ -92,6 +95,7 @@ public class UserManage {
         userInfo.nickname = sp.getString(NICKNAME, "");
         userInfo.headimgurl = sp.getString(HEADIMGURL, "");
         userInfo.is_validate = sp.getInt(IS_VALIDATE, 0);
+        userInfo.token = sp.getString(TOKEN, "");
         return userInfo;
     }
 

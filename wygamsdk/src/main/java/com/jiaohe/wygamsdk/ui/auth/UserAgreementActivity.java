@@ -9,6 +9,7 @@ import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.mvp.auth.AgreeMentBean;
 import com.jiaohe.wygamsdk.mvp.auth.AgreePresenterImp;
 import com.jiaohe.wygamsdk.mvp.auth.AgreeView;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
  * @package: com.jiaohe.wygamsdk.ui.auth
@@ -23,14 +24,14 @@ public class UserAgreementActivity extends SdkBaseActivity implements AgreeView 
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_user_agreement;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_user_agreement");
     }
 
     @Override
     public void initViews() {
-        txtAgreeContent = findViewById(R.id.wygamesdk_id_agree_content);
-        txtAgreeTitle = findViewById(R.id.wygamesdk_id_agree_title);
-        ibWebBack = findViewById(R.id.wygamesdk_ib_loading_back);
+        txtAgreeContent = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_agree_content"));
+        txtAgreeTitle = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_agree_title"));
+        ibWebBack = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_ib_loading_back"));
     }
 
     @Override

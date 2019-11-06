@@ -21,6 +21,7 @@ import com.jiaohe.wygamsdk.ui.adapter.TrumpetListAdapter;
 import com.jiaohe.wygamsdk.ui.login.WyBindPhoneActivity;
 import com.jiaohe.wygamsdk.ui.login.WyLoginActivity;
 import com.jiaohe.wygamsdk.widget.AutoListView;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.BitmapCallback;
 import com.lzy.okgo.model.Response;
@@ -42,16 +43,16 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_trumpet_list;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_trumpet_list");
     }
 
     @Override
     public void initViews() {
-        imgHead = findViewById(R.id.wygamesdk_id_username_head);
-        txtNickName = findViewById(R.id.wygamesdk_id_username_nickname);
-        trumpetListView = findViewById(R.id.wygamesdk_id_listview);
-        txtLogout = findViewById(R.id.wygamesdk_id_btn_logout);
-        imgBtnAdd = findViewById(R.id.wygamesdk_id_ib_add);
+        imgHead = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_username_head"));
+        txtNickName = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_username_nickname"));
+        trumpetListView = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_listview"));
+        txtLogout = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_btn_logout"));
+        imgBtnAdd = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_ib_add"));
     }
 
     @Override
@@ -85,10 +86,10 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.wygamesdk_id_btn_logout) {//注销
+        if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_id_btn_logout")) {//注销
             startActivity(new Intent(this, WyLoginActivity.class));
             finish();
-        } else if (id == R.id.wygamesdk_id_ib_add) {//添加小号
+        } else if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_id_ib_add")) {//添加小号
             Intent intent = new Intent();
             intent.putExtra("player_id", player_id);
             intent.setClass(this, WyCreateTrumpetActivity.class);

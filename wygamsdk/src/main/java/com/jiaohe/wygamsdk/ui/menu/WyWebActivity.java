@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
 import com.jiaohe.wygamsdk.widget.MultipleStatusView;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
  * webView界面
@@ -33,17 +34,17 @@ public class WyWebActivity extends SdkBaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_web;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_web");
     }
 
     @Override
     public void initViews() {
-        llClose = findViewById(R.id.wygamesdk_id_close);
-        multipleStatusView = findViewById(R.id.wygamesdk_id_status_view);
-        wyWebView = findViewById(R.id.wygamesdk_web_webview);
-        txtWebTitle = findViewById(R.id.wygamesdk_web_title);
-        ibWebBack = findViewById(R.id.wygamesdk_ib_loading_back);
-        ibWenClose = findViewById(R.id.wygamesdk_ib_loading_finish);
+        llClose = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_close"));
+        multipleStatusView = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_status_view"));
+        wyWebView = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_web_webview"));
+        txtWebTitle = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_web_title"));
+        ibWebBack = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_ib_loading_back"));
+        ibWenClose = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_ib_loading_finish"));
         iniWebview();
     }
 
@@ -73,16 +74,16 @@ public class WyWebActivity extends SdkBaseActivity {
     @Override
     public void processClick(View view) {
         int id = view.getId();
-        if (id == R.id.wygamesdk_id_close) {//关闭当前页面
+        if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_id_close")) {//关闭当前页面
             finish();
-        } else if (id == R.id.wygamesdk_ib_loading_back) {//返回上一页
+        } else if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_ib_loading_back")) {//返回上一页
             if (wyWebView.canGoBack()) {
                 wyWebView.goBack();//返回上个页面
                 return;
             } else {
                 finish();
             }
-        } else if (id == R.id.wygamesdk_ib_loading_finish) {
+        } else if (id == ResourceUtil.getViewIdByName(this,"wygamesdk_ib_loading_finish")) {
             finish();
         }
     }

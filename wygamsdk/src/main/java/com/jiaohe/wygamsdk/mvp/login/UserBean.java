@@ -16,6 +16,7 @@ public class UserBean implements Serializable {
     public String nickname;
     public String headimgurl;
     public int is_validate;
+    public String token;
 
     @Override
     public String toString() {
@@ -27,6 +28,7 @@ public class UserBean implements Serializable {
                 ", nickname='" + nickname + '\'' +
                 ", headimgurl='" + headimgurl + '\'' +
                 ", is_validate=" + is_validate +
+                ", token='" + token + '\'' +
                 '}';
     }
 }

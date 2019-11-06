@@ -58,7 +58,7 @@ public class FloatingLayer {
     @SuppressLint({"InflateParams"})
     private void initView() {
         LayoutInflater layoutInflater = (LayoutInflater) this.mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.mPopView = layoutInflater.inflate(ResourceUtil.getIdByName(this.mContext, "layout", "wygamesdk_float_layout"), (ViewGroup) null);
+        this.mPopView = layoutInflater.inflate(ResourceUtil.getLayoutIdByName(this.mContext,  "wygamesdk_float_layout"), (ViewGroup) null);
     }
 
     private void initWindowManager() {
@@ -67,8 +67,8 @@ public class FloatingLayer {
 
     public void setXFIcon() {
         if (this.mPopView != null) {
-            ImageView youxunIv = (ImageView) this.mPopView.findViewById(ResourceUtil.getIdByName(this.mContext, "id", "xygame_float_iv"));
-            youxunIv.setBackgroundResource(ResourceUtil.getIdByName(this.mContext, "drawable", "wygamesdk_float_icon"));
+            ImageView youxunIv = (ImageView) this.mPopView.findViewById(ResourceUtil.getViewIdByName(this.mContext, "xygame_float_iv"));
+            youxunIv.setBackgroundResource(ResourceUtil.getDrawableIdByName(this.mContext,  "wygamesdk_float_icon"));
         }
 
     }

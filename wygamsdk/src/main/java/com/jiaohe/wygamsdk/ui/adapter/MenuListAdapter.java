@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.mvp.menu.MenuBean;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.BitmapCallback;
 import com.lzy.okgo.model.Response;
@@ -52,10 +53,10 @@ public class MenuListAdapter extends BaseAdapter {
         final Holder holder;
         if (convertView == null) {
             holder = new Holder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.wygamesdk_item_buoy_index, null);
-            holder.itemImg = convertView.findViewById(R.id.wygamesdk_id_item_img);
-            holder.itemTitle = convertView.findViewById(R.id.wygamesdk_id_item_title);
-            holder.itemDesc = convertView.findViewById(R.id.wygamesdk_id_item_desc);
+            convertView = LayoutInflater.from(mContext).inflate(ResourceUtil.getLayoutIdByName(mContext,"wygamesdk_item_buoy_index"), null);
+            holder.itemImg = convertView.findViewById(ResourceUtil.getViewIdByName(mContext,"wygamesdk_id_item_img"));
+            holder.itemTitle = convertView.findViewById(ResourceUtil.getViewIdByName(mContext,"wygamesdk_id_item_title"));
+            holder.itemDesc = convertView.findViewById(ResourceUtil.getViewIdByName(mContext,"wygamesdk_id_item_desc"));
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();

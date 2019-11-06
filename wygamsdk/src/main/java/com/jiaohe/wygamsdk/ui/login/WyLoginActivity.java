@@ -21,6 +21,7 @@ import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.ui.trumpet.WyTrumpetActivity;
 import com.jiaohe.wygamsdk.widget.EditableSpinner;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
  * 登录页面
@@ -35,17 +36,17 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_login;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_login");
     }
 
     @Override
     public void initViews() {
-        btnLogin = findViewById(R.id.wygamesdk_buttonLogin);
-        editPassword = findViewById(R.id.wygamesdk_edit_password_login);
-        txtQuikRegister = findViewById(R.id.wygamesdk_textview_quickRegister);
-        txtForgetPwd = findViewById(R.id.wygamesdk_textview_login_forgetPwd);
-        mEditableSpinner = findViewById(R.id.wygamesdk_edit_username_spinner);
-        rlClose = findViewById(R.id.wygamesdk_id_close);
+        btnLogin = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_buttonLogin"));
+        editPassword = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_edit_password_login"));
+        txtQuikRegister = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_textview_quickRegister"));
+        txtForgetPwd = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_textview_login_forgetPwd"));
+        mEditableSpinner = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_edit_username_spinner"));
+        rlClose = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_close"));
     }
 
     @Override
@@ -78,7 +79,7 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
     @Override
     public void processClick(View view) {
         int i = view.getId();
-        if (i == R.id.wygamesdk_buttonLogin) {//登录
+        if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_buttonLogin")) {//登录
             String username = mEditableSpinner.getSelectedItem().toString();//用户名
             String password = editPassword.getText().toString();//密码
             if (TextUtils.isEmpty(username)) {
@@ -90,13 +91,13 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
                 return;
             }
             loginPresenterImp.login(username, password, this);
-        } else if (i == R.id.wygamesdk_textview_quickRegister) {//立即注册
+        } else if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_textview_quickRegister")) {//立即注册
             startActivity(new Intent(this, WyAccountRegisterActivity.class));
             onBackPressed();
-        } else if (i == R.id.wygamesdk_textview_login_forgetPwd) {//忘记密码
+        } else if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_textview_login_forgetPwd")) {//忘记密码
             startActivity(new Intent(this, WyForgetPasswordActivity.class));
             onBackPressed();
-        } else if (i == R.id.wygamesdk_id_close) {
+        } else if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_id_close")) {
             onBackPressed();
         }
     }
@@ -113,7 +114,7 @@ public class WyLoginActivity extends SdkBaseActivity implements LoginView {
         UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                 userBean.username, userBean.phone,
                 userBean.nickname, userBean.headimgurl,
-                userBean.is_validate);
+                userBean.is_validate,userBean.token);
         showToast(msg);
         Intent intent = new Intent();
         intent.putExtra("player_id", userBean.player_id);

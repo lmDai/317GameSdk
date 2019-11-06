@@ -15,6 +15,7 @@ import com.jiaohe.wygamsdk.mvp.auth.RealNameAuthPresenterImp;
 import com.jiaohe.wygamsdk.mvp.auth.RealNameAuthView;
 import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.tools.UserManage;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
  * @package: com.jiaohe.wygamsdk.ui.auth
@@ -35,15 +36,15 @@ public class WyRealNameAuthActivity extends SdkBaseActivity implements RealNameA
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_realname_auth;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_realname_auth");
     }
 
     @Override
     public void initViews() {
-        editName = findViewById(R.id.wygamesdk_edit_authentication_name);
-        editIdNumber = findViewById(R.id.wygamesdk_edit_authentication_id_number);
-        btnCancel = findViewById(R.id.wygamesdk_buttonCancel);
-        btnConfirm = findViewById(R.id.wygamesdk_buttonCreate);
+        editName = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_edit_authentication_name"));
+        editIdNumber = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_edit_authentication_id_number"));
+        btnCancel = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCancel"));
+        btnConfirm = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCreate"));
     }
 
     @Override
@@ -61,10 +62,10 @@ public class WyRealNameAuthActivity extends SdkBaseActivity implements RealNameA
 
     @Override
     public void processClick(View view) {
-        if (view.getId() == R.id.wygamesdk_buttonCancel) {//取消
+        if (view.getId() ==ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCancel")) {//取消
             finish();
             Delegate.callbackListener.onError(new WYGameSdkError(ConstData.CANCEL_AUTH, ConstData.CANEL_AUTH_INFO));
-        } else if (view.getId() == R.id.wygamesdk_buttonCreate) {//确定
+        } else if (view.getId() ==ResourceUtil.getViewIdByName(this,"wygamesdk_buttonCreate")) {//确定
             String realName = editName.getText().toString();
             String certificate = editIdNumber.getText().toString();
             if (TextUtils.isEmpty(player_id)) {

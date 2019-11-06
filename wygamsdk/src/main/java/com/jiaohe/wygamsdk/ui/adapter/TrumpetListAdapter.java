@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.R;
 import com.jiaohe.wygamsdk.mvp.trumpet.TrumpetBean;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 import java.util.List;
 
@@ -47,9 +48,9 @@ public class TrumpetListAdapter extends BaseAdapter {
         Holder holder;
         if (convertView == null) {
             holder = new Holder();
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.wygamesdk_item_trumpet, null);
-            holder.mTextAccountName = convertView.findViewById(R.id.wygamesdk_id_accouut_name);
-            holder.mTextPosition = convertView.findViewById(R.id.wygamesdk_id_position);
+            convertView = LayoutInflater.from(mContext).inflate(ResourceUtil.getLayoutIdByName(mContext,"wygamesdk_item_trumpet"), null);
+            holder.mTextAccountName = convertView.findViewById(ResourceUtil.getViewIdByName(mContext,"wygamesdk_id_accouut_name"));
+            holder.mTextPosition = convertView.findViewById(ResourceUtil.getViewIdByName(mContext,"wygamesdk_id_position"));
             convertView.setTag(holder);
         } else {
             holder = (Holder) convertView.getTag();

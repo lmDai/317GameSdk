@@ -16,6 +16,7 @@ import com.jiaohe.wygamsdk.mvp.login.BindView;
 import com.jiaohe.wygamsdk.tools.EncodeUtils;
 import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.ui.auth.UserAgreementActivity;
+import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
  * @package: com.jiaohe.wygamsdk.ui.login
@@ -34,16 +35,16 @@ public class WyBindPhoneActivity extends SdkBaseActivity implements BindView {
 
     @Override
     public int getLayoutId() {
-        return R.layout.wygamesdk_bind_phone;
+        return ResourceUtil.getLayoutIdByName(this,"wygamesdk_bind_phone");
     }
 
     @Override
     public void initViews() {
-        rlClose = findViewById(R.id.wygamesdk_id_close);
-        btnReg = findViewById(R.id.wygamesdk_buttonReg);
-        txtGetCode = findViewById(R.id.wygamesdk_textview_reg_code);
-        editRegName = findViewById(R.id.wygamesdk_reg_username);
-        editRegCode = findViewById(R.id.wygamesdk_edit_code_reg);
+        rlClose = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_id_close"));
+        btnReg = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_buttonReg"));
+        txtGetCode = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_textview_reg_code"));
+        editRegName = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_reg_username"));
+        editRegCode = findViewById(ResourceUtil.getViewIdByName(this,"wygamesdk_edit_code_reg"));
     }
 
     @Override
@@ -65,9 +66,9 @@ public class WyBindPhoneActivity extends SdkBaseActivity implements BindView {
         int i = view.getId();
         String mUserName = editRegName.getText().toString().trim();
         String mCode = editRegCode.getText().toString().trim();
-        if (i == R.id.wygamesdk_id_close) {//关闭
+        if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_id_close")) {//关闭
             onBackPressed();
-        } else if (i == R.id.wygamesdk_buttonReg) {//确定
+        } else if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_buttonReg")) {//确定
             if (TextUtils.isEmpty(mUserName)) {
                 showToast("请输入手机号");
                 return;
@@ -77,7 +78,7 @@ public class WyBindPhoneActivity extends SdkBaseActivity implements BindView {
                 return;
             }
             bindPresenterImp.bindPhone(mUserName, mCode, player_id, this);
-        }  else if (i == R.id.wygamesdk_textview_reg_code) {//获取验证码
+        }  else if (i == ResourceUtil.getViewIdByName(this,"wygamesdk_textview_reg_code")) {//获取验证码
             if (EncodeUtils.isMobileNO(mUserName)) {
                 bindPresenterImp.getCode(mUserName, player_id, this);
             } else {

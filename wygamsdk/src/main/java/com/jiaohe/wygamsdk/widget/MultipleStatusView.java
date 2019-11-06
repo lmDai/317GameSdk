@@ -1,4 +1,5 @@
 package com.jiaohe.wygamsdk.widget;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import com.jiaohe.wygamsdk.R;
 
 import java.util.ArrayList;
+
 /**
  * @package: com.jiaohe.wygamsdk.widget
  * @user:xhkj
@@ -60,14 +62,17 @@ public class MultipleStatusView extends RelativeLayout {
 
     public MultipleStatusView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MultipleStatusView, defStyleAttr, 0);
-        mEmptyViewResId = a.getResourceId(R.styleable.MultipleStatusView_emptyView, R.layout.empty_view);
-        mErrorViewResId = a.getResourceId(R.styleable.MultipleStatusView_errorView, R.layout.error_view);
-        mLoadingViewResId = a.getResourceId(R.styleable.MultipleStatusView_loadingView, R.layout.loading_view);
-        mNoNetworkViewResId = a.getResourceId(R.styleable.MultipleStatusView_noNetworkView, R.layout.no_network_view);
-        mContentViewResId = a.getResourceId(R.styleable.MultipleStatusView_contentView, NULL_RESOURCE_ID);
+        final TypedArray a = context.obtainStyledAttributes(attrs, ResourceUtil.getStyleableArray(context, "MultipleStatusView"), defStyleAttr, 0);
+
+        mEmptyViewResId = a.getResourceId(ResourceUtil.getStyleable(context, "MultipleStatusView_emptyView"), ResourceUtil.getLayoutIdByName(context, "empty_view"));
+        mErrorViewResId = a.getResourceId(ResourceUtil.getStyleable(context, "MultipleStatusView_errorView"), ResourceUtil.getLayoutIdByName(context, "error_view"));
+        mLoadingViewResId = a.getResourceId(ResourceUtil.getStyleable(context, "MultipleStatusView_loadingView"), ResourceUtil.getLayoutIdByName(context, "loading_view"));
+        mNoNetworkViewResId = a.getResourceId(ResourceUtil.getStyleable(context, "MultipleStatusView_noNetworkView"), ResourceUtil.getLayoutIdByName(context, "no_network_view"));
+        mContentViewResId = a.getResourceId(ResourceUtil.getStyleable(context, "MultipleStatusView_contentView"), NULL_RESOURCE_ID);
         a.recycle();
         mInflater = LayoutInflater.from(getContext());
+
+
     }
 
     @Override
@@ -347,6 +352,7 @@ public class MultipleStatusView extends RelativeLayout {
 
         /**
          * 视图状态改变时回调
+         *
          * @param oldViewStatus 之前的视图状态
          * @param newViewStatus 新的视图状态
          */
