@@ -1,47 +1,101 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
-
-#指定压缩级别
 -optimizationpasses 5
-
-#不跳过非公共的库的类成员
--dontskipnonpubliclibraryclassmembers
-
-#混淆时采用的算法
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
 -optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
 
-#把混淆类中的方法名也混淆了
--useuniqueclassmembernames
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class com.android.vending.licensing.ILicensingService
 
-#优化时允许访问并修改有修饰符的类和类的成员
--allowaccessmodification
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
 
-#将文件来源重命名为“SourceFile”字符串
--renamesourcefileattribute SourceFile
-#保留行号
--keepattributes SourceFile,LineNumberTable
-#保持泛型
--keepattributes Signature
-#保持所有实现 Serializable 接口的类成员
+-keepclasseswithmembernames class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
+
+-keepclasseswithmembernames class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+
+-keep class * implements android.os.Parcelable {
+  public static final android.os.Parcelable$Creator *;
+}
+
+###########################以下是需要手动的混淆配置协议###############################
+
+#以下是不需要混淆的文件
+-keep public class com.jiaohe.wygamsdk.call.** {*;}
+-keep public class com.jiaohe.wygamsdk.mvp.** {*;}
+
+-keep public class com.jiaohe.wygamsdk.widget.** {*;}
+-keep public class com.jiaohe.wygamsdk.WyApplication
+-keep public class com.jiaohe.wygamsdk.base.** {*;}
+-keep public class com.jiaohe.wygamsdk.widget.** {*;}
+-keep public class * extends com.jiaohe.wygamsdk.base.SdkBaseActivity
+-keep public class * extends com.jiaohe.wygamsdk.base.BasePresenter
+-keep public class * extends com.jiaohe.wygamsdk.base.BaseView
+# 保留所有的本地native方法不被混淆
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
+
+# 保留了继承自Activity、Application这些类的子类
+# 因为这些子类，都有可能被外部调用a
+# 比如说，第一行就保证了所有Activity的子类不要被混淆
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class * extends android.view.View
+-keep public class com.android.vending.licensing.ILicensingService
+
+# 如果有引用android-support-v4.jar包，可以添加下面这行
+-keep public class com.xxxx.app.ui.fragment.** {*;}
+
+
+
+# 保留在Activity中的方法参数是view的方法，
+# 从而我们在layout里面编写onClick就不会被影响
+-keepclassmembers class * extends android.app.Activity {
+    public void *(android.view.View);
+}
+
+# 枚举类不能被混淆
+-keepclassmembers enum * {
+public static **[] values();
+public static ** valueOf(java.lang.String);
+}
+
+# 保留自定义控件（继承自View）不被混淆
+-keep public class * extends android.view.View {
+    *** get*();
+    void set*(***);
+    public <init>(android.content.Context);
+    public <init>(android.content.Context, android.util.AttributeSet);
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
+
+# 保留Parcelable序列化的类不被混淆
+-keep class * implements android.os.Parcelable {
+    public static final android.os.Parcelable$Creator *;
+}
+
+# 保留Serializable序列化的类不被混淆
 -keepclassmembers class * implements java.io.Serializable {
     static final long serialVersionUID;
     private static final java.io.ObjectStreamField[] serialPersistentFields;
@@ -51,54 +105,20 @@
     java.lang.Object readResolve();
 }
 
-#Fragment不需要在AndroidManifest.xml中注册，需要额外保护下
--keep public class * extends android.support.v4.app.Fragment
--keep public class * extends android.app.Fragment
-
-# 保持测试相关的代码
--dontnote junit.framework.**
--dontnote junit.runner.**
--dontwarn android.test.**
--dontwarn android.support.test.**
--dontwarn org.junit.**
-
--dontwarn okhttp3.**
--dontwarn okio.**
--dontwarn javax.annotation.**
-
-##---------------Begin: proguard configuration for Gson  ----------
-# Gson uses generic type information stored in a class file when working with fields. Proguard
-# removes such information by default, so configure it to keep all of it.
--keepattributes Signature
-
-# For using GSON @Expose annotation
--keepattributes *Annotation*
-
-# Gson specific classes
--dontwarn sun.misc.**
-#-keep class com.google.gson.stream.** { *; }
-
-# Application classes that will be serialized/deserialized over Gson
--keep class com.google.gson.examples.android.model.** { <fields>; }
-
-# Prevent proguard from stripping interface information from TypeAdapter, TypeAdapterFactory,
-# JsonSerializer, JsonDeserializer instances (so they can be used in @JsonAdapter)
--keep class * implements com.google.gson.TypeAdapter
--keep class * implements com.google.gson.TypeAdapterFactory
--keep class * implements com.google.gson.JsonSerializer
--keep class * implements com.google.gson.JsonDeserializer
-
-# Prevent R8 from leaving Data object members always null
--keepclassmembers,allowobfuscation class * {
-  @com.google.gson.annotations.SerializedName <fields>;
+# 对于R（资源）下的所有类及其方法，都不能被混淆
+-keep class **.R$* {
+    *;
 }
 
-##---------------End: proguard configuration for Gson  ----------
--libraryjars libs/alipaySdk-20180601.jar
+# 对于带有回调函数onXXEvent的，不能被混淆
+-keepclassmembers class * {
+    void *(**On*Event);
+}
+#代码迭代优化的次数，默认5
+-optimizationpasses 5
+#混淆时不会产生形形色色的类名
+-dontusemixedcaseclassnames
 
--keep class com.alipay.android.app.IAlixPay{*;}
--keep class com.alipay.android.app.IAlixPay$Stub{*;}
--keep class com.alipay.android.app.IRemoteServiceCallback{*;}
--keep class com.alipay.android.app.IRemoteServiceCallback$Stub{*;}
--keep class com.alipay.sdk.app.PayTask{ public *;}
--keep class com.alipay.sdk.app.AuthTask{ public *;}
+
+#忽略警告
+-ignorewarnings

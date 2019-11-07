@@ -93,7 +93,7 @@ public class WyRealNameAuthActivity extends SdkBaseActivity implements RealNameA
             UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                     userBean.username, userBean.phone,
                     userBean.nickname, userBean.headimgurl,
-                    1);
+                    1,userBean.token);
         } else {
             editName.setText("");
             editIdNumber.setText("");

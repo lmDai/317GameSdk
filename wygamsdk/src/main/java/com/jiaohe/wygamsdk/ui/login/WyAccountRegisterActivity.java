@@ -106,7 +106,7 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
         UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                 userBean.username, userBean.phone,
                 userBean.nickname, userBean.headimgurl,
-                userBean.is_validate);
+                userBean.is_validate,userBean.token);
         Intent intent = new Intent();
         intent.putExtra("player_id", userBean.player_id);
         intent.setClass(this, WyTrumpetActivity.class);

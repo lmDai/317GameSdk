@@ -14,7 +14,7 @@ android {
 
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -35,7 +35,8 @@ dependencies {
     implementation files('libs/alipaySdk-20180601.jar')
 }
 def SDK_BASENAME = "317sdk"
-def SDK_VERSION = "_v4.0"
+def SDK_PRPO_BASENAME = "wysdk"
+def SDK_VERSION = "_v5.0"
 def sdkDestinationPath = "build/outputs/jar/"
 def zipFile = file('build/intermediates/intermediate-jars/release/classes.jar')
 
@@ -51,5 +52,14 @@ task makeJar(type: Jar) {
 }
 
 makeJar.dependsOn(deleteBuild, build)
+task ProguardJar(type: proguard.gradle.ProGuardTask, dependsOn: "build") {
+// 未混淆的jar路径
+    injars sdkDestinationPath + SDK_BASENAME + SDK_VERSION + ".jar"
+// 混淆后的jar输出路径
+    outjars sdkDestinationPath + SDK_PRPO_BASENAME + SDK_VERSION + ".jar"
+// 混淆协议
+    configuration 'proguard-rules.pro'
+}
+
 
 

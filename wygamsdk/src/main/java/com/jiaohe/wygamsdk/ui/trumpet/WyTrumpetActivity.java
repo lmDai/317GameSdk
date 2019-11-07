@@ -130,6 +130,7 @@ public class WyTrumpetActivity extends SdkBaseActivity implements TrumpetView {
                 bundle.putString("channel_accouut_id", trumpetList.get(position).channel_accouut_id);
                 bundle.putString("player_id", trumpetList.get(position).player_id);
                 bundle.putString("accouut_name", trumpetList.get(position).accouut_name);
+                bundle.putString("token", UserManage.getInstance().getSdkUserInfo(WyTrumpetActivity.this).token);
                 Delegate.callbackListener.onSuccess(bundle);
                 finish();
             }

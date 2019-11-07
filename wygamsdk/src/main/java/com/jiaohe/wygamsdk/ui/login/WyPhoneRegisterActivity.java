@@ -150,7 +150,7 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
             UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                     userBean.username, userBean.phone,
                     userBean.nickname, userBean.headimgurl,
-                    userBean.is_validate);
+                    userBean.is_validate,userBean.token);
             this.finish();
         } else {
             Delegate.listener.callback(SDKStatusCode.FAILURE, "");

@@ -42,4 +42,6 @@ public class Urls {
     public static final String URL_GET_BIND_CODE = SERVER + "sdk/player/send-code";
     //绑定手机号
     public static final String URL_BIND_PHONE = SERVER + "sdk/player/phone";
+    //错误页面
+    public static final String URL_PAY_ERROR=SERVER+"sdk/pay/nowx";
 }

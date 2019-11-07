@@ -37,6 +37,9 @@ import com.lzy.okgo.OkGo;
 import com.lzy.okgo.model.Response;
 import com.lzy.okgo.request.base.Request;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * webView界面
  */
@@ -118,7 +121,7 @@ public class WyWebPayActivity extends SdkBaseActivity {
                     @Override
                     public void onSuccess(Response<BaseResponse<OrderBean>> response) {
                         WyWebPayActivity.this.orderId = response.body().data.id;
-                        wyWebView.loadUrl(Urls.URL_PAY_GAME + "?orderId=" + response.body().data.id);
+                        wyWebView.loadUrl(Urls.URL_PAY_GAME + "?orderId=" + orderId);
                     }
 
                     @Override
@@ -156,27 +159,94 @@ public class WyWebPayActivity extends SdkBaseActivity {
         WebViewUtil.destory(wyWebView);
         getPayResult();
     }
+//
+//    private class MyWebViewClient extends WebViewClient {
+//        @Override
+//        public boolean shouldOverrideUrlLoading(final WebView view, String url) {
+//            if (!(url.startsWith("http") || url.startsWith("https"))) {
+//                return true;
+//            }
+//            // 微信支付处理
+//            if (url.startsWith("weixin://wap/pay?")) {
+//                try {
+//                    Intent intent = new Intent();
+//                    intent.setAction(Intent.ACTION_VIEW);
+//                    intent.setData(Uri.parse(url));
+//                    WyWebPayActivity.this.startActivity(intent);
+//                    return true;
+//                } catch (Exception e) { //异常处理
+//                    view.goBack(); // 因为会出现有一个weixin空白页面；根据需求自己处理
+//                    showToast("系统检测未安装微信，请先安装微信或者用支付宝支付");
+//                    return true;
+//                }
+//            }
+//            /**
+//             * 推荐采用的新的二合一接口(payInterceptorWithUrl),只需调用一次
+//             */
+//            final PayTask task = new PayTask(WyWebPayActivity.this);
+//            boolean isIntercepted = task.payInterceptorWithUrl(url, true, new H5PayCallback() {
+//                @Override
+//                public void onPayResult(final H5PayResultModel result) {
+//                    // 支付结果返回
+//                    final String url = result.getReturnUrl();
+//                    if (!TextUtils.isEmpty(url)) {
+//                        WyWebPayActivity.this.runOnUiThread(new Runnable() {
+//                            @Override
+//                            public void run() {
+//                                view.loadUrl(url);
+//                            }
+//                        });
+//                    }
+//                }
+//            });
+//            /**
+//             * 判断是否成功拦截
+//             * 若成功拦截，则无需继续加载该URL；否则继续加载
+//             */
+//            if (!isIntercepted || !checkAliPayInstalled(WyWebPayActivity.this)) {
+//                view.loadUrl(url);
+//            }
+//            return true;
+//        }
+//
+//        @Override
+//        public void onPageStarted(WebView view, String url, Bitmap favicon) {
+//            super.onPageStarted(view, url, favicon);
+//            multipleStatusView.showLoading();
+//        }
+//
+//        @Override
+//        public void onPageFinished(WebView view, String url) {
+//            super.onPageFinished(view, url);
+//            txtWebTitle.setText(view.getTitle());
+//            multipleStatusView.showContent();
+//        }
+//    }
 
     private class MyWebViewClient extends WebViewClient {
-        @Override
+        String referer;
+
+        private MyWebViewClient() {
+            this.referer = Urls.SERVER;
+        }
+
         public boolean shouldOverrideUrlLoading(final WebView view, String url) {
-            if (!(url.startsWith("http") || url.startsWith("https"))) {
-                return true;
-            }
-            // 微信支付处理
-            if (url.startsWith("weixin://wap/pay?")) {
+            if (url.contains("weixin://wap/pay?")) {
+
                 try {
                     Intent intent = new Intent();
-                    intent.setAction(Intent.ACTION_VIEW);
+                    intent.setAction("android.intent.action.VIEW");
                     intent.setData(Uri.parse(url));
                     WyWebPayActivity.this.startActivity(intent);
                     return true;
-                } catch (Exception e) { //异常处理
-                    view.goBack(); // 因为会出现有一个weixin空白页面；根据需求自己处理
-                    showToast("系统检测未安装微信，请先安装微信或者用支付宝支付");
-                    return true;
+                } catch (Exception var6) {
+                    url = Urls.URL_PAY_ERROR;
                 }
             }
+            if (!(url.startsWith("http") || url.startsWith("https"))) {
+                return true;
+            }
+
             /**
              * 推荐采用的新的二合一接口(payInterceptorWithUrl),只需调用一次
              */
@@ -184,13 +254,15 @@ public class WyWebPayActivity extends SdkBaseActivity {
             boolean isIntercepted = task.payInterceptorWithUrl(url, true, new H5PayCallback() {
                 @Override
                 public void onPayResult(final H5PayResultModel result) {
-                    // 支付结果返回
                     final String url = result.getReturnUrl();
                     if (!TextUtils.isEmpty(url)) {
                         WyWebPayActivity.this.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                view.loadUrl(url);
+                                Map<String, String> extraHeaders = new HashMap<String, String>();
+                                extraHeaders.put("Referer", referer);
+                                view.loadUrl(url, extraHeaders);
+                                //view.loadUrl(url);
                             }
                         });
                     }
@@ -200,12 +272,20 @@ public class WyWebPayActivity extends SdkBaseActivity {
              * 判断是否成功拦截
              * 若成功拦截，则无需继续加载该URL；否则继续加载
              */
-            if (!isIntercepted || !checkAliPayInstalled(WyWebPayActivity.this)) {
-                view.loadUrl(url);
+            if (checkAliPayInstalled(WyWebPayActivity.this)) {
+                if (!isIntercepted) {
+                    Map<String, String> extraHeaders = new HashMap<String, String>();
+                    extraHeaders.put("Referer", referer);
+                    view.loadUrl(url, extraHeaders);
+                }
+            } else {
+                Map<String, String> extraHeaders = new HashMap<String, String>();
+                extraHeaders.put("Referer", referer);
+                view.loadUrl(url, extraHeaders);
             }
             return true;
-        }
 
+        }
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
