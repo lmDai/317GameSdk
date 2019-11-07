@@ -1,5 +1,4 @@
 package com.jiaohe.wygamsdk.config;
-
 /**
  * @package: com.jiaohe.wygamsdk.config
  * @user:xhkj
