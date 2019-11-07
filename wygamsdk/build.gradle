@@ -5,8 +5,8 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 6
+        versionName "6.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -36,7 +36,7 @@ dependencies {
 }
 def SDK_BASENAME = "317sdk"
 def SDK_PRPO_BASENAME = "wysdk"
-def SDK_VERSION = "_v5.0"
+def SDK_VERSION = "_v6.1"
 def sdkDestinationPath = "build/outputs/jar/"
 def zipFile = file('build/intermediates/intermediate-jars/release/classes.jar')
 

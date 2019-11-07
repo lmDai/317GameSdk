@@ -21,6 +21,7 @@ import com.jiaohe.wygamsdk.mvp.register.PhoneRegView;
 import com.jiaohe.wygamsdk.tools.EncodeUtils;
 import com.jiaohe.wygamsdk.tools.UserManage;
 import com.jiaohe.wygamsdk.ui.auth.UserAgreementActivity;
+import com.jiaohe.wygamsdk.ui.trumpet.WyTrumpetActivity;
 import com.jiaohe.wygamsdk.widget.ResourceUtil;
 
 /**
@@ -145,12 +146,15 @@ public class WyPhoneRegisterActivity extends SdkBaseActivity implements PhoneReg
         showToast(msg);
         if (code == BaseResponse.SUCCESS) {
             ConfigInfo.userID = userBean.player_id;//设置玩家ID常量
-            Delegate.listener.callback(SDKStatusCode.SUCCESS, userBean.player_id);
             UserManage.getInstance().saveUserInfo(this, editRegName.getText().toString(), editRegPwd.getText().toString());
             UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                     userBean.username, userBean.phone,
                     userBean.nickname, userBean.headimgurl,
                     userBean.is_validate,userBean.token);
+            Intent intent = new Intent();
+            intent.putExtra("player_id", userBean.player_id);
+            intent.setClass(this, WyTrumpetActivity.class);
+            startActivity(intent);
             this.finish();
         } else {
             Delegate.listener.callback(SDKStatusCode.FAILURE, "");
