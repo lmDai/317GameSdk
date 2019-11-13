@@ -143,7 +143,7 @@ public class MultipleStatusView extends RelativeLayout {
         changeViewStatus(STATUS_EMPTY);
         if (null == mEmptyView) {
             mEmptyView = view;
-            View emptyRetryView = mEmptyView.findViewById(R.id.empty_retry_view);
+            View emptyRetryView = mEmptyView.findViewById(ResourceUtil.getViewIdByName(getContext(),"empty_retry_view"));
             if (null != mOnRetryClickListener && null != emptyRetryView) {
                 emptyRetryView.setOnClickListener(mOnRetryClickListener);
             }
@@ -182,7 +182,7 @@ public class MultipleStatusView extends RelativeLayout {
         changeViewStatus(STATUS_ERROR);
         if (null == mErrorView) {
             mErrorView = view;
-            View errorRetryView = mErrorView.findViewById(R.id.error_retry_view);
+            View errorRetryView = mErrorView.findViewById(ResourceUtil.getViewIdByName(getContext(),"error_retry_view"));
             if (null != mOnRetryClickListener && null != errorRetryView) {
                 errorRetryView.setOnClickListener(mOnRetryClickListener);
             }
@@ -256,7 +256,7 @@ public class MultipleStatusView extends RelativeLayout {
         changeViewStatus(STATUS_NO_NETWORK);
         if (null == mNoNetworkView) {
             mNoNetworkView = view;
-            View noNetworkRetryView = mNoNetworkView.findViewById(R.id.no_network_retry_view);
+            View noNetworkRetryView = mNoNetworkView.findViewById(ResourceUtil.getViewIdByName(getContext(),"no_network_retry_view"));
             if (null != mOnRetryClickListener && null != noNetworkRetryView) {
                 noNetworkRetryView.setOnClickListener(mOnRetryClickListener);
             }

@@ -120,8 +120,14 @@ public class WyWebPayActivity extends SdkBaseActivity {
 
                     @Override
                     public void onSuccess(Response<BaseResponse<OrderBean>> response) {
-                        WyWebPayActivity.this.orderId = response.body().data.id;
-                        wyWebView.loadUrl(Urls.URL_PAY_GAME + "?orderId=" + orderId);
+                        if (response!=null){
+                            if (response.body()!=null){
+                                WyWebPayActivity.this.orderId = response.body().data.id;
+                                wyWebView.loadUrl(Urls.URL_PAY_GAME + "?orderId=" + orderId);
+                            }
+                        }else {
+                            multipleStatusView.showError();
+                        }
                     }
 
                     @Override

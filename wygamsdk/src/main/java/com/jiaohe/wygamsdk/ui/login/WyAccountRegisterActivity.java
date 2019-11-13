@@ -9,6 +9,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.jiaohe.wygamsdk.base.SdkBaseActivity;
+import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.mvp.login.UserBean;
 import com.jiaohe.wygamsdk.mvp.register.AccountRegPresenterImp;
 import com.jiaohe.wygamsdk.mvp.register.AccountRegView;
@@ -101,6 +102,7 @@ public class WyAccountRegisterActivity extends SdkBaseActivity implements Accoun
 
     @Override
     public void regSuccess(int code, String msg, UserBean userBean) {
+        ConfigInfo.userID = userBean.player_id;//设置玩家ID常量
         UserManage.getInstance().saveUserInfo(this, editRegName.getText().toString(), editRegPwd.getText().toString());
         UserManage.getInstance().saveUserInfo(this, userBean.player_id,
                 userBean.username, userBean.phone,
