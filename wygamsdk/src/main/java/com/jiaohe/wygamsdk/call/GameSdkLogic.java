@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 
 import com.jiaohe.wygamsdk.callback.DialogCallback;
+import com.jiaohe.wygamsdk.callback.JsonCallback;
 import com.jiaohe.wygamsdk.config.ConfigInfo;
 import com.jiaohe.wygamsdk.config.ConstData;
 import com.jiaohe.wygamsdk.config.SDKStatusCode;
@@ -265,7 +266,7 @@ public class GameSdkLogic implements IWYGameSdk {
                 .params("userId", ConfigInfo.userID)
                 .params("children_id", UserManage.getInstance().getChildrenId(mContext))
                 .isMultipart(true)         //强制使用 multipart/form-data 表单上传（只是演示，不需要的话不要设置。默认就是false）
-                .execute(new DialogCallback<BaseResponse>(mContext, "加载中...") {
+                .execute(new JsonCallback<BaseResponse>() {
                     @Override
                     public void onSuccess(Response<BaseResponse> response) {
                         if (response.body().errorCode == BaseResponse.SUCCESS) {
